@@ -134,6 +134,9 @@
     select,
     textarea,
     * {
-        @apply font-sans tracking-[0];
+        @apply font-sans tracking-normal;
+    }
+    body {
+        @apply max-w-full;
     }
 }

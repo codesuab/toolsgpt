@@ -5,9 +5,9 @@
     </div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 lg:pt-20 relative z-10">
-        <div class="grid grid-cols-2 md:grid-cols-5 gap-8 lg:gap-12">
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-8 lg:gap-12">
             <!-- Branding and Description (Column 1) -->
-            <div class="col-span-2 md:col-span-1 space-y-4">
+            <div class="col-span-1 md:col-span-1 space-y-4">
                 <a href="/" class="flex items-center gap-2.5 group">
                     <span class="font-bold text-lg text-white font-space">
                         ToolsGPT.
@@ -127,7 +127,7 @@
 
         <!-- Additional Links Row -->
         <div
-            class="border-t border-brand-footer-border mt-12 pt-8 flex flex-wrap gap-x-6 gap-y-2 text-xs text-brand-footer-text/75 font-space">
+            class="border-t border-brand-footer-border mt-12 pt-8 flex justify-center md:justify-start flex-wrap gap-x-6 gap-y-2 text-xs text-brand-footer-text/75 font-space">
             <a href="{{ route('home') }}" class="hover:text-white transition-colors">Home</a>
             <a href="{{ route('all.tool') }}" class="hover:text-white transition-colors">All Tools</a>
             <a href="{{ route('blog.index') }}" class="hover:text-white transition-colors">Blog</a>
@@ -138,7 +138,8 @@
         </div>
 
         <!-- Bottom Copyright Bar -->
-        <div class="py-8 flex items-center justify-between text-xs text-brand-footer-muted font-medium font-space">
+        <div
+            class="py-8 flex flex-col md:flex-row items-center justify-between text-xs text-brand-footer-muted font-medium font-space space-y-2">
             <div>
                 &copy; 2026-{{ now()->year }} {{ request()->getHost() }} Free forever.
             </div>

@@ -62,10 +62,10 @@
 
     <!-- Background decorative blur elements -->
     <div
-        class="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-indigo-200/20 blur-[120px] pointer-events-none z-0">
+        class="absolute top-[-10%] left-[-10%] hidden md:block w-[50vw] h-[50vw] rounded-full bg-indigo-200/20 blur-[120px] pointer-events-none z-0">
     </div>
     <div
-        class="absolute top-[40%] right-[-10%] w-[40vw] h-[40vw] rounded-full bg-purple-200/15 blur-[120px] pointer-events-none z-0">
+        class="absolute top-[40%] right-[-10%] hidden md:block w-[40vw] h-[40vw] rounded-full bg-purple-200/15 blur-[120px] pointer-events-none z-0">
     </div>
 
     <!-- Top Announcement/Ad Banner -->

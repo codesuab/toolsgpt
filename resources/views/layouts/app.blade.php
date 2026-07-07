@@ -5,6 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    {{-- favicon --}}
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('media/favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('media/favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('media/favicon/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ asset('media/favicon/site.webmanifest') }}">
+
     <!-- Dynamic SEO Meta Tags -->
     <title>{{ config('app.name') }} - @yield('title', '100% Free Online Browser-Based Image Utilities')</title>
     <meta name="description"
@@ -20,7 +26,7 @@
         content="{{ config('app.name') }} - @yield('title', '100% Free Online Browser-Based Image Utilities')">
     <meta property="og:description"
         content="@yield('meta_description', '100% free and secure browser-based tools for image compression, conversion, resizing, cropping, and more.')">
-    <meta property="og:image" content="@yield('og_image', asset('images/og-default.jpg'))">
+    <meta property="og:image" content="@yield('og_image', asset('media/og/og.webp'))">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
@@ -29,7 +35,7 @@
         content="{{ config('app.name') }} - @yield('title', '100% Free Online Browser-Based Image Utilities')">
     <meta property="twitter:description"
         content="@yield('meta_description', '100% free and secure browser-based tools for image compression, conversion, resizing, cropping, and more.')">
-    <meta property="twitter:image" content="@yield('og_image', asset('images/og-default.jpg'))">
+    <meta property="twitter:image" content="@yield('og_image', asset('media/og/og_t.webp'))">
 
     <!-- Preconnect to Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

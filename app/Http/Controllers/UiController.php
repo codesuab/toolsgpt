@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\About;
 use App\Models\Blog;
+use App\Models\Category;
 use App\Models\Contact;
 use App\Models\Policy;
+use App\Models\Tool;
 use App\Models\Trams;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,13 +17,48 @@ class UiController extends Controller
     // home
     public function home()
     {
-        return view('home');
+        $tools = Tool::orderByDesc('usages')
+            ->with('category')
+            ->take(22)
+            ->get();
+
+        $category = Category::latest()->get();
+
+        return view('home', [
+            'tools' => $tools,
+            'category' => $category
+        ]);
     }
 
     // all tools 
     public function allTool()
     {
-        return view('all-tools');
+        $tools = Tool::orderByDesc('usages')
+            ->with('category')
+            ->paginate(36);
+
+        $category = Category::latest()->get();
+
+        return view('all-tools', [
+            'tools' => $tools,
+            'category' => $category
+        ]);
+    }
+    public function toolView($slug)
+    {
+        $data = Tool::where('slug', $slug)
+            ->with('category')
+            ->first();
+        if (!$data) {
+            return back();
+        }
+
+        $include = 'tools.' . str_replace('.blade', '', $data->view);
+
+        return view('tool-detail', [
+            'data' => $data,
+            'include' => $include
+        ]);
     }
 
     // about

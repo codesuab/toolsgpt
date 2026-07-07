@@ -14,8 +14,8 @@
                     </span>
                 </a>
                 <p class="text-brand-footer-text text-xs leading-relaxed text-left">
-                    Free image tools that run in your browser. No uploads. No accounts. No limits. Your files stay
-                    on your device, always.
+                    ToolsGPT is your all-in-one collection of free online tools. Compress images, convert files,
+                    generate content, calculate values, and simplify daily tasks with fast, secure browser-based tools.
                 </p>
 
                 <!-- GDPR Safe Box -->

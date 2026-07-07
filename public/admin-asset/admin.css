@@ -258,7 +258,7 @@ h4,
 h5,
 h6 {
     margin-top: 0;
-    margin-bottom: var(--tblr-spacer);
+    margin-bottom: 0;
     font-weight: var(--tblr-font-weight-bold);
     line-height: 1.2;
     color: var(--tblr-heading-color);

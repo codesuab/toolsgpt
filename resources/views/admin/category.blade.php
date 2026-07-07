@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', 'Inbox')
+@section('title', 'Category')
 @section('admin')
     <div class="card">
         @include('partials.admin-alert')
@@ -7,8 +7,8 @@
             <div class="card-header">
                 <div class="row w-full">
                     <div class="col">
-                        <h3 class="card-title mb-0">Inbox</h3>
-                        <p class="text-secondary m-0">Manage user request.</p>
+                        <h3 class="card-title mb-0">Category</h3>
+                        <p class="text-secondary m-0">Manage category list.</p>
                     </div>
                     <div class="col-md-auto col-sm-12">
                         <div class="ms-auto d-flex flex-wrap btn-list">
@@ -18,6 +18,9 @@
                                 </span>
                                 <input id="advanced-table-search" type="text" class="form-control" autocomplete="off">
                             </div>
+                            <button data-bs-toggle="modal" id="newButton" data-bs-target="#exampleModal"
+                                class="btn btn-primary">Add
+                                new</button>
                         </div>
                     </div>
                 </div>
@@ -33,15 +36,7 @@
                                 </th>
                                 <th>
                                     <button class="table-sort d-flex justify-content-between"
-                                        data-sort="sort-email">Email</button>
-                                </th>
-                                <th>
-                                    <button class="table-sort d-flex justify-content-between"
-                                        data-sort="sort-subject">Subject</button>
-                                </th>
-                                <th>
-                                    <button class="table-sort d-flex justify-content-between"
-                                        data-sort="sort-message">Message</button>
+                                        data-sort="sort-slug">Slug</button>
                                 </th>
                                 <th>
                                     <button class="table-sort d-flex justify-content-between"
@@ -55,18 +50,20 @@
                         <tbody class="table-tbody">
                             @foreach ($data as $b)
                                 <tr>
-                                    <td class="sort-title">
+                                    <td class="sort-name">
                                         {{ $b->name }}
                                     </td>
-                                    <td class="sort-email">
-                                        {{ $b->email }}
+                                    <td class="sort-slug">
+                                        {{ $b->slug }}
                                     </td>
-                                    <td class="sort-subject">{{ $b->subject }}</td>
-                                    <td class="sort-message">{{ $b->message }}</td>
                                     <td class="sort-date">{{ $b->created_at->format('M d, Y') }}</td>
                                     <td>
                                         <div class="btn-actions justify-content-end">
-                                            <a href="{{ route('ux.inbox.del', ['id' => $b->id]) }}" class="btn btn-action"
+                                            <a href="javascript:void(0);" onclick="openEdit({{ $b }})" class="btn btn-action"
+                                                aria-label="Edit">
+                                                <i class="ti ti-edit" style="font-size: 20px;"></i>
+                                            </a>
+                                            <a href="{{ route('ux.category.del', ['id' => $b->id]) }}" class="btn btn-action"
                                                 aria-label="Edit">
                                                 <i class="ti ti-trash" style="font-size: 20px;"></i>
                                             </a>
@@ -107,6 +104,41 @@
             </div>
         </div>
     </div>
+
+    <div class="modal" id="exampleModal" tabindex="-1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Category</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="{{ route('ux.category.post') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="id">
+                        <div class="mb-3">
+                            <label class="form-label required">Name</label>
+                            <input type="text" name="name" value="{{old('name') }}" class="form-control"
+                                autocomplete="off" />
+                            @error('name')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label required">Slug</label>
+                            <input type="text" name="slug" value="{{old('slug') }}" class="form-control"
+                                autocomplete="off" />
+                            @error('slug')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Save now</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
 @endsection
 @section('scripts')
     <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script>
@@ -117,16 +149,8 @@
                 name: "Name"
             },
             {
-                "data-sort": "sort-email",
-                name: "Email"
-            },
-            {
-                "data-sort": "sort-subject",
-                name: "Subject"
-            },
-            {
-                "data-sort": "sort-message",
-                name: "Message"
+                "data-sort": "sort-slug",
+                name: "Slug"
             },
             {
                 "data-sort": "sort-date",
@@ -163,5 +187,19 @@
                 });
             }
         });
+    </script>
+
+    <script>
+        function openEdit(data) {
+            const idInput = document.querySelector('[name="id"]');
+            const nameInput = document.querySelector('[name="name"]');
+            const slugInput = document.querySelector('[name="slug"]');
+
+            idInput.value = data.id;
+            nameInput.value = data.name;
+            slugInput.value = data.slug;
+
+            document.getElementById('newButton').click();
+        }
     </script>
 @endsection

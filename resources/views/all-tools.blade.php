@@ -1,9 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'All Tools - Secure Online Document & Image Utilities')
-@section('meta_description',
-    'Search and filter all of our client-side tools. Convert, compress, crop, and edit
-    documents and images locally and securely.')
+@section('meta_description', 'Search and filter all of our client-side tools. Convert, compress, crop, and edit documents and images locally and securely.')
 
 @section('content')
     <!-- All Tools Header -->
@@ -49,8 +47,7 @@
                     <div
                         class="relative flex items-center bg-brand-card border border-brand-border rounded-brand-btn px-4 py-3 focus-within:border-brand-primary focus-within:ring-1 focus-within:ring-brand-primary/25 transition-colors">
                         <div class="text-slate-400 mr-3 shrink-0">
-                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                                stroke-width="2.5">
+                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                             </svg>
@@ -68,28 +65,36 @@
                             class="tab-btn pb-3 text-xs font-semibold border-b-2 border-brand-primary text-brand-primary transition-all focus:outline-none cursor-pointer">
                             All Tools
                         </button>
-                        <button onclick="filterTools('compress', this)"
-                            class="tab-btn pb-3 text-xs font-medium border-b-2 border-transparent text-brand-muted hover:text-brand-text hover:border-slate-300 transition-all focus:outline-none cursor-pointer">
-                            Compress
-                        </button>
-                        <button onclick="filterTools('convert', this)"
-                            class="tab-btn pb-3 text-xs font-medium border-b-2 border-transparent text-brand-muted hover:text-brand-text hover:border-slate-300 transition-all focus:outline-none cursor-pointer">
-                            Convert
-                        </button>
-                        <button onclick="filterTools('edit', this)"
-                            class="tab-btn pb-3 text-xs font-medium border-b-2 border-transparent text-brand-muted hover:text-brand-text hover:border-slate-300 transition-all focus:outline-none cursor-pointer">
-                            Edit
-                        </button>
-                        <button onclick="filterTools('optimize', this)"
-                            class="tab-btn pb-3 text-xs font-medium border-b-2 border-transparent text-brand-muted hover:text-brand-text hover:border-slate-300 transition-all focus:outline-none cursor-pointer">
-                            Optimize
-                        </button>
+                        @foreach ($category as $cat)
+                            <button onclick="filterTools('{{ $cat->slug }}', this)"
+                                class="tab-btn pb-3 text-xs font-medium border-b-2 border-transparent text-brand-muted hover:text-brand-text hover:border-slate-300 transition-all focus:outline-none cursor-pointer">
+                                {{ $cat->name }}
+                            </button>
+                        @endforeach
                     </div>
                 </div>
             </div>
 
-            <!-- Include Reusable Tools Grid -->
-            @include('partials.tools-grid')
+            <!-- Tools Grid - Reusable Partial -->
+            <div id="tools-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+                @foreach ($tools as $t)
+                    <x-tool-card :tool="$t" />
+                @endforeach
+            </div>
+            <!-- Search Empty State -->
+            <div id="search-empty-state" class="hidden text-center py-12">
+                <svg class="mx-auto h-12 w-12 text-slate-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                    stroke-width="1.5">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <h3 class="text-lg font-semibold text-brand-text mb-1 font-space">No tools matched your search</h3>
+                <p class="text-slate-500 text-sm">Try typing alternative keywords like 'PDF', 'Compress' or 'Image'.</p>
+            </div>
+
+            <div class="mt-4">
+                {{ $tools->links() }}
+            </div>
         </div>
     </section>
 @endsection

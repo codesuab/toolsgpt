@@ -9,10 +9,10 @@
         ],
         [
             'label' => 'Category',
-            'link' => 'ux.inbox',
+            'link' => 'ux.category',
             'icon' => 'ti-category',
             'submenu' => [],
-            'active' => ['ux.inbox'],
+            'active' => ['ux.category'],
         ],
         [
             'label' => 'Inbox',
@@ -20,6 +20,22 @@
             'icon' => 'ti-inbox',
             'submenu' => [],
             'active' => ['ux.inbox'],
+        ],
+        [
+            'label' => 'Tools',
+            'link' => '',
+            'icon' => 'ti-topology-star-3',
+            'active' => ['ux.tools.list', 'ux.tools.add'],
+            'submenu' => [
+                [
+                    'label' => 'Tools list',
+                    'link' => 'ux.tools.list',
+                ],
+                [
+                    'label' => 'New Tools',
+                    'link' => 'ux.tools.add',
+                ],
+            ],
         ],
         [
             'label' => 'Blog',

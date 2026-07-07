@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\InboxController;
 use App\Http\Controllers\Admin\PagesController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\ToolsController;
 use App\Http\Controllers\UiController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,11 +26,10 @@ Route::controller(UiController::class)->group(function () {
 
     Route::get('/blog', 'blog')->name('blog.index');
     Route::get('/blog/{slug}', 'blogView')->name('blog.show');
+
+    Route::get('/tool/{slug}', 'toolView')->name('tool.details');
 });
 
-Route::get('/tool/compress-image', function () {
-    return view('tool-detail');
-});
 
 
 // ─── Admin Panel Routes ─────────────────────────────────────────────
@@ -72,6 +73,21 @@ Route::prefix('admin')->group(function () {
         Route::controller(InboxController::class)->group(function () {
             Route::get('/inbox', 'index')->name('ux.inbox');
             Route::get('/inbox-del/{id}', 'destroy')->name('ux.inbox.del');
+        });
+
+        // Category
+        Route::controller(CategoryController::class)->group(function () {
+            Route::get('/category', 'index')->name('ux.category');
+            Route::post('/category', 'store')->name('ux.category.post');
+            Route::get('/category-del/{id}', 'destroy')->name('ux.category.del');
+        });
+
+        // Tools
+        Route::controller(ToolsController::class)->group(function () {
+            Route::get('/tools-list', 'index')->name('ux.tools.list');
+            Route::get('/tools-add', 'add')->name('ux.tools.add');
+            Route::post('/tools-add-post', 'store')->name('ux.tools.add.post');
+            Route::get('/tools-add-del/{id}', 'destroy')->name('ux.tools.del');
         });
     });
 });

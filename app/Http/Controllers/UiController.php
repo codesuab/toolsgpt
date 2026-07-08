@@ -19,6 +19,7 @@ class UiController extends Controller
     {
         $tools = Tool::orderByDesc('usages')
             ->with('category')
+            ->where('status', 'active')
             ->take(22)
             ->get();
 
@@ -35,6 +36,7 @@ class UiController extends Controller
     {
         $tools = Tool::orderByDesc('usages')
             ->with('category')
+            ->where('status', 'active')
             ->paginate(36);
 
         $category = Category::latest()->get();
@@ -48,6 +50,7 @@ class UiController extends Controller
     {
         $data = Tool::where('slug', $slug)
             ->with('category')
+            ->where('status', 'active')
             ->first();
         if (!$data) {
             return back();

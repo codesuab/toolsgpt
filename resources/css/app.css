@@ -140,3 +140,12 @@
         @apply max-w-full;
     }
 }
+
+/* markdown */
+#markdown ul {
+    @apply pl-10 space-y-1;
+}
+
+#markdown ol {
+    @apply list-decimal pl-10 space-y-1;
+}

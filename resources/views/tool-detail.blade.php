@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('data-page'){{ $data->slug }}@endsection
+
 @section('title')
     {{ $data?->meta_title ? $data?->meta_title : 'Free Online Image Compressor - Reduce JPG, PNG & WebP' }}
 @endsection
@@ -12,7 +14,7 @@
 
 @section('schema_markup')
     <script type="application/ld+json">
-                                {!! json_encode([
+                                                                                                                                                                                                                                                                                    {!! json_encode([
         '@context' => 'https://schema.org',
         '@type' => 'SoftwareApplication',
         'name' => config('app.name') . ' ' . $data->name,
@@ -26,11 +28,11 @@
         ],
         'description' => $data->meta_description ?? $data->taq_line,
     ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
-                                </script>
+                                                                                                                                                                                                                                                                                    </script>
 
     @if($data->faq)
         <script type="application/ld+json">
-                                                                {!! json_encode([
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        {!! json_encode([
                 '@context' => 'https://schema.org',
                 '@type' => 'FAQPage',
                 'mainEntity' => collect($data->faq)->map(function ($faq) {
@@ -44,7 +46,7 @@
                     ];
                 })->values(),
             ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
-                                                                </script>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </script>
     @endif
 @endsection
 
@@ -94,13 +96,13 @@
 
     <!-- Compression Workspace Section -->
     <section class="pb-16 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             @include($include)
         </div>
     </section>
 
     <!-- SEO Content Guide Section -->
-    <section class="py-16 md:py-24 border-t border-brand-border bg-slate-50/50">
+    <section class="pt-16 border-t border-brand-border bg-slate-50/50">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="prose max-w-none space-y-12">
                 <!-- Main Content Guide -->
@@ -131,12 +133,12 @@
                 </div>
 
                 <!-- Detailed Features Article -->
-                <div class="space-y-6 pt-8 border-t border-brand-border">
+                <div class="space-y-3 pt-8 border-t border-brand-border" id="markdown">
                     {!! $data->content !!}
                 </div>
 
                 <!-- FAQs Block -->
-                <div class="space-y-6 pt-10 border-t border-brand-border">
+                <div class="space-y-6 pt-8 border-t border-brand-border">
                     <div class="mb-4">
                         <h2 class="text-2xl font-space font-bold text-brand-text text-gradient-premium">
                             Frequently Asked Questions</h2>
@@ -177,6 +179,26 @@
                     </div>
                 </div>
             </div>
+    </section>
+
+    <section class="py-10">
+        <div class="mx-auto max-w-3xl px-4 text-center">
+            <div class="inline-flex items-center gap-3 rounded-brand-card border border-gray-200 bg-white px-5 py-2">
+                <p class="text-sm text-gray-600">
+                    Trusted since <span class="font-semibold text-brand-text pl-1">2026</span>
+                </p>
+            </div>
+
+            <h3 class="mt-3 text-3xl font-bold tracking-tight text-gray-900">
+                <span id="toolUsagesCountView">{{ number_format($data->usages) }}</span>+ Files Converted
+                <span class="text-gray-400">—</span>
+                <span class="text-gray-500">and counting</span>
+            </h3>
+
+            <p class="mt-3 text-sm text-gray-500">
+                Fast, secure, and private tools trusted by users worldwide.
+            </p>
+        </div>
     </section>
 @endsection
 

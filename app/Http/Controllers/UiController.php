@@ -122,4 +122,24 @@ class UiController extends Controller
 
         return view('blog.show', ['data' => $data]);
     }
+
+    // update usages
+    public function updateUsages(Request $request)
+    {
+        $data = Tool::where('slug', $request->input('slug'))->first();
+
+        if (!$data) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Tool not found'
+            ], 404);
+        }
+
+        $data->increment('usages');
+
+        return response()->json([
+            'success' => true,
+            'usages' => $data->usages
+        ]);
+    }
 }

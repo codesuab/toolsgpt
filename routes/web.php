@@ -26,8 +26,10 @@ Route::controller(UiController::class)->group(function () {
 
     Route::get('/blog', 'blog')->name('blog.index');
     Route::get('/blog/{slug}', 'blogView')->name('blog.show');
-
     Route::get('/tool/{slug}', 'toolView')->name('tool.details');
+
+    // update tools usages
+    Route::post('/update-tool-usages', 'updateUsages');
 });
 
 

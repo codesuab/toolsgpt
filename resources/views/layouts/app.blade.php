@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     {{-- favicon --}}
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('media/favicon/apple-touch-icon.png') }}">
@@ -57,7 +58,7 @@
     @yield('schema_markup')
 </head>
 
-<body
+<body data-page="@yield('data-page')"
     class="bg-brand-bg text-brand-text font-sans antialiased min-h-screen flex flex-col selection:bg-brand-primary selection:text-white relative overflow-x-hidden bg-dot-grid">
 
     <!-- Background decorative blur elements -->

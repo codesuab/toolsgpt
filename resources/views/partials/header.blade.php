@@ -751,6 +751,7 @@
 </header>
 
 <!-- Interactive script to handle dropdown toggle and mobile menu -->
+@push('scripts')
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         // Mobile menu toggle
@@ -836,3 +837,4 @@
 
     });
 </script>
+@endpush

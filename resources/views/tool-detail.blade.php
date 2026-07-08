@@ -14,7 +14,7 @@
 
 @section('schema_markup')
     <script type="application/ld+json">
-                                                                                                                                                                                                                                                                                    {!! json_encode([
+                                                                                                                                                                                                                                                                                            {!! json_encode([
         '@context' => 'https://schema.org',
         '@type' => 'SoftwareApplication',
         'name' => config('app.name') . ' ' . $data->name,
@@ -28,11 +28,11 @@
         ],
         'description' => $data->meta_description ?? $data->taq_line,
     ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
-                                                                                                                                                                                                                                                                                    </script>
+                                                                                                                                                                                                                                                                                            </script>
 
     @if($data->faq)
         <script type="application/ld+json">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        {!! json_encode([
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        {!! json_encode([
                 '@context' => 'https://schema.org',
                 '@type' => 'FAQPage',
                 'mainEntity' => collect($data->faq)->map(function ($faq) {
@@ -46,7 +46,7 @@
                     ];
                 })->values(),
             ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </script>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </script>
     @endif
 @endsection
 
@@ -96,7 +96,7 @@
 
     <!-- Compression Workspace Section -->
     <section class="pb-16 relative">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             @include($include)
         </div>
     </section>
@@ -185,7 +185,7 @@
         <div class="mx-auto max-w-3xl px-4 text-center">
             <div class="inline-flex items-center gap-3 rounded-brand-card border border-gray-200 bg-white px-5 py-2">
                 <p class="text-sm text-gray-600">
-                    Trusted since <span class="font-semibold text-brand-text pl-1">2026</span>
+                    Trusted since <span class="font-semibold text-brand-text pl-1">2026 - {{ now()->year }}</span>
                 </p>
             </div>
 

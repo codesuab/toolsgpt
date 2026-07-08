@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\InboxController;
 use App\Http\Controllers\Admin\PagesController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\ToolsController;
+use App\Http\Controllers\Admin\TopAdController;
 use App\Http\Controllers\UiController;
 use Illuminate\Support\Facades\Route;
 
@@ -90,6 +91,12 @@ Route::prefix('admin')->group(function () {
             Route::get('/tools-add', 'add')->name('ux.tools.add');
             Route::post('/tools-add-post', 'store')->name('ux.tools.add.post');
             Route::get('/tools-add-del/{id}', 'destroy')->name('ux.tools.del');
+        });
+
+        // top ad
+        Route::controller(TopAdController::class)->group(function () {
+            Route::get('/top-ad', 'index')->name('ux.top.add');
+            Route::post('/top-ad', 'store')->name('ux.top.post');
         });
     });
 });

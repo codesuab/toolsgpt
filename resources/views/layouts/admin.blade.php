@@ -22,6 +22,13 @@
             'active' => ['ux.inbox'],
         ],
         [
+            'label' => 'Top ad',
+            'link' => 'ux.top.add',
+            'icon' => 'ti-ad',
+            'submenu' => [],
+            'active' => ['ux.top.add'],
+        ],
+        [
             'label' => 'Tools',
             'link' => '',
             'icon' => 'ti-topology-star-3',

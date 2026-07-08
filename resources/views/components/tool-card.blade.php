@@ -27,47 +27,48 @@
         {
             return match (true) {
                 $usages >= 1000000 => '
-                                    <span class="inline-flex items-center gap-0.5 rounded bg-red-50 border border-red-100 px-2 py-0.5 text-[9px] font-bold text-red-600 uppercase select-none">
-                                        🔥 Hot
-                                    </span>
-                                ',
+                                                                                                        <span class="inline-flex items-center gap-0.5 rounded bg-red-50 border border-red-100 px-2 py-0.5 text-[9px] font-bold text-red-600 uppercase select-none">
+                                                                                                            🔥 Hot
+                                                                                                        </span>
+                                                                                                    ',
 
                 $usages >= 100000 => '
-                                    <span class="inline-flex items-center rounded bg-blue-50 border border-blue-100 px-2 py-0.5 text-[9px] font-bold text-blue-600 uppercase select-none">
-                                        Popular
-                                    </span>
-                                ',
+                                                                                                        <span class="inline-flex items-center rounded bg-blue-50 border border-blue-100 px-2 py-0.5 text-[9px] font-bold text-blue-600 uppercase select-none">
+                                                                                                            Popular
+                                                                                                        </span>
+                                                                                                    ',
 
                 $usages >= 10000 => '
-                                    <span class="inline-flex items-center rounded bg-emerald-50 border border-emerald-100 px-2 py-0.5 text-[9px] font-bold text-emerald-600 uppercase select-none">
-                                        New
-                                    </span>
-                                ',
+                                                                                                        <span class="inline-flex items-center rounded bg-emerald-50 border border-emerald-100 px-2 py-0.5 text-[9px] font-bold text-emerald-600 uppercase select-none">
+                                                                                                            New
+                                                                                                        </span>
+                                                                                                    ',
 
                 default => '
-                                    <span class="inline-flex items-center rounded bg-purple-50 border border-purple-100 px-2 py-0.5 text-[9px] font-bold text-purple-600 uppercase select-none">
-                                        Beta
-                                    </span>
-                                ',
+                                                                                                        <span class="inline-flex items-center rounded bg-purple-50 border border-purple-100 px-2 py-0.5 text-[9px] font-bold text-purple-600 uppercase select-none">
+                                                                                                            Beta
+                                                                                                        </span>
+                                                                                                    ',
             };
         }
     }
 @endphp
 
-<div class="tool-card group relative rounded-brand-card border border-slate-200/60 bg-brand-card p-6 transition-all duration-305  hover:border-brand-primary/20 hover:shadow-[0_20px_40px_rgba(37,99,235,0.04)] hover:glow-indigo"
-    data-categories="{{ $tool?->category?->slug }}">
+<div class="tool-card relative rounded-brand-card border border-slate-200/60 bg-brand-card p-6 transition-all duration-305"
+    data-categories="{{ $tool?->category?->slug }}" style="
+        --tool-color: {{ $tool->color }};
+        --tool-bg: {{ hexToRgb($tool->color, 0.06) }};
+        --tool-border: {{ hexToRgb($tool->color, 0.2) }};
+        --tool-glow: {{ hexToRgb($tool->color, 0.18) }};
+    ">
     <div class="flex items-start justify-between gap-4 mb-4">
-        <div class="h-10 w-10 rounded-brand-btn flex items-center justify-center group-hover:text-white group-hover:shadow-[0_0_12px_rgba(249,115,22,0.3)] transition-all duration-300"
-            style="
-                    background: {{ hexToRgb($tool->color, 0.06) }};
-                    border: 1px solid {{ hexToRgb($tool->color, 0.2) }};
-                    color: {{ hexToRgb($tool->color) }};
-                ">
+        <div
+            class="h-10 w-10 rounded-brand-btn flex items-center justify-center group-hover:text-white transition-all duration-305 tool-icon">
             {!! $tool->icon !!}
         </div>
         {!! toolBadge($tool->usages) !!}
     </div>
-    <h3 class="text-base font-bold text-slate-800 mb-1.5 group-hover:text-brand-primary transition-colors font-space">
+    <h3 class="text-base font-bold text-slate-800 mb-1.5 transition-colors font-space tool-title">
         <a href="{{ route('tool.details', ['slug' => $tool->slug]) }}" class="focus:outline-none">
             <span class="absolute inset-0" aria-hidden="true"></span>
             {{ $tool->name }}

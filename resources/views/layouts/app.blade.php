@@ -84,6 +84,7 @@
     @include('partials.footer')
     <script src="https://cdn.jsdelivr.net/npm/@tabler/icons@1.74.0/icons-react/dist/index.umd.min.js"></script>
     @yield('scripts')
+    @stack('scripts')
 </body>
 
 </html>

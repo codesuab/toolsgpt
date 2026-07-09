@@ -28,5 +28,8 @@ const page = document.body.dataset.page;
             await import("./tools/mbi-calculator/mbi-calculator.js");
             await import("./tools/mbi-calculator/bmi-calculator.css");
             break;
+        case "password-generator":
+            await import("./tools/password-generator.js");
+            break;
     }
 })();

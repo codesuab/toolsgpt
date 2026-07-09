@@ -56,6 +56,16 @@
 
     <!-- JSON-LD Schema Markup -->
     @yield('schema_markup')
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0D5DFBQW9X"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-0D5DFBQW9X');
+    </script>
 </head>
 
 <body data-page="@yield('data-page')"

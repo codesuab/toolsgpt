@@ -31,5 +31,8 @@ const page = document.body.dataset.page;
         case "password-generator":
             await import("./tools/password-generator.js");
             break;
+        case "word-counter":
+            await import("./tools/word-counter.js");
+            break;
     }
 })();

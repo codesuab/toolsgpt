@@ -72,7 +72,7 @@
 
                 <!-- Category Tabs Underline Row -->
                 <div class="flex border-b border-slate-200 w-full mb-6">
-                    <div class="flex flex-wrap gap-4 -mb-px">
+                    <div class="flex flex-wrap gap-3 -mb-px">
                         <button onclick="filterTools('all', this)"
                             class="tab-btn pb-3 text-xs font-semibold border-b-2 border-brand-primary text-brand-primary transition-all focus:outline-none cursor-pointer">
                             All Tools

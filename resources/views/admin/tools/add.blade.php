@@ -176,6 +176,28 @@
                             @enderror
                         </div>
                         <div class="col-12">
+                            <label class="form-label">Badge</label>
+                            <select class="form-control" name="badge">
+                                <option value="" selected>--badge--</option>
+                                <option value="new" @if ($data?->badge == 'new') selected @endif>New</option>
+                                <option value="popular" @if ($data?->badge == 'popular') selected @endif>Popular</option>
+                                <option value="most used" @if ($data?->badge == 'most used') selected @endif>Most Used</option>
+                                <option value="trending" @if ($data?->badge == 'trending') selected @endif>Trending</option>
+                                <option value="featured" @if ($data?->badge == 'featured') selected @endif>Featured</option>
+                            </select>
+                            @error('badge')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Cat Slug</label>
+                            <input class="form-control" name="cat_slug"
+                                value="{{ old('cat_slug', $data?->cat_slug) }}" />
+                            @error('cat_slug')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div>
+                        <div class="col-12">
                             <label class="form-label ">Meta Title</label>
                             <input class="form-control" name="meta_title"
                                 value="{{ old('meta_title', $data?->meta_title) }}" />

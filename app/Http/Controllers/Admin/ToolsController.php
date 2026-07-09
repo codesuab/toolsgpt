@@ -66,6 +66,8 @@ class ToolsController extends Controller
             'meta_title' => 'nullable',
             'meta_description' => 'nullable',
             'meta_keyword' => 'nullable',
+            'badge' => 'nullable',
+            'cat_slug' => 'nullable',
         ]);
 
         // step and faq

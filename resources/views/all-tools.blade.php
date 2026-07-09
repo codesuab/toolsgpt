@@ -11,8 +11,20 @@
                 aria-label="Breadcrumb">
                 <ol class="inline-flex items-center space-x-1.5 md:space-x-2">
                     <li class="inline-flex items-center">
-                        <a href="/" class="hover:text-brand-primary transition-colors">Home</a>
+                        <a href="{{ route('home') }}" class="hover:text-brand-primary transition-colors">Home</a>
                     </li>
+                    @if ($filter)
+                        <li>
+                            <div class="flex items-center gap-1.5">
+                                <svg class="h-3 w-3 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                                </svg>
+                                <a href="javascript::void(0);"
+                                    class="hover:text-brand-text transition-colors">{{ $filter?->name }}</a>
+                            </div>
+                        </li>
+                    @endif
                     <li>
                         <div class="flex items-center">
                             <svg class="h-3 w-3 text-slate-350" fill="none" viewBox="0 0 24 24" stroke="currentColor"
@@ -25,7 +37,7 @@
                 </ol>
             </nav>
             <h1 class="text-3xl sm:text-4xl font-space font-extrabold text-slate-900 mb-2">
-                All Online Utilities
+                All @if ($filter) {{ $filter?->name }} @else Online @endif Utilities
             </h1>
             <p class="text-xs sm:text-sm text-slate-550 max-w-2xl">
                 Explore our full suite of fast, serverless tools. None of your data is uploaded; all processing runs locally
@@ -52,7 +64,7 @@
                                     d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                             </svg>
                         </div>
-                        <input type="text" id="tool-search"
+                        <input type="search" id="tool-search"
                             placeholder="Search 30+ free tools (e.g. compress image, SVG to PNG...)"
                             class="w-full bg-transparent border-0 p-0 text-sm text-brand-text placeholder-slate-400 focus:outline-none focus:ring-0">
                     </div>
@@ -65,12 +77,19 @@
                             class="tab-btn pb-3 text-xs font-semibold border-b-2 border-brand-primary text-brand-primary transition-all focus:outline-none cursor-pointer">
                             All Tools
                         </button>
-                        @foreach ($category as $cat)
-                            <button onclick="filterTools('{{ $cat->slug }}', this)"
-                                class="tab-btn pb-3 text-xs font-medium border-b-2 border-transparent text-brand-muted hover:text-brand-text hover:border-slate-300 transition-all focus:outline-none cursor-pointer">
-                                {{ $cat->name }}
-                            </button>
-                        @endforeach
+                        @if ($filter)
+                            <a href="{{ route('all.tool') }}"
+                                class="tab-btn pb-3 text-xs font-medium border-b-2 border-transparent text-red-500 hover:border-slate-300 transition-all focus:outline-none cursor-pointer">
+                                Clear Filter( {{ $filter?->name }} )
+                            </a>
+                        @else
+                            @foreach ($category as $cat)
+                                <button onclick="filterTools('{{ $cat->slug }}', this)"
+                                    class="tab-btn pb-3 text-xs font-medium border-b-2 border-transparent text-brand-muted hover:text-brand-text hover:border-slate-300 transition-all focus:outline-none cursor-pointer">
+                                    {{ $cat->name }}
+                                </button>
+                            @endforeach
+                        @endif
                     </div>
                 </div>
             </div>

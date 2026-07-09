@@ -5,8 +5,10 @@ use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\InboxController;
+use App\Http\Controllers\Admin\MegaMenuController;
 use App\Http\Controllers\Admin\PagesController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\ToolsController;
 use App\Http\Controllers\Admin\TopAdController;
 use App\Http\Controllers\UiController;
@@ -32,7 +34,6 @@ Route::controller(UiController::class)->group(function () {
     // update tools usages
     Route::post('/update-tool-usages', 'updateUsages');
 });
-
 
 
 // ─── Admin Panel Routes ─────────────────────────────────────────────
@@ -97,6 +98,18 @@ Route::prefix('admin')->group(function () {
         Route::controller(TopAdController::class)->group(function () {
             Route::get('/top-ad', 'index')->name('ux.top.add');
             Route::post('/top-ad', 'store')->name('ux.top.post');
+        });
+
+        // mega menu
+        Route::controller(MegaMenuController::class)->group(function () {
+            Route::get('/mega-menu', 'index')->name('ux.mega.menu');
+            Route::post('/mega-menu', 'store')->name('ux.mega.post');
+            Route::get('/mega-del/{id}', 'destroy')->name('ux.mega.del');
+        });
+
+        // Setting
+        Route::controller(SettingController::class)->group(function () {
+            Route::get('/setting', 'index')->name('ux.setting.index');
         });
     });
 });

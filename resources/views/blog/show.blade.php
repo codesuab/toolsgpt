@@ -52,7 +52,7 @@
             <hr class="border-brand-border my-4" />
 
             <!-- Content -->
-            <div class="space-y-4 text-slate-600 text-sm leading-relaxed">
+            <div class="space-y-4 text-slate-600 text-sm leading-relaxed blog-content">
                 {!! $data->content !!}
             </div>
 

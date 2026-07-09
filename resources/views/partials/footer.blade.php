@@ -80,31 +80,9 @@
                 </ul>
             </div>
 
-            <!-- Column 4: Learn -->
-            <div>
-                <h3 class="text-xs font-bold text-white uppercase mb-4.5 font-space">Learn</h3>
-                <ul class="space-y-2 text-sm text-left">
-                    <li><a href="#"
-                            class="text-brand-footer-text/70 hover:text-white transition-colors cursor-not-allowed">What
-                            is AVIF?</a></li>
-                    <li><a href="#"
-                            class="text-brand-footer-text/70 hover:text-white transition-colors cursor-not-allowed">Lossy
-                            vs Lossless</a></li>
-                    <li><a href="#"
-                            class="text-brand-footer-text/70 hover:text-white transition-colors cursor-not-allowed">PNG
-                            vs SVG</a></li>
-                    <li><a href="#"
-                            class="text-brand-footer-text/70 hover:text-white transition-colors cursor-not-allowed">WebP
-                            vs JPG vs PNG</a></li>
-                    <li><a href="#"
-                            class="text-brand-footer-text/70 hover:text-white transition-colors cursor-not-allowed">Image
-                            Sizes Guide</a></li>
-                </ul>
-            </div>
-
             <!-- Column 5: Company -->
             <div>
-                <h3 class="text-xs font-bold text-white uppercase mb-4.5 font-space">Company</h3>
+                <h3 class="text-xs font-bold text-white uppercase mb-4.5 font-space">Feature</h3>
                 <ul class="space-y-2 text-sm text-left">
                     <li><a href="{{ route('contact') }}"
                             class="text-brand-footer-text/70 hover:text-white transition-colors">Contact</a>
@@ -123,6 +101,22 @@
                             Service</a></li>
                 </ul>
             </div>
+
+            <!-- Column 4: Learn -->
+            <div>
+                <h3 class="text-xs font-bold text-white uppercase mb-4.5 font-space">category</h3>
+                <ul class="space-y-2 text-sm text-left">
+                    @php
+                        $category = App\Models\Category::get();
+                    @endphp
+                    @foreach ($category as $cat)
+                        <li>
+                            <a href="{{ route('all.tool', ['cat'=>$cat?->id]) }}"
+                            class="text-brand-footer-text/70 hover:text-white transition-colors">{{ $cat?->name }}</a>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
         </div>
 
         <!-- Additional Links Row -->
@@ -135,6 +129,7 @@
             <a href="{{ route('contact') }}" class="hover:text-white transition-colors">Contact Us</a>
             <a href="{{ route('privacy-policy') }}" class="hover:text-white transition-colors">Privacy Policy</a>
             <a href="{{ route('terms-of-service') }}" class="hover:text-white transition-colors">Terms of Service</a>
+            <a href="/sitemap.xml" class="hover:text-white transition-colors">Sitemap</a>
         </div>
 
         <!-- Bottom Copyright Bar -->

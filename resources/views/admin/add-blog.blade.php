@@ -97,30 +97,86 @@
     <script src="https://cdn.jsdelivr.net/npm/hugerte@1/hugerte.min.js"></script>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", () => {
             let options = {
-                selector: '#hugerte-mytextarea',
-                height: 300,
+                selector: "#hugerte-mytextarea",
+                height: 500,
+
                 menubar: false,
-                statusbar: false,
+                statusbar: true,
+
                 plugins: [
-                    'advlist', 'autolink', 'lists', 'link', 'image', 'charmap',
-                    'preview', 'anchor',
-                    'searchreplace', 'visualblocks', 'code', 'fullscreen',
-                    'insertdatetime', 'media', 'table', 'code', 'help', 'wordcount'
+                    "advlist",
+                    "autolink",
+                    "lists",
+                    "link",
+                    "image",
+                    "charmap",
+                    "preview",
+                    "anchor",
+                    "searchreplace",
+                    "visualblocks",
+                    "code",
+                    "fullscreen",
+                    "insertdatetime",
+                    "media",
+                    "table",
+                    "wordcount",
+                    "codesample",
+                    "quickbars"
                 ],
-                toolbar: 'undo redo | formatselect | ' +
-                    'bold italic backcolor | alignleft aligncenter ' +
-                    'alignright alignjustify | bullist numlist outdent indent | ' +
-                    'removeformat',
-                content_style: 'body { font-family: -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif; font-size: 14px; -webkit-font-smoothing: antialiased; }'
+
+                toolbar:
+                    "undo redo | " +
+                    "blocks fontsize | " +
+                    "bold italic underline | " +
+                    "bullist numlist | " +
+                    "alignleft aligncenter alignright | " +
+                    "link image media table | " +
+                    "codesample | " +
+                    "removeformat | " +
+                    "code fullscreen",
+
+                image_caption: true,
+                image_title: true,
+
+                link_default_target: "_blank",
+
+                branding: false,
+
+                content_style: `
+                body {
+                    font-family: -apple-system, BlinkMacSystemFont, 
+                    "Segoe UI", Roboto, sans-serif;
+                    font-size: 16px;
+                    line-height: 1.8;
+                    padding: 20px;
+                }
+
+                img {
+                    max-width: 100%;
+                    height: auto;
+                }
+
+                blockquote {
+                    border-left: 4px solid #2563eb;
+                    padding-left: 16px;
+                }
+
+                pre {
+                    padding: 16px;
+                    overflow: auto;
+                }
+            `
+            };
+
+            if (localStorage.getItem("tablerTheme") === "dark") {
+                options.skin = "oxide-dark";
+                options.content_css = "dark";
             }
-            if (localStorage.getItem("tablerTheme") === 'dark') {
-                options.skin = 'oxide-dark';
-                options.content_css = 'dark';
-            }
+
             hugeRTE.init(options);
-        })
+        });
     </script>
 
     <script>

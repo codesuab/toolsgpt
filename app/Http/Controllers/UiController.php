@@ -32,10 +32,16 @@ class UiController extends Controller
     }
 
     // all tools 
-    public function allTool()
+    public function allTool(Request $request)
     {
+
+        $filterCat = Category::find(request('cat'));
+
         $tools = Tool::orderByDesc('usages')
             ->with('category')
+            ->when(request('cat'), function ($query) {
+                $query->where('category_id', request('cat'));
+            })
             ->where('status', 'active')
             ->paginate(36);
 
@@ -43,7 +49,8 @@ class UiController extends Controller
 
         return view('all-tools', [
             'tools' => $tools,
-            'category' => $category
+            'category' => $category,
+            'filter' => $filterCat
         ]);
     }
     public function toolView($slug)

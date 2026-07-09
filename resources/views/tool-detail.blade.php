@@ -14,7 +14,7 @@
 
 @section('schema_markup')
     <script type="application/ld+json">
-                                                                                                                                                                                                                                                                                            {!! json_encode([
+                                                                                                                                                                                                                                                                                                        {!! json_encode([
         '@context' => 'https://schema.org',
         '@type' => 'SoftwareApplication',
         'name' => config('app.name') . ' ' . $data->name,
@@ -28,11 +28,11 @@
         ],
         'description' => $data->meta_description ?? $data->taq_line,
     ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
-                                                                                                                                                                                                                                                                                            </script>
+                                                                                                                                                                                                                                                                                                        </script>
 
     @if($data->faq)
         <script type="application/ld+json">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        {!! json_encode([
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                {!! json_encode([
                 '@context' => 'https://schema.org',
                 '@type' => 'FAQPage',
                 'mainEntity' => collect($data->faq)->map(function ($faq) {
@@ -46,7 +46,7 @@
                     ];
                 })->values(),
             ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </script>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </script>
     @endif
 @endsection
 
@@ -66,7 +66,7 @@
                                 stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
                             </svg>
-                            <a href="javascript::void(0);"
+                            <a href="{{ route('all.tool', ['cat' => $data?->category?->id]) }}"
                                 class="hover:text-brand-text transition-colors">{{ $data->category->name }}</a>
                         </div>
                     </li>

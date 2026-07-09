@@ -76,7 +76,7 @@
                                     d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                             </svg>
                         </div>
-                        <input type="text" id="tool-search"
+                        <input type="search" id="tool-search"
                             placeholder="Search 30+ free tools (e.g. compress image, SVG to PNG...)"
                             class="w-full bg-transparent border-0 p-0 text-sm text-brand-text placeholder-slate-400 focus:outline-none focus:ring-0">
                     </div>

@@ -26,6 +26,8 @@ class Tool extends Model
         'meta_description',
         'meta_keyword',
         'usages',
+        'badge',
+        'cat_slug'
     ];
 
     public function category()

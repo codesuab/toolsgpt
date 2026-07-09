@@ -29,6 +29,13 @@
             'active' => ['ux.top.add'],
         ],
         [
+            'label' => 'Mega menu',
+            'link' => 'ux.mega.menu',
+            'icon' => 'ti-menu-2',
+            'submenu' => [],
+            'active' => ['ux.mega.menu'],
+        ],
+        [
             'label' => 'Tools',
             'link' => '',
             'icon' => 'ti-topology-star-3',
@@ -129,7 +136,7 @@
                                 home</a>
                             <a href="{{ route('ux.profile') }}" class="dropdown-item"><i class="ti ti-user"></i>
                                 Profile</a>
-                            <a href="./settings.html" class="dropdown-item"><i class="ti ti-settings-2"></i>
+                            <a href="{{ route('ux.setting.index') }}" class="dropdown-item"><i class="ti ti-settings-2"></i>
                                 Settings</a>
                             <a href="{{ route('logout') }}" class="dropdown-item"><i class="ti ti-logout"></i>
                                 Logout</a>

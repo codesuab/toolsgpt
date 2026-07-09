@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import './tabler-icons.min';
 @import './blog.css';
 
 @source "../**/*.blade.php";
@@ -175,6 +174,14 @@
         0 0 48px var(--tool-glow);
 }
 .tool-card:hover .tool-title {
+    color: var(--tool-color);
+}
+.tool-card .tool-card-badge-none{
+    background: var(--tool-color);
+}
+.tool-card .too-card-badge{
+    background: var(--tool-bg);
+    border-color: var(--tool-border);
     color: var(--tool-color);
 }
 

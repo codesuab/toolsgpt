@@ -3,6 +3,7 @@
 @section('admin')
     <form class="row g-3" method="POST" action="{{ route('ux.tools.add.post') }}">
         @csrf
+        @include('partials.admin-alert')
         <div class="col-12 col-md-8">
             <div class="card">
                 <div class="card-body">

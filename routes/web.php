@@ -110,6 +110,8 @@ Route::prefix('admin')->group(function () {
         // Setting
         Route::controller(SettingController::class)->group(function () {
             Route::get('/setting', 'index')->name('ux.setting.index');
+            Route::get('/setting-cache', 'cacheClear')->name('ux.setting.cache');
+            Route::get('/setting-sitemap', 'makeSitemap')->name('ux.setting.sitemap');
         });
     });
 });

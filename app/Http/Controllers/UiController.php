@@ -17,9 +17,21 @@ class UiController extends Controller
     // home
     public function home()
     {
-        $tools = Tool::orderByDesc('usages')
-            ->with('category')
+        $tools = Tool::with('category')
             ->where('status', 'active')
+            ->orderByDesc('usages')
+            ->orderByRaw("
+                CASE badge
+                    WHEN '#1 tool' THEN 1
+                    WHEN 'featured' THEN 2
+                    WHEN 'trending' THEN 3
+                    WHEN 'popular' THEN 4
+                    WHEN 'most used' THEN 5
+                    WHEN 'top rated' THEN 6
+                    WHEN 'new' THEN 7
+                    ELSE 8
+                END
+            ")
             ->take(22)
             ->get();
 
@@ -34,11 +46,23 @@ class UiController extends Controller
 
         $filterCat = Category::find(request('cat'));
 
-        $tools = Tool::orderByDesc('usages')
-            ->with('category')
+        $tools = Tool::with('category')
             ->when(request('cat'), function ($query) {
                 $query->where('category_id', request('cat'));
             })
+            ->orderByDesc('usages')
+            ->orderByRaw("
+                CASE badge
+                    WHEN '#1 tool' THEN 1
+                    WHEN 'featured' THEN 2
+                    WHEN 'trending' THEN 3
+                    WHEN 'popular' THEN 4
+                    WHEN 'most used' THEN 5
+                    WHEN 'top rated' THEN 6
+                    WHEN 'new' THEN 7
+                    ELSE 8
+                END
+            ")
             ->where('status', 'active')
             ->paginate(36);
 

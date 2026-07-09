@@ -1,0 +1,66 @@
+.card {
+    background: var(--color-brand-card);
+    border: 1px solid var(--color-brand-border);
+    border-radius: 0px;
+}
+
+.btn-primary {
+    background-color: var(--color-brand-primary);
+    color: white;
+    border-radius: 0px;
+    transition: all 0.2s ease;
+}
+.btn-primary:hover {
+    background-color: var(--color-brand-primary-hover);
+}
+
+.btn-secondary {
+    background-color: #f1f5f9;
+    color: var(--color-brand-muted);
+    border: 1px solid var(--color-brand-border);
+    border-radius: 0px;
+    transition: all 0.2s ease;
+}
+.btn-secondary:hover {
+    background-color: #e2e8f0;
+    color: var(--color-brand-text);
+}
+
+.btn-tab {
+    border: 1px solid var(--color-brand-border);
+    background: white;
+    color: var(--color-brand-muted);
+    font-weight: 500;
+    transition: all 0.2s;
+}
+.btn-tab.active {
+    background-color: var(--color-brand-primary);
+    color: white;
+    border-color: var(--color-brand-primary);
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Space Grotesk", sans-serif;
+    color: #0f172a;
+}
+
+input,
+select {
+    border: 1px solid var(--color-brand-border);
+    padding: 0.75rem 1rem;
+    border-radius: 0px;
+    background: #ffffff;
+    font-size: 0.95rem;
+    transition:
+        border-color 0.2s,
+        box-shadow 0.2s;
+    color: var(--color-brand-text);
+}
+input:focus,
+select:focus {
+    outline: none;
+    border-color: var(--color-brand-primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}

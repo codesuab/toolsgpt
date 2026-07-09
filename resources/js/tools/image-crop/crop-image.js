@@ -1,5 +1,5 @@
-import "../domain";
-import updateUsages from "../count";
+import "../../domain";
+import updateUsages from "../../count";
 
 // Global State & UI Components references
 let cropper = null;

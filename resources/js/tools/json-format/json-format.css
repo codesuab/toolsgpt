@@ -1,0 +1,76 @@
+.btn-icon {
+    background-color: transparent;
+    color: var(--color-brand-muted);
+    padding: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    border-radius: var(--radius-brand-btn);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.btn-icon:hover {
+    background-color: var(--color-brand-bg);
+    color: var(--color-brand-text);
+    border-color: var(--color-brand-border);
+}
+
+.input-control {
+    background-color: var(--color-brand-card);
+    border: 1px solid var(--color-brand-border);
+    border-radius: var(--radius-brand-btn);
+    padding: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--color-brand-text);
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+.input-control:focus {
+    border-color: var(--color-brand-primary);
+}
+
+.workspace-area {
+    width: 100%;
+    height: 60vh;
+    min-height: 400px;
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    padding: 1rem;
+    border: 1px solid var(--color-brand-border);
+    border-radius: var(--radius-brand-card);
+    background-color: var(--color-brand-card);
+    color: var(--color-brand-text);
+    resize: vertical;
+    outline: none;
+}
+.workspace-area:focus {
+    border-color: var(--color-brand-primary);
+}
+.workspace-area[readonly] {
+    background-color: #fcfcfc;
+}
+
+/* Custom scrollbar for textareas */
+.workspace-area::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+.workspace-area::-webkit-scrollbar-track {
+    background: var(--color-brand-bg);
+    border-left: 1px solid var(--color-brand-border);
+}
+.workspace-area::-webkit-scrollbar-thumb {
+    background-color: var(--color-brand-border);
+    border: 3px solid var(--color-brand-bg);
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border-radius: 9999px; /* Requested exception for badges */
+}

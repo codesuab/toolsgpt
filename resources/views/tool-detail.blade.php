@@ -190,7 +190,7 @@
             </div>
 
             <h3 class="mt-3 text-3xl font-bold tracking-tight text-gray-900">
-                <span id="toolUsagesCountView">{{ number_format($data->usages) }}</span>+ Files Converted
+                <span id="toolUsagesCountView">{{ number_format($data->usages) }}</span>+ Tools Usages
                 <span class="text-gray-400">—</span>
                 <span class="text-gray-500">and counting</span>
             </h3>

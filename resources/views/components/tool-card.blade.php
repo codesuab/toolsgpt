@@ -23,53 +23,57 @@
     }
 
     if (!function_exists('toolBadge')) {
-    function toolBadge(?string $badge): string
-    {
-        return match ($badge) {
-            'number_one' => '
-                <span class="inline-flex items-center rounded bg-red-50 border border-red-100 px-2 py-0.5 text-[9px] font-bold text-red-600 uppercase select-none">
-                    #1 Tool
-                </span>
-            ',
+        function toolBadge(?string $badge): string
+        {
+            return match ($badge) {
+                'number_one' => '
+                        <span class="inline-flex items-center rounded too-card-badge border pb-px px-2 text-[9px] font-bold uppercase select-none">
+                            #1 Tool
+                        </span>
+                    ',
 
-            'top_rated' => '
-                <span class="inline-flex items-center rounded bg-amber-50 border border-amber-100 px-2 py-0.5 text-[9px] font-bold text-amber-600 uppercase select-none">
-                    Top Rated
-                </span>
-            ',
+                'top_rated' => '
+                        <span class="inline-flex items-center rounded too-card-badge border pb-px px-2 text-[9px] font-bold uppercase select-none">
+                            Top Rated
+                        </span>
+                    ',
 
-            'most_used' => '
-                <span class="inline-flex items-center rounded bg-blue-50 border border-blue-100 px-2 py-0.5 text-[9px] font-bold text-blue-600 uppercase select-none">
-                    Most Used
-                </span>
-            ',
+                'most_used' => '
+                        <span class="inline-flex items-center rounded too-card-badge border pb-px px-2 text-[9px] font-bold uppercase select-none">
+                            Most Used
+                        </span>
+                    ',
 
-            'trending' => '
-                <span class="inline-flex items-center rounded bg-emerald-50 border border-emerald-100 px-2 py-0.5 text-[9px] font-bold text-emerald-600 uppercase select-none">
-                    Trending
-                </span>
-            ',
+                'trending' => '
+                        <span class="inline-flex items-center rounded too-card-badge border pb-px px-2 text-[9px] font-bold uppercase select-none">
+                            Trending
+                        </span>
+                    ',
 
-            'popular' => '
-                <span class="inline-flex items-center rounded bg-purple-50 border border-purple-100 px-2 py-0.5 text-[9px] font-bold text-purple-600 uppercase select-none">
-                    Popular
-                </span>
-            ',
+                'popular' => '
+                        <span class="inline-flex items-center rounded too-card-badge border pb-px px-2 text-[9px] font-bold uppercase select-none">
+                            Popular
+                        </span>
+                    ',
 
-            'featured' => '
-                <span class="inline-flex items-center rounded bg-indigo-50 border border-indigo-100 px-2 py-0.5 text-[9px] font-bold text-indigo-600 uppercase select-none">
-                    Featured
-                </span>
-            ',
+                'featured' => '
+                        <span class="inline-flex items-center rounded too-card-badge border pb-px px-2 text-[9px] font-bold uppercase select-none">
+                            Featured
+                        </span>
+                    ',
 
-            default => '
-                <span class="inline-flex items-center rounded bg-slate-50 border border-slate-100 px-2 py-0.5 text-[9px] font-bold text-slate-600 uppercase select-none">
-                    New
-                </span>
-            ',
-        };
+                'new' => '
+                        <span class="inline-flex items-center rounded too-card-badge bg-indigo-50 border px-2 text-[9px] font-bold uppercase select-none">
+                            New
+                        </span>
+                    ',
+
+                default => '
+                        <span class="inline-flex items-center tool-card-badge-none bg-slate-50 w-3 h-3 rounded-full select-none"></span>
+                    ',
+            };
+        }
     }
-}
 @endphp
 
 <div class="tool-card relative rounded-brand-card border border-slate-200/60 bg-brand-card p-6 transition-all duration-305"

@@ -99,7 +99,7 @@ class ToolsController extends Controller
 
         Tool::updateOrCreate(['id' => $request->id], $data);
 
-        return to_route('ux.tools.list')->with('success', "Tool saved success.");
+        return back()->with('success', "Tool saved success.");
     }
 
     public function destroy($id)

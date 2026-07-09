@@ -35,7 +35,7 @@
                     </div>
                 </div>
                 <div class="flex items-center justify-between border-b border-slate-200 w-full mb-6">
-                    <div class="flex flex-wrap gap-6 -mb-px">
+                    <div class="flex flex-wrap gap-4 -mb-px">
                         <button onclick="filterTools('all', this)"
                             class="tab-btn pb-3 text-xs font-semibold border-b-2 border-brand-primary text-brand-primary transition-all focus:outline-none cursor-pointer">
                             All Tools
@@ -49,7 +49,17 @@
                     </div>
                     <a href="{{ route('all.tool') }}"
                         class="hidden md:block tab-btn pb-3 text-xs font-medium border-b-2 border-transparent text-brand-muted hover:text-brand-text hover:border-slate-300 transition-all focus:outline-none cursor-pointer">
-                        View all<i class="ti ti-arrow-narrow-right"></i>
+                        <div class="flex items-center">
+                            <span>View all</span> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round"
+                                class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-narrow-right-dashed">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M5 12h.5m3 0h1.5m3 0h6" />
+                                <path d="M15 16l4 -4" />
+                                <path d="M15 8l4 4" />
+                            </svg>
+                        </div>
                     </a>
                 </div>
             </div>

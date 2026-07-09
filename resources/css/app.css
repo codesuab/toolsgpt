@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import './tabler-icons.min';
 @import './blog.css';
 
 @source "../**/*.blade.php";

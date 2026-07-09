@@ -45,9 +45,6 @@
         href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
         rel="stylesheet">
 
-    {{-- icons --}}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
-
     <!-- Styles & Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 

@@ -22,7 +22,6 @@ class ToolsController extends Controller
 
     public function add(Request $request)
     {
-        $category = Category::latest()->get();
 
         $views = collect(File::files(resource_path('views/tools')))
             ->map(function ($file) {
@@ -41,7 +40,6 @@ class ToolsController extends Controller
         }
 
         return view('admin.tools.add', [
-            'category' => $category,
             'views' => $views,
             'data' => $data
         ]);

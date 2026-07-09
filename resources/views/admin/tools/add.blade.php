@@ -20,8 +20,8 @@
                             <select class="form-control" name="category_id">
                                 <option value="" selected>--category--</option>
                                 @foreach ($category as $cat)
-                                    <option value="{{ $cat->id }}" @if ($data?->category_id == $cat->id) selected @endif>
-                                        {{ $cat->name }}
+                                    <option value="{{ $cat['id'] }}" @if ($data?->category_id == $cat['id']) selected @endif>
+                                        {{ $cat['name'] }}
                                     </option>
                                 @endforeach
                             </select>

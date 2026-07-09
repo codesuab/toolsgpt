@@ -1,4 +1,8 @@
 {
+  "_count-Cx83qug3.js": {
+    "file": "assets/count-Cx83qug3.js",
+    "name": "count"
+  },
   "_fonts-DkuEHybc.css": {
     "file": "assets/fonts-DkuEHybc.css",
     "src": "_fonts-DkuEHybc.css"
@@ -51,17 +55,8 @@
     "file": "assets/instrument-sans-600-normal-DMks36a2.woff",
     "src": "_instrument-sans-600-normal-DMks36a2.woff"
   },
-  "node_modules/jszip/dist/jszip.min.js": {
-    "file": "assets/jszip.min-CLyRN-En.js",
-    "name": "jszip.min",
-    "src": "node_modules/jszip/dist/jszip.min.js",
-    "isDynamicEntry": true,
-    "imports": [
-      "resources/js/app.js"
-    ]
-  },
   "resources/css/app.css": {
-    "file": "assets/app-C3taxqT0.css",
+    "file": "assets/app-ClVJbZwi.css",
     "name": "app",
     "names": [
       "app.css"
@@ -70,19 +65,46 @@
     "isEntry": true
   },
   "resources/js/app.js": {
-    "file": "assets/app-DNsubKlV.js",
+    "file": "assets/app-ifDnNWrI.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
     "dynamicImports": [
-      "node_modules/jszip/dist/jszip.min.js",
-      "resources/js/tools/image-compressor.js"
+      "resources/js/tools/image-compressor.js",
+      "resources/js/tools/crop-image.js",
+      "resources/js/tools/extra/image-crop/cropper.min.js"
+    ]
+  },
+  "resources/js/tools/crop-image.js": {
+    "file": "assets/crop-image-B---TEeJ.js",
+    "name": "crop-image",
+    "src": "resources/js/tools/crop-image.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_count-Cx83qug3.js"
+    ]
+  },
+  "resources/js/tools/extra/image-crop/cropper.min.css": {
+    "file": "assets/cropper-B1uwBDfI.css",
+    "src": "resources/js/tools/extra/image-crop/cropper.min.css"
+  },
+  "resources/js/tools/extra/image-crop/cropper.min.js": {
+    "file": "assets/cropper.min-CGPoOopL.js",
+    "name": "cropper.min",
+    "src": "resources/js/tools/extra/image-crop/cropper.min.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js"
     ]
   },
   "resources/js/tools/image-compressor.js": {
-    "file": "assets/image-compressor-BxVG-bti.js",
+    "file": "assets/image-compressor-C2OZ3pks.js",
     "name": "image-compressor",
     "src": "resources/js/tools/image-compressor.js",
-    "isDynamicEntry": true
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js",
+      "_count-Cx83qug3.js"
+    ]
   }
 }

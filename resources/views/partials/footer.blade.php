@@ -8,14 +8,14 @@
         <div class="grid grid-cols-1 md:grid-cols-5 gap-8 lg:gap-12">
             <!-- Branding and Description (Column 1) -->
             <div class="col-span-1 md:col-span-1 space-y-4">
-                <a href="/" class="flex items-center gap-2.5 group">
+                <a href="{{ route('home') }}" class="flex items-center gap-2.5 group">
                     <span class="font-bold text-lg text-white font-space">
                         ToolsGPT.
                     </span>
                 </a>
                 <p class="text-brand-footer-text text-xs leading-relaxed text-left">
-                    ToolsGPT is your all-in-one collection of free online tools. Compress images, convert files,
-                    generate content, calculate values, and simplify daily tasks with fast, secure browser-based tools.
+                    ToolsGPT offers free, fast, and secure online tools to compress images, convert files, generate
+                    content, calculate values, and simplify everyday tasks directly in your browser.
                 </p>
 
                 <!-- GDPR Safe Box -->
@@ -37,15 +37,12 @@
                 <h3 class="text-xs font-bold text-white uppercase mb-4.5 font-space">Popular Tools
                 </h3>
                 <ul class="space-y-2 text-sm text-left">
-                    <li><a href="/tool/compress-image"
-                            class="text-brand-footer-text/70 hover:text-white transition-colors cursor-not-allowed">Compress
-                            Image</a></li>
-                    <li><a href="#"
-                            class="text-brand-footer-text/70 hover:text-white transition-colors cursor-not-allowed">Resize
-                            Image</a></li>
-                    <li><a href="#"
-                            class="text-brand-footer-text/70 hover:text-white transition-colors cursor-not-allowed">Crop
-                            Image</a></li>
+                    @foreach ($popularTools as $pt)
+                        <li>
+                            <a href="{{ route('tool.details', ['slug' => $pt['slug']]) }}"
+                                class="text-brand-footer-text/70 hover:text-white transition-colors">{{ $pt['name'] }}</a>
+                        </li>
+                    @endforeach
                 </ul>
             </div>
 
@@ -53,52 +50,25 @@
             <div>
                 <h3 class="text-xs font-bold text-white uppercase mb-4.5 font-space">Converters</h3>
                 <ul class="space-y-2 text-sm text-left">
-                    <li><a href="#"
-                            class="text-brand-footer-text/70 hover:text-white transition-colors cursor-not-allowed">JPG
-                            to WebP</a></li>
-                    <li><a href="#"
-                            class="text-brand-footer-text/70 hover:text-white transition-colors cursor-not-allowed">WebP
-                            to JPG</a></li>
-                    <li><a href="#"
-                            class="text-brand-footer-text/70 hover:text-white transition-colors cursor-not-allowed">PNG
-                            to WebP</a></li>
-                    <li><a href="#"
-                            class="text-brand-footer-text/70 hover:text-white transition-colors cursor-not-allowed">AVIF
-                            to JPG</a></li>
-                    <li><a href="#"
-                            class="text-brand-footer-text/70 hover:text-white transition-colors cursor-not-allowed">HEIC
-                            to JPG</a></li>
-                    <li><a href="#"
-                            class="text-brand-footer-text/70 hover:text-white transition-colors cursor-not-allowed">JPG
-                            to PNG</a></li>
-                    <li><a href="#"
-                            class="text-brand-footer-text/70 hover:text-white transition-colors cursor-not-allowed">PNG
-                            to JPG</a></li>
-                    <li><a href="#"
-                            class="text-brand-footer-text/70 hover:text-white transition-colors cursor-not-allowed">SVG
-                            to PNG</a></li>
+                    @foreach ($convertingTools as $pt)
+                        <li>
+                            <a href="{{ route('tool.details', ['slug' => $pt['slug']]) }}"
+                                class="text-brand-footer-text/70 hover:text-white transition-colors">{{ $pt['name'] }}</a>
+                        </li>
+                    @endforeach
                 </ul>
             </div>
 
             <!-- Column 5: Company -->
             <div>
-                <h3 class="text-xs font-bold text-white uppercase mb-4.5 font-space">Feature</h3>
+                <h3 class="text-xs font-bold text-white uppercase mb-4.5 font-space">Feature Tools</h3>
                 <ul class="space-y-2 text-sm text-left">
-                    <li><a href="{{ route('contact') }}"
-                            class="text-brand-footer-text/70 hover:text-white transition-colors">Contact</a>
-                    <li><a href="{{ route('blog.index') }}"
-                            class="text-brand-footer-text/70 hover:text-white transition-colors">Blog</a>
-                    </li>
-                    <li><a href="{{ route('about') }}"
-                            class="text-brand-footer-text/70 hover:text-white transition-colors">About</a>
-                    </li>
-                    </li>
-                    <li><a href="{{ route('privacy-policy') }}"
-                            class="text-brand-footer-text/70 hover:text-white transition-colors">Privacy
-                            Policy</a></li>
-                    <li><a href="{{ route('terms-of-service') }}"
-                            class="text-brand-footer-text/70 hover:text-white transition-colors">Terms of
-                            Service</a></li>
+                    @foreach ($featuresTools as $pt)
+                        <li>
+                            <a href="{{ route('tool.details', ['slug' => $pt['slug']]) }}"
+                                class="text-brand-footer-text/70 hover:text-white transition-colors">{{ $pt['name'] }}</a>
+                        </li>
+                    @endforeach
                 </ul>
             </div>
 
@@ -106,13 +76,10 @@
             <div>
                 <h3 class="text-xs font-bold text-white uppercase mb-4.5 font-space">category</h3>
                 <ul class="space-y-2 text-sm text-left">
-                    @php
-                        $category = App\Models\Category::get();
-                    @endphp
                     @foreach ($category as $cat)
                         <li>
-                            <a href="{{ route('all.tool', ['cat'=>$cat?->id]) }}"
-                            class="text-brand-footer-text/70 hover:text-white transition-colors">{{ $cat?->name }}</a>
+                            <a href="{{ route('all.tool', ['cat' => $cat['id']]) }}"
+                                class="text-brand-footer-text/70 hover:text-white transition-colors">{{ $cat['name'] }}</a>
                         </li>
                     @endforeach
                 </ul>

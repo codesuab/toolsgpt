@@ -23,11 +23,8 @@ class UiController extends Controller
             ->take(22)
             ->get();
 
-        $category = Category::latest()->get();
-
         return view('home', [
             'tools' => $tools,
-            'category' => $category
         ]);
     }
 
@@ -45,11 +42,8 @@ class UiController extends Controller
             ->where('status', 'active')
             ->paginate(36);
 
-        $category = Category::latest()->get();
-
         return view('all-tools', [
             'tools' => $tools,
-            'category' => $category,
             'filter' => $filterCat
         ]);
     }

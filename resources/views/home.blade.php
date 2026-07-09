@@ -1,54 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Free Online Tools - Compress, Convert & Edit Images')
-@section('meta_description', config('app.name') . ' is a high-performance suite of free online tools. Compress images, convert formats, and crop files directly in your browser with local security.')
-
 @section('schema_markup')
-    <script type="application/ld+json">
-                                                                                                                                                                                                                                    {
-                                                                                                                                                                                                                                      "@@context": "https://schema.org",
-                                                                                                                                                                                                                                      "@@type": "WebSite",
-                                                                                                                                                                                                                                      "name": "{{ config('app.name') }}"
-                                                                                                                                                                                                                                      "url": "{{ url('/') }}",
-                                                                                                                                                                                                                                      "potentialAction": {
-                                                                                                                                                                                                                                        "@@type": "SearchAction",
-                                                                                                                                                                                                                                        "target": "{{ url('/') }}?q={search_term_string}",
-                                                                                                                                                                                                                                        "query-input": "required name=search_term_string"
-                                                                                                                                                                                                                                      }
-                                                                                                                                                                                                                                    }
-                                                                                                                                                                                                                                    </script>
-    <script type="application/ld+json">
-                                                                                                                                                                                                                                    {
-                                                                                                                                                                                                                                      "@@context": "https://schema.org",
-                                                                                                                                                                                                                                      "@@type": "FAQPage",
-                                                                                                                                                                                                                                      "mainEntity": [
-                                                                                                                                                                                                                                        {
-                                                                                                                                                                                                                                          "@@type": "Question",
-                                                                                                                                                                                                                                          "name": "Are my files safe on FreeImageTools?",
-                                                                                                                                                                                                                                          "acceptedAnswer": {
-                                                                                                                                                                                                                                            "@@type": "Answer",
-                                                                                                                                                                                                                                            "text": "Yes, completely. FreeImageTools processes all files locally inside your browser using client-side WebAssembly and JavaScript. Your files are never uploaded to any server, guaranteeing 100% privacy and security."
-                                                                                                                                                                                                                                          }
-                                                                                                                                                                                                                                        },
-                                                                                                                                                                                                                                        {
-                                                                                                                                                                                                                                          "@@type": "Question",
-                                                                                                                                                                                                                                          "name": "How much does FreeImageTools cost?",
-                                                                                                                                                                                                                                          "acceptedAnswer": {
-                                                                                                                                                                                                                                            "@@type": "Answer",
-                                                                                                                                                                                                                                            "text": "FreeImageTools is 100% free to use. There are no limits, no registrations, no subscription fees, and no watermarks on any of the output files."
-                                                                                                                                                                                                                                          }
-                                                                                                                                                                                                                                        },
-                                                                                                                                                                                                                                        {
-                                                                                                                                                                                                                                          "@@type": "Question",
-                                                                                                                                                                                                                                          "name": "Do I need to install any software to use FreeImageTools?",
-                                                                                                                                                                                                                                          "acceptedAnswer": {
-                                                                                                                                                                                                                                            "@@type": "Answer",
-                                                                                                                                                                                                                                            "text": "No, you do not need to install anything. FreeImageTools is a web-based platform that works directly inside any modern browser on Windows, Mac, Linux, iOS, or Android."
-                                                                                                                                                                                                                                          }
-                                                                                                                                                                                                                                        }
-                                                                                                                                                                                                                                      ]
-                                                                                                                                                                                                                                    }
-                                                                                                                                                                                                                                    </script>
+    @include('partials.home-schema')
 @endsection
 
 @section('content')
@@ -77,7 +30,7 @@
                             </svg>
                         </div>
                         <input type="search" id="tool-search"
-                            placeholder="Search 30+ free tools (e.g. compress image, SVG to PNG...)"
+                            placeholder="Search {{ $toolsCount }}+ free tools (e.g. compress image, SVG to PNG...)"
                             class="w-full bg-transparent border-0 p-0 text-sm text-brand-text placeholder-slate-400 focus:outline-none focus:ring-0">
                     </div>
                 </div>
@@ -88,9 +41,9 @@
                             All Tools
                         </button>
                         @foreach ($category as $cat)
-                            <button onclick="filterTools('{{ $cat->slug }}', this)"
+                            <button onclick="filterTools('{{ $cat['slug'] }}', this)"
                                 class="tab-btn pb-3 text-xs font-medium border-b-2 border-transparent text-brand-muted hover:text-brand-text hover:border-slate-300 transition-all focus:outline-none cursor-pointer">
-                                {{ $cat->name }}
+                                {{ $cat['name'] }}
                             </button>
                         @endforeach
                     </div>

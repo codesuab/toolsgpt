@@ -65,7 +65,7 @@
                             </svg>
                         </div>
                         <input type="search" id="tool-search"
-                            placeholder="Search 30+ free tools (e.g. compress image, SVG to PNG...)"
+                            placeholder="Search {{ $toolsCount }}+ free tools (e.g. compress image, SVG to PNG...)"
                             class="w-full bg-transparent border-0 p-0 text-sm text-brand-text placeholder-slate-400 focus:outline-none focus:ring-0">
                     </div>
                 </div>
@@ -84,9 +84,9 @@
                             </a>
                         @else
                             @foreach ($category as $cat)
-                                <button onclick="filterTools('{{ $cat->slug }}', this)"
+                                <button onclick="filterTools('{{ $cat['slug'] }}', this)"
                                     class="tab-btn pb-3 text-xs font-medium border-b-2 border-transparent text-brand-muted hover:text-brand-text hover:border-slate-300 transition-all focus:outline-none cursor-pointer">
-                                    {{ $cat->name }}
+                                    {{ $cat['name'] }}
                                 </button>
                             @endforeach
                         @endif

@@ -21,12 +21,6 @@
                 : "rgb($r, $g, $b)";
         }
     }
-
-    $colOne = App\Models\MegaMenu::where('col', 'one')->where('status', 'active')->with('tool.category')->get();
-    $colTow = App\Models\MegaMenu::where('col', 'tow')->where('status', 'active')->with('tool.category')->get();
-    $colThree = App\Models\MegaMenu::where('col', 'three')->where('status', 'active')->with('tool.category')->get();
-
-    $mobileMega = App\Models\MegaMenu::where('status', 'active')->with('tool')->get()
 @endphp
 
 <header
@@ -72,23 +66,23 @@
                         <!-- Column 1: Orange accents -->
                         <div class="space-y-1">
                             @foreach ($colOne as $one)
-                                <a href="{{ route('tool.details', ['slug' => $one?->tool?->slug]) }}" style="
-                                                        --tool-mega-color: {{ $one?->tool->color }};
-                                                        --tool-mega-bg: {{ hexToRgb($one?->tool->color, 0.06) }};
-                                                        --tool-mega-border: {{ hexToRgb($one?->tool->color, 0.2) }};
+                                <a href="{{ route('tool.details', ['slug' => $one['tool']['slug']]) }}" style="
+                                                        --tool-mega-color: {{ $one['tool']['color'] }};
+                                                        --tool-mega-bg: {{ hexToRgb($one['tool']['color'], 0.06) }};
+                                                        --tool-mega-border: {{ hexToRgb($one['tool']['color'], 0.2) }};
                                                     "
                                     class="mega-menu-card flex items-start gap-3.5 p-2 -mx-2 rounded-brand-btn hover:bg-slate-50 transition-all duration-200">
                                     <div
                                         class="h-9 w-9 rounded-brand-btn flex items-center justify-center shrink-0 transition-all duration-200 bg-orange-50 border border-orange-100 mega-menu-icon">
-                                        {!! $one?->tool?->icon !!}
+                                        {!! $one['tool']['icon'] !!}
                                     </div>
                                     <div class="text-left">
                                         <p
                                             class="text-xs font-bold text-slate-800 group-hover:text-brand-primary transition-colors flex items-center gap-1.5 mega-menu-title">
-                                            {{ $one?->tool?->name }}
+                                            {{ $one['tool']['name'] }}
                                         </p>
                                         <p class="text-[10px] text-brand-muted mt-0.5 leading-snug">
-                                            {{ $one?->tool?->category?->name }}
+                                            {{ $one['tool']['category']['name'] }}
                                         </p>
                                     </div>
                                 </a>
@@ -98,23 +92,23 @@
                         <!-- Column 2: Blue accents -->
                         <div class="space-y-1">
                             @foreach ($colTow as $one)
-                                <a href="{{ route('tool.details', ['slug' => $one?->tool?->slug]) }}" style="
-                                                        --tool-mega-color: {{ $one?->tool->color }};
-                                                        --tool-mega-bg: {{ hexToRgb($one?->tool->color, 0.06) }};
-                                                        --tool-mega-border: {{ hexToRgb($one?->tool->color, 0.2) }};
+                                <a href="{{ route('tool.details', ['slug' => $one['tool']['slug']]) }}" style="
+                                                        --tool-mega-color: {{ $one['tool']['color'] }};
+                                                        --tool-mega-bg: {{ hexToRgb($one['tool']['color'], 0.06) }};
+                                                        --tool-mega-border: {{ hexToRgb($one['tool']['color'], 0.2) }};
                                                     "
                                     class="mega-menu-card flex items-start gap-3.5 p-2 -mx-2 rounded-brand-btn hover:bg-slate-50 transition-all duration-200">
                                     <div
                                         class="h-9 w-9 rounded-brand-btn flex items-center justify-center shrink-0 transition-all duration-200 bg-orange-50 border border-orange-100 mega-menu-icon">
-                                        {!! $one?->tool?->icon !!}
+                                        {!! $one['tool']['icon'] !!}
                                     </div>
                                     <div class="text-left">
                                         <p
                                             class="text-xs font-bold text-slate-800 group-hover:text-brand-primary transition-colors flex items-center gap-1.5 mega-menu-title">
-                                            {{ $one?->tool?->name }}
+                                            {{ $one['tool']['name'] }}
                                         </p>
                                         <p class="text-[10px] text-brand-muted mt-0.5 leading-snug">
-                                            {{ $one?->tool?->category?->name }}
+                                            {{ $one['tool']['category']['name'] }}
                                         </p>
                                     </div>
                                 </a>
@@ -124,23 +118,23 @@
                         <!-- Column 3: Indigo accents -->
                         <div class="space-y-1">
                             @foreach ($colThree as $one)
-                                <a href="{{ route('tool.details', ['slug' => $one?->tool?->slug]) }}" style="
-                                                        --tool-mega-color: {{ $one?->tool->color }};
-                                                        --tool-mega-bg: {{ hexToRgb($one?->tool->color, 0.06) }};
-                                                        --tool-mega-border: {{ hexToRgb($one?->tool->color, 0.2) }};
+                                <a href="{{ route('tool.details', ['slug' => $one['tool']['slug']]) }}" style="
+                                                        --tool-mega-color: {{ $one['tool']['color'] }};
+                                                        --tool-mega-bg: {{ hexToRgb($one['tool']['color'], 0.06) }};
+                                                        --tool-mega-border: {{ hexToRgb($one['tool']['color'], 0.2) }};
                                                     "
                                     class="mega-menu-card flex items-start gap-3.5 p-2 -mx-2 rounded-brand-btn hover:bg-slate-50 transition-all duration-200">
                                     <div
                                         class="h-9 w-9 rounded-brand-btn flex items-center justify-center shrink-0 transition-all duration-200 bg-orange-50 border border-orange-100 mega-menu-icon">
-                                        {!! $one?->tool?->icon !!}
+                                        {!! $one['tool']['icon'] !!}
                                     </div>
                                     <div class="text-left">
                                         <p
                                             class="text-xs font-bold text-slate-800 group-hover:text-brand-primary transition-colors flex items-center gap-1.5 mega-menu-title">
-                                            {{ $one?->tool?->name }}
+                                            {{ $one['tool']['name'] }}
                                         </p>
                                         <p class="text-[10px] text-brand-muted mt-0.5 leading-snug">
-                                            {{ $one?->tool?->category?->name }}
+                                            {{ $one['tool']['category']['name'] }}
                                         </p>
                                     </div>
                                 </a>
@@ -153,7 +147,7 @@
                             <div class="flex items-center gap-6">
                                 <a href="/all-tools"
                                     class="text-xs font-bold text-brand-primary hover:text-brand-primary-hover flex items-center gap-1.5 transition-colors">
-                                    Browse All {{ App\Models\Tool::where('status', 'active')->count() }} Utilities
+                                    Browse All {{ $toolsCount }} Utilities
                                     <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"
                                         stroke-width="2.5">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -273,12 +267,12 @@
                             <div
                                 class="flex flex-col gap-1.5 max-h-80 overflow-y-auto pr-1.5 pt-2 pb-2 mobile-scroll-container">
                                 @foreach ($mobileMega as $mm)
-                                    <a href="{{ route('tool.details', ['slug' => $mm?->tool?->slug]) }}"
+                                    <a href="{{ route('tool.details', ['slug' => $mm['tool']['slug']]) }}"
                                         class="group flex items-center gap-3 px-3 py-2 rounded-brand-btn hover:bg-slate-50 transition-colors shrink-0"
-                                        style="color: {{ $mm?->tool?->color }}">
-                                        {!! $mm?->tool?->icon !!}
+                                        style="color: {{ $mm['tool']['color'] }}">
+                                        {!! $mm['tool']['icon'] !!}
                                         <span
-                                            class="text-xs font-semibold group-hover:text-brand-primary transition-colors">{{ $mm?->tool?->name }}</span>
+                                            class="text-xs font-semibold group-hover:text-brand-primary transition-colors">{{ $mm['tool']['name'] }}</span>
                                     </a>
                                 @endforeach
                             </div>

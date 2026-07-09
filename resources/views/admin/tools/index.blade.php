@@ -37,6 +37,10 @@
                                 </th>
                                 <th>
                                     <button class="table-sort d-flex justify-content-between"
+                                        data-sort="sort-category">Badge</button>
+                                </th>
+                                <th>
+                                    <button class="table-sort d-flex justify-content-between"
                                         data-sort="sort-status">Status</button>
                                 </th>
                                 <th>
@@ -68,6 +72,9 @@
                                     <td class="sort-category">
                                         <span
                                             class="badge bg-success-lt">{{ $b?->category?->name ? $b?->category?->name : 'Other'  }}</span>
+                                    </td>
+                                    <td class="sort-status">
+                                        <span class="badge bg-success-lt">{{ $b?->badge }}</span>
                                     </td>
                                     <td class="sort-status">
                                         <span class="badge bg-success-lt">{{ $b->status }}</span>

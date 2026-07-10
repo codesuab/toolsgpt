@@ -12,12 +12,15 @@ class MegaMenuController extends Controller
     // index
     public function index()
     {
+
+        $oldMenu = MegaMenu::pluck('tool_id')->toArray();
+
         $data = MegaMenu::latest()
             ->with('tool')
             ->get();
 
-        
-        $tool = Tool::latest()->get();
+
+        $tool = Tool::latest()->whereNotIn('id', $oldMenu)->get();
         return view('admin.megamenu', ['data' => $data, 'tool' => $tool]);
     }
 

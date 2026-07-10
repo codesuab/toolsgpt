@@ -54,7 +54,7 @@
         <div id="accordionContent"
             class="block border-t border-slate-100 p-5 py-8 bg-white transition-all duration-300 hidden">
             <div class="lg:col-span-5 space-y-4">
-                <div class="flex items-start justify-between">
+                <div class="flex flex-col md:flex-row items-start justify-between">
                     <div class="space-y-3">
                         <label class="flex items-center space-x-3 cursor-pointer group min-w-75 mt-2">
                             <div class="relative flex items-center justify-center">
@@ -108,7 +108,7 @@
                     </div>
                 </div>
 
-                <div class="flex justify-end mt-2 gap-3">
+                <div class="flex flex-col md:flex-row justify-end mt-2 gap-3">
                     <select id="formatSelector"
                         class="bg-slate-50 border border-slate-200 rounded-brand-card py-2 px-2.5 text-xs font-semibold text-slate-600 focus:outline-none focus:ring-1 focus:ring-brand-primary transition-all">
                         <option value="original">Original Format</option>

@@ -13,14 +13,14 @@
 
                 <!-- Drag & Drop / Image Loader Area (Initial State) -->
                 <div id="drop-zone"
-                    class="absolute inset-0 flex flex-col items-center justify-center p-8 transition-all duration-200 ease-in-out cursor-pointer group bg-slate-50 z-10">
+                    class="absolute inset-0 flex flex-col items-center justify-center h-fit md:h-full p-8 transition-all duration-200 ease-in-out cursor-pointer group bg-slate-50 z-10">
                     <input type="file" id="file-input" accept="image/*" class="hidden">
 
                     <!-- Dashed Border Box with pointer-events-none on texts/icons to prevent bubble glitches -->
                     <div
-                        class="w-full h-full border-2 border-dashed border-slate-200 group-hover:border-brand-primary/50 flex flex-col items-center justify-center p-6 transition-colors duration-200 pointer-events-none">
+                        class="w-full h-auto md:h-full border-2 border-dashed border-slate-200 group-hover:border-brand-primary/50 flex flex-col items-center justify-center p-6 transition-colors duration-200 pointer-events-none">
                         <div
-                            class="w-14 h-14 bg-white border border-brand-border flex items-center justify-center mb-5 transition-transform duration-200 group-hover:-translate-y-1">
+                            class="min-w-14 min-h-14 bg-white border border-brand-border flex items-center justify-center mb-5 transition-transform duration-200 group-hover:-translate-y-1">
                             <i class="ti ti-upload text-2xl text-brand-muted group-hover:text-brand-primary"></i>
                         </div>
                         <h3 class="font-space text-lg font-semibold text-brand-text mb-2 text-center">

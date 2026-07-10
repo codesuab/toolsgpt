@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import './blog.css';
+@import "./blog.css";
 
 @source "../**/*.blade.php";
 @source "../**/*.js";
@@ -115,6 +115,8 @@
         transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
         cursor: pointer;
     }
+
+    .drag-over { @apply border-[#2563eb] bg-[#eff6ff]; }
 }
 @keyframes filterFadeIn {
     from {
@@ -176,27 +178,26 @@
 .tool-card:hover .tool-title {
     color: var(--tool-color);
 }
-.tool-card .tool-card-badge-none{
+.tool-card .tool-card-badge-none {
     background: var(--tool-color);
 }
-.tool-card .too-card-badge{
+.tool-card .too-card-badge {
     background: var(--tool-bg);
     border-color: var(--tool-border);
     color: var(--tool-color);
 }
 
-
 /* mega menu */
-.mega-menu-card .mega-menu-icon{
+.mega-menu-card .mega-menu-icon {
     background: var(--tool-mega-bg);
     border: 1px solid var(--tool-mega-border);
     color: var(--tool-mega-color);
     transition: all 0.35s ease;
 }
-.mega-menu-card:hover .mega-menu-icon{
+.mega-menu-card:hover .mega-menu-icon {
     background: var(--tool-mega-color);
     color: white;
 }
-.mega-menu-card:hover .mega-menu-title{
+.mega-menu-card:hover .mega-menu-title {
     color: var(--tool-mega-color);
 }

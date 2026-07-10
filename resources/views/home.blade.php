@@ -34,18 +34,32 @@
                             class="w-full bg-transparent border-0 p-0 text-sm text-brand-text placeholder-slate-400 focus:outline-none focus:ring-0">
                     </div>
                 </div>
-                <div class="flex items-center justify-between border-b border-slate-200 w-full mb-6">
-                    <div class="flex flex-wrap gap-3 -mb-px">
+                <div class="flex items-center justify-between border-b border-slate-200 w-full mb-6 pb-3 md:pb-0">
+                    <div class="flex justify-start flex-wrap gap-y-2 md:gap-y-4 gap-x-4 -mb-px">
                         <button onclick="filterTools('all', this)"
-                            class="tab-btn pb-3 text-xs font-semibold border-b-2 border-brand-primary text-brand-primary transition-all focus:outline-none cursor-pointer">
+                            class="tab-btn pb-1 md:pb-3 text-xs font-semibold border-b-2 border-brand-primary text-brand-primary transition-all focus:outline-none cursor-pointer">
                             All Tools
                         </button>
                         @foreach ($category as $cat)
                             <button onclick="filterTools('{{ $cat['slug'] }}', this)"
-                                class="tab-btn pb-3 text-xs font-medium border-b-2 border-transparent text-brand-muted hover:text-brand-text hover:border-slate-300 transition-all focus:outline-none cursor-pointer">
+                                class="tab-btn pb-1 md:pb-3 text-xs font-medium border-b-2 border-transparent text-brand-muted hover:text-brand-text hover:border-slate-300 transition-all focus:outline-none cursor-pointer">
                                 {{ $cat['name'] }}
                             </button>
                         @endforeach
+                        <a href="{{ route('all.tool') }}"
+                            class="block md:hidden tab-btn text-xs font-medium border-b-2 border-transparent text-brand-muted hover:text-brand-text hover:border-slate-300 transition-all focus:outline-none cursor-pointer">
+                            <div class="flex items-center">
+                                <span>View all</span> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-narrow-right-dashed">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path d="M5 12h.5m3 0h1.5m3 0h6" />
+                                    <path d="M15 16l4 -4" />
+                                    <path d="M15 8l4 4" />
+                                </svg>
+                            </div>
+                        </a>
                     </div>
                     <a href="{{ route('all.tool') }}"
                         class="hidden md:block tab-btn pb-3 text-xs font-medium border-b-2 border-transparent text-brand-muted hover:text-brand-text hover:border-slate-300 transition-all focus:outline-none cursor-pointer">
@@ -100,14 +114,32 @@
         // Tool card interactive filtering logic
         function filterTools(category, element) {
             // Toggle Active Tab Style
-            const buttons = document.querySelectorAll('.tab-btn');
-            buttons.forEach(btn => {
-                btn.classList.remove('border-brand-primary', 'text-brand-primary', 'font-semibold');
-                btn.classList.add('border-transparent', 'text-brand-muted', 'hover:text-brand-text', 'font-medium');
+            const buttons = document.querySelectorAll(".tab-btn");
+            buttons.forEach((btn) => {
+                btn.classList.remove(
+                    "border-brand-primary",
+                    "text-brand-primary",
+                    "font-semibold",
+                );
+                btn.classList.add(
+                    "border-transparent",
+                    "text-brand-muted",
+                    "hover:text-brand-text",
+                    "font-medium",
+                );
             });
 
-            element.classList.remove('border-transparent', 'text-brand-muted', 'hover:text-brand-text', 'font-medium');
-            element.classList.add('border-brand-primary', 'text-brand-primary', 'font-semibold');
+            element.classList.remove(
+                "border-transparent",
+                "text-brand-muted",
+                "hover:text-brand-text",
+                "font-medium",
+            );
+            element.classList.add(
+                "border-brand-primary",
+                "text-brand-primary",
+                "font-semibold",
+            );
 
             // Apply filters
             applySearchAndFilter();
@@ -115,73 +147,77 @@
 
         function selectCategory(category) {
             // Find matching tab button and trigger filter
-            const tabs = document.querySelectorAll('.tab-btn');
-            tabs.forEach(tab => {
+            const tabs = document.querySelectorAll(".tab-btn");
+            tabs.forEach((tab) => {
                 if (tab.textContent.trim().toLowerCase() === category.toLowerCase()) {
                     tab.click();
                 }
             });
             // Scroll down to the tools section smoothly
-            document.getElementById('tools-section').scrollIntoView({
-                behavior: 'smooth'
+            document.getElementById("tools-section").scrollIntoView({
+                behavior: "smooth",
             });
         }
 
         // Combined live search and category filter
-        const searchInput = document.getElementById('tool-search');
+        const searchInput = document.getElementById("tool-search");
         if (searchInput) {
-            searchInput.addEventListener('input', applySearchAndFilter);
+            searchInput.addEventListener("input", applySearchAndFilter);
         }
 
         function applySearchAndFilter() {
             const query = searchInput.value.toLowerCase().trim();
-            const activeTab = document.querySelector('.tab-btn.text-brand-primary');
-            let activeCategory = 'all';
+            const activeTab = document.querySelector(".tab-btn.text-brand-primary");
+            let activeCategory = "all";
             if (activeTab) {
-                activeCategory = activeTab.textContent.trim().toLowerCase().replace(' tools', '');
+                activeCategory = activeTab.textContent
+                    .trim()
+                    .toLowerCase()
+                    .replace(" tools", "");
             }
 
-            const cards = document.querySelectorAll('.tool-card');
+            const cards = document.querySelectorAll(".tool-card");
             let matchCount = 0;
 
-            cards.forEach(card => {
-                const categories = card.getAttribute('data-categories').split(',');
-                const title = card.querySelector('h3').textContent.toLowerCase();
-                const desc = card.querySelector('p').textContent.toLowerCase();
+            cards.forEach((card) => {
+                const categories = card.getAttribute("data-categories").split(",");
+                const title = card.querySelector("h3").textContent.toLowerCase();
+                const desc = card.querySelector("p").textContent.toLowerCase();
 
-                const matchesCategory = (activeCategory === 'all' || categories.includes(activeCategory));
-                const matchesSearch = (title.includes(query) || desc.includes(query));
+                const matchesCategory =
+                    activeCategory === "all" || categories.includes(activeCategory);
+                const matchesSearch = title.includes(query) || desc.includes(query);
 
                 if (matchesCategory && matchesSearch) {
-                    const wasHidden = card.classList.contains('hidden');
-                    card.classList.remove('hidden');
+                    const wasHidden = card.classList.contains("hidden");
+                    card.classList.remove("hidden");
 
                     // If it was hidden or we want a fresh stagger, trigger transition
                     if (wasHidden) {
-                        card.classList.remove('animate-filter-in');
+                        card.classList.remove("animate-filter-in");
                         void card.offsetWidth; // Force DOM reflow
-                        card.classList.add('animate-filter-in');
+                        card.classList.add("animate-filter-in");
                     }
 
                     matchCount++;
                 } else {
-                    card.classList.add('hidden');
-                    card.classList.remove('animate-filter-in');
+                    card.classList.add("hidden");
+                    card.classList.remove("animate-filter-in");
                 }
             });
 
             // Toggle empty state
-            const emptyState = document.getElementById('search-empty-state');
+            const emptyState = document.getElementById("search-empty-state");
             if (emptyState) {
                 if (matchCount === 0) {
-                    emptyState.classList.remove('hidden');
+                    emptyState.classList.remove("hidden");
                 } else {
-                    emptyState.classList.add('hidden');
+                    emptyState.classList.add("hidden");
                 }
             }
         }
 
-        // Custom smooth accordion implementation
+        // faq
         document.querySelectorAll('.faq-card').forEach(card => {
             const trigger = card.querySelector('.faq-trigger');
             const content = card.querySelector('.faq-content');

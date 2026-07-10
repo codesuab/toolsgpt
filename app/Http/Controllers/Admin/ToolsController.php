@@ -22,11 +22,15 @@ class ToolsController extends Controller
 
     public function add(Request $request)
     {
+        $oldTools = Tool::pluck('view')
+            ->map(fn($item) => str_replace('.blade', '', $item))
+            ->toArray();
 
         $views = collect(File::files(resource_path('views/tools')))
             ->map(function ($file) {
-                return pathinfo($file->getFilename(), PATHINFO_FILENAME);
+                return str_replace('.blade', '', pathinfo($file->getFilename(), PATHINFO_FILENAME));
             })
+            ->diff($oldTools)
             ->values();
 
 

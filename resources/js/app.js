@@ -34,5 +34,11 @@ const page = document.body.dataset.page;
         case "word-counter":
             await import("./tools/word-counter.js");
             break;
+        case "jpg-to-png":
+            await import("./tools/jpg-to-png.js");
+            break;
+        case "png-to-jpg":
+            await import("./tools/png-to-jpg.js");
+            break;
     }
 })();

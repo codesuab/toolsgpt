@@ -13,19 +13,21 @@
         <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
             <!-- Top Category Text Label -->
             <div class="text-[10px] font-bold text-slate-500 uppercase mb-3.5 font-space select-none">
-                {{ config('app.name') }} UTILITIES
+               Total {{ $toolsCount }}+ UTILITIES
             </div>
 
             <!-- Flat Premium Header Title -->
             <h1
                 class="text-3xl sm:text-4xl md:text-5xl font-space font-extrabold max-w-4xl mx-auto leading-[1.15] text-slate-900 mb-4">
-                Secure Online Tools for Document & Image Management
+                All Your Essential Online Tools in One Powerful Workspace
             </h1>
 
             <!-- Broad Subheading Copy -->
             <p class="text-xs sm:text-sm md:text-base text-slate-500 max-w-3xl mx-auto leading-relaxed mb-8">
-                Easy and efficient tools to convert, compress, edit, and crop your files instantly. Powered by
-                client-side WebAssembly, your documents never leave your device.
+                No need to search for different tools every time you need a quick solution.ToolsGPT is a free online
+                toolbox that brings useful web-based tools together in one simple platform. From productivity utilities
+                to developer, image, text, and file tools, everything is available in one organized workspace without
+                unnecessary downloads or installations.
             </p>
 
             <!-- Call to Action Buttons -->

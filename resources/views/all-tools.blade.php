@@ -71,10 +71,10 @@
                 </div>
 
                 <!-- Category Tabs Underline Row -->
-                <div class="flex border-b border-slate-200 w-full mb-6">
-                    <div class="flex flex-wrap gap-3 -mb-px">
+                <div class="flex items-center justify-between border-b border-slate-200 w-full mb-6 pb-3 md:pb-0">
+                   <div class="flex justify-start flex-wrap gap-y-2 md:gap-y-4 gap-x-4 -mb-px">
                         <button onclick="filterTools('all', this)"
-                            class="tab-btn pb-3 text-xs font-semibold border-b-2 border-brand-primary text-brand-primary transition-all focus:outline-none cursor-pointer">
+                             class="tab-btn pb-1 md:pb-3 text-xs font-semibold border-b-2 border-brand-primary text-brand-primary transition-all focus:outline-none cursor-pointer">
                             All Tools
                         </button>
                         @if ($filter)
@@ -85,7 +85,7 @@
                         @else
                             @foreach ($category as $cat)
                                 <button onclick="filterTools('{{ $cat['slug'] }}', this)"
-                                    class="tab-btn pb-3 text-xs font-medium border-b-2 border-transparent text-brand-muted hover:text-brand-text hover:border-slate-300 transition-all focus:outline-none cursor-pointer">
+                                     class="tab-btn pb-1 md:pb-3 text-xs font-medium border-b-2 border-transparent text-brand-muted hover:text-brand-text hover:border-slate-300 transition-all focus:outline-none cursor-pointer">
                                     {{ $cat['name'] }}
                                 </button>
                             @endforeach

@@ -75,8 +75,7 @@ const processJSON = (action) => {
             result = JSON.stringify(parsedData);
             showFeedback("Valid JSON Minified");
         }
-
-        elOutput.value = result;
+        elOutput.innerHTML =result
     } catch (error) {
         let errMsg = error.message;
         // Simplify common error message for better UX
@@ -125,7 +124,7 @@ btnCopy.addEventListener("click", async () => {
         }
         showFeedback("Copied to clipboard");
 
-        updateUsages('json-formatter')
+        updateUsages("json-formatter");
     } catch (err) {
         showFeedback("Failed to copy", "error");
     }
@@ -174,7 +173,7 @@ btnDownload.addEventListener("click", () => {
     URL.revokeObjectURL(url);
     showFeedback("File downloaded");
 
-    updateUsages('json-formatter')
+    updateUsages("json-formatter");
 });
 
 // Logic: Drag and Drop

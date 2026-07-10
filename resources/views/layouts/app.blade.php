@@ -13,11 +13,11 @@
     <link rel="manifest" href="{{ asset('media/favicon/site.webmanifest') }}">
 
     <!-- Dynamic SEO Meta Tags -->
-    <title>{{ config('app.name') }} - @yield('title', '100% Free Online Browser-Based Image Utilities')</title>
+    <title>{{ config('app.name') }} - @yield('title', 'Free Online Browser-Based Tools')</title>
     <meta name="description"
-        content="@yield('meta_description', '100% free and secure browser-based tools for image compression, conversion, resizing, cropping, and more. Local processing via WebAssembly keeps your files completely private.')">
+        content="@yield('meta_description', 'Free online browser-based tools for images, files, text, developers, and productivity. Fast, secure, and privacy-focused utilities with no installation required.')">
     <meta name="keywords"
-        content="@yield('meta_keywords', 'image tools, online image tools, free image tools, image compressor, image converter, image resizer, image cropper, image optimizer, image editor, image format converter, JPG to PNG, PNG to JPG, WebP converter, AVIF converter, image quality optimizer, browser image tools, WebAssembly image processing, secure image tools, privacy-focused image tools, offline image processing, no upload image tools, photo tools, online photo editor, image utilities')">
+        content="@yield('meta_keywords', 'free online tools, browser based tools, web tools, productivity tools, image tools, file tools, developer tools, text tools, online utilities, secure online tools, privacy focused tools, no upload tools, free SaaS tools, image compressor, image converter, PDF tools, text converter, coding tools, file converter, online toolbox')">
     <link rel="canonical" href="{{ request()->url() }}">
 
     <!-- Open Graph / Facebook -->

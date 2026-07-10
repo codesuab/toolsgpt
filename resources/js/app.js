@@ -40,5 +40,8 @@ const page = document.body.dataset.page;
         case "png-to-jpg":
             await import("./tools/png-to-jpg.js");
             break;
+        case "qr-code-generator":
+            await import("./tools/qr-code-generator.js");
+            break;
     }
 })();

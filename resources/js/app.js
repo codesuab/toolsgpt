@@ -54,5 +54,8 @@ const page = document.body.dataset.page;
         case "character-count":
             await import("./tools/character-counter.js");
             break;
+        case "base64-encoder":
+            await import("./tools/base64-encoder.js");
+            break;
     }
 })();

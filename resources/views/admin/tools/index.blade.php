@@ -51,6 +51,9 @@
                                     <button class="table-sort d-flex justify-content-between">View</button>
                                 </th>
                                 <th>
+                                    <button class="table-sort d-flex justify-content-between">Slug</button>
+                                </th>
+                                <th>
                                     <button class="table-sort d-flex justify-content-between">Date</button>
                                 </th>
                                 <th>
@@ -80,6 +83,7 @@
                                         <span class="badge bg-success-lt">{{ $b->status }}</span>
                                     </td>
                                     <td class="sort-view">{{ $b->view }}</td>
+                                    <td class="sort-view">{{ $b->slug }}</td>
                                     <td class="sort-date">{{ $b->usages }}</td>
                                     <td class="sort-date">{{ $b->created_at->format('M d, Y') }}</td>
                                     <td class="sort-date">

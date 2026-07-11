@@ -1,3 +1,60 @@
+@php
+    $popularTools = [
+        [
+            'name'=>'PDF Split',
+            'slug'=>'pdf-split'
+        ],
+        [
+            'name'=>'PDF Merger',
+            'slug'=>'pdf-merge'
+        ],
+        [
+            'name'=>'QR Code Generator',
+            'slug'=>'qr-code-generator'
+        ],
+        [
+            'name'=>'PDF Compressor',
+            'slug'=>'pdf-compressor'
+        ],
+    ];
+    $convertingTools = [
+        [
+            'name'=>'PNG to JPG',
+            'slug'=>'png-to-jpg'
+        ],
+        [
+            'name'=>'JPG to PNG',
+            'slug'=>'jpg-to-png'
+        ],
+        [
+            'name'=>'Compress Image',
+            'slug'=>'compress-image'
+        ],
+        [
+            'name'=>'Crop Images',
+            'slug'=>'crop-images'
+        ],
+    ];
+    $featuresTools = [
+        [
+            'name'=>'Word Counter',
+            'slug'=>'word-counter'
+        ],
+        [
+            'name'=>'Password Generator',
+            'slug'=>'password-generator'
+        ],
+        [
+            'name'=>'JSON Formatter',
+            'slug'=>'json-formatter'
+        ],
+        [
+            'name'=>'Age Calculator',
+            'slug'=>'age-calculator'
+        ],
+    ];
+@endphp
+
 <footer class="border-t border-brand-footer-border bg-brand-footer relative overflow-hidden text-brand-footer-text">
     <!-- Ambient bottom dark purple glow -->
     <div

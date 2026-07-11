@@ -26,45 +26,6 @@ class AppServiceProvider extends ServiceProvider
     {
         // pass data in view
         View::composer('*', function ($view) {
-            // footer ========
-            $popularTools = Cache::remember(
-                'footer_popular_tools',
-                now()->addHours(12),
-                function () {
-                    return Tool::where('status', 'active')
-                        ->whereIn('badge', [
-                            'popular',
-                            '#1 tool',
-                            'trending'
-                        ])
-                        ->limit(10)
-                        ->get()
-                        ->toArray();
-                }
-            );
-            $convertingTools = Cache::remember(
-                'footer_converting_tools',
-                now()->addHours(12),
-                function () {
-                    return Tool::where('status', 'active')
-                        ->whereIn('category_id', ['2', '6'])
-                        ->limit(10)
-                        ->get()
-                        ->toArray();
-                }
-            );
-            $featuresTools = Cache::remember(
-                'footer_features_tools',
-                now()->addHours(12),
-                function () {
-                    return Tool::where('status', 'active')
-                        ->whereIn('badge', ['featured', 'new'])
-                        ->limit(10)
-                        ->get()
-                        ->toArray();
-                }
-            );
-
             // navbar
             $colOne = Cache::remember(
                 'header_mega_menu_colone',
@@ -125,15 +86,12 @@ class AppServiceProvider extends ServiceProvider
             );
 
             $view->with([
-                'popularTools' => $popularTools,
-                'convertingTools' => $convertingTools,
-                'featuresTools' => $featuresTools,
                 'category' => $category,
-                'colOne'=>$colOne,
-                'colTow'=>$colTow,
-                'colThree'=>$colThree,
-                'mobileMega'=>$mobileMega,
-                'toolsCount'=>$toolsCount
+                'colOne' => $colOne,
+                'colTow' => $colTow,
+                'colThree' => $colThree,
+                'mobileMega' => $mobileMega,
+                'toolsCount' => $toolsCount
             ]);
         });
     }

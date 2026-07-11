@@ -57,5 +57,8 @@ const page = document.body.dataset.page;
         case "base64-encoder":
             await import("./tools/base64-encoder.js");
             break;
+        case "base64-decode":
+            await import("./tools/base64-decode.js");
+            break;
     }
 })();

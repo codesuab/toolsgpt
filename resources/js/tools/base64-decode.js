@@ -14,7 +14,7 @@ const statusText = document.getElementById("status-text");
 const fileInput = document.getElementById("file-input");
 const dropZone = document.getElementById("drop-zone");
 
-let currentMode = "encode";
+let currentMode = "decode";
 
 const updateStatus = (msg) => (statusText.textContent = msg);
 
@@ -89,5 +89,5 @@ copyBtn.addEventListener("click", () => {
         copyToClipboard(outputArea.value);
         updateStatus("Copied to clipboard!");
     }
-    updateUsages("base64-encoder");
+    updateUsages("base64-decode");
 });

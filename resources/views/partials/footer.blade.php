@@ -16,6 +16,10 @@
             'name'=>'PDF Compressor',
             'slug'=>'pdf-compressor'
         ],
+        [
+            'name'=>'Crop Images',
+            'slug'=>'crop-images'
+        ],
     ];
     $convertingTools = [
         [
@@ -31,15 +35,15 @@
             'slug'=>'compress-image'
         ],
         [
-            'name'=>'Crop Images',
-            'slug'=>'crop-images'
+            'name'=>'Age Calculator',
+            'slug'=>'age-calculator'
         ],
-    ];
-    $featuresTools = [
         [
             'name'=>'Word Counter',
             'slug'=>'word-counter'
         ],
+    ];
+    $featuresTools = [
         [
             'name'=>'Password Generator',
             'slug'=>'password-generator'
@@ -49,8 +53,12 @@
             'slug'=>'json-formatter'
         ],
         [
-            'name'=>'Age Calculator',
-            'slug'=>'age-calculator'
+            'name'=>'Base64 Encoder',
+            'slug'=>'base64-encoder'
+        ],
+        [
+            'name'=>'Base64 Decode',
+            'slug'=>'base64-decode'
         ],
     ];
 @endphp
@@ -105,7 +113,7 @@
 
             <!-- Column 3: Converters -->
             <div>
-                <h3 class="text-xs font-bold text-white uppercase mb-4.5 font-space">Converters</h3>
+                <h3 class="text-xs font-bold text-white uppercase mb-4.5 font-space">General Tools</h3>
                 <ul class="space-y-2 text-sm text-left">
                     @foreach ($convertingTools as $pt)
                         <li>
@@ -118,7 +126,7 @@
 
             <!-- Column 5: Company -->
             <div>
-                <h3 class="text-xs font-bold text-white uppercase mb-4.5 font-space">Feature Tools</h3>
+                <h3 class="text-xs font-bold text-white uppercase mb-4.5 font-space">Dev Tools</h3>
                 <ul class="space-y-2 text-sm text-left">
                     @foreach ($featuresTools as $pt)
                         <li>

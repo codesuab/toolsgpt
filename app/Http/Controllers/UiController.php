@@ -32,7 +32,7 @@ class UiController extends Controller
                     ELSE 8
                 END
             ")
-            ->take(22)
+            ->take(100)
             ->get();
 
         return view('home', [

@@ -60,5 +60,8 @@ const page = document.body.dataset.page;
         case "base64-decode":
             await import("./tools/base64-decode.js");
             break;
+        case "meta-tag-generator":
+            await import("./tools/meta-tag-generator..js");
+            break;
     }
 })();

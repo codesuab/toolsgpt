@@ -60,6 +60,10 @@
             'name'=>'Base64 Decode',
             'slug'=>'base64-decode'
         ],
+        [
+            'name'=>'Meta Tag Generator',
+            'slug'=>'meta-tag-generator'
+        ],
     ];
 @endphp
 

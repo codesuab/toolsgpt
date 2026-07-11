@@ -10,7 +10,7 @@
     const host = location.hostname.toLowerCase();
 
     if (!ALLOWED.includes(host)) {
-        location.replace("https://toolsgpt.com");
+        location.replace("https://toolsgpt.net");
         throw new Error("Unauthorized Domain");
     }
 })();

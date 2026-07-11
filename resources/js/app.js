@@ -51,5 +51,8 @@ const page = document.body.dataset.page;
             await import("./tools/pdf-merge/pdf-lib.min.js");
             await import("./tools/pdf-split.js");
             break;
+        case "character-count":
+            await import("./tools/character-counter.js");
+            break;
     }
 })();

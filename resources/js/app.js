@@ -43,5 +43,13 @@ const page = document.body.dataset.page;
         case "qr-code-generator":
             await import("./tools/qr-code-generator.js");
             break;
+        case "pdf-merge":
+            await import("./tools/pdf-merge/pdf-lib.min.js");
+            await import("./tools/pdf-merge/pdf-merge.js");
+            break;
+        case "pdf-split":
+            await import("./tools/pdf-merge/pdf-lib.min.js");
+            await import("./tools/pdf-split.js");
+            break;
     }
 })();

@@ -32,7 +32,7 @@ class UiController extends Controller
                     ELSE 8
                 END
             ")
-            ->take(100)
+            ->take(20)
             ->get();
 
         return view('home', [
@@ -64,7 +64,7 @@ class UiController extends Controller
                 END
             ")
             ->where('status', 'active')
-            ->paginate(36);
+            ->paginate(20);
 
         return view('all-tools', [
             'tools' => $tools,

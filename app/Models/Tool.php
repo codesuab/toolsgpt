@@ -14,9 +14,6 @@ class Tool extends Model
         'slug',
         'title',
         'short_title',
-        'step_title',
-        'step_sub_title',
-        'step',
         'content',
         'faq',
         'icon',
@@ -37,6 +34,5 @@ class Tool extends Model
 
     protected $casts = [
         'faq' => 'array',
-        'step' => 'array',
     ];
 }

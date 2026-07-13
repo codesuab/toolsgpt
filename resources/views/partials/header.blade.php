@@ -25,7 +25,7 @@
 
 <header
     class="sticky top-0 z-40 w-full border-b border-slate-200/50 bg-white/80 backdrop-blur-md transition-all duration-300 shadow-sm shadow-slate-100/50">
-    <div class="max-w-360 mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <div class="max-w-360 mx-auto px-4 sm:px-6 lg:px-8 relative duration-300" id="navbar">
         <div class="flex h-16 items-center justify-between">
             <!-- Logo -->
             <a href="{{ route('home') }}" class="flex items-center gap-2.5 group">
@@ -45,7 +45,7 @@
                 @endif
                 <a href="{{ route('all.tool') }}"
                     class="text-sm font-medium transition-all {{ request()->is('all-tools') ? 'text-brand-primary font-bold' : 'text-brand-muted hover:text-brand-primary' }}">
-                    All Tools
+                    Utilities
                 </a>
 
                 <!-- Advanced & Modern Mega Menu Dropdown -->
@@ -67,10 +67,10 @@
                         <div class="space-y-1">
                             @foreach ($colOne as $one)
                                 <a href="{{ route('tool.details', ['slug' => $one['tool']['slug']]) }}" style="
-                                                        --tool-mega-color: {{ $one['tool']['color'] }};
-                                                        --tool-mega-bg: {{ hexToRgb($one['tool']['color'], 0.06) }};
-                                                        --tool-mega-border: {{ hexToRgb($one['tool']['color'], 0.2) }};
-                                                    "
+                                                                                                        --tool-mega-color: {{ $one['tool']['color'] }};
+                                                                                                        --tool-mega-bg: {{ hexToRgb($one['tool']['color'], 0.06) }};
+                                                                                                        --tool-mega-border: {{ hexToRgb($one['tool']['color'], 0.2) }};
+                                                                                                    "
                                     class="mega-menu-card flex items-start gap-3.5 p-2 -mx-2 rounded-brand-btn hover:bg-slate-50 transition-all duration-200">
                                     <div
                                         class="h-9 w-9 rounded-brand-btn flex items-center justify-center shrink-0 transition-all duration-200 bg-orange-50 border border-orange-100 mega-menu-icon">
@@ -93,10 +93,10 @@
                         <div class="space-y-1">
                             @foreach ($colTow as $one)
                                 <a href="{{ route('tool.details', ['slug' => $one['tool']['slug']]) }}" style="
-                                                        --tool-mega-color: {{ $one['tool']['color'] }};
-                                                        --tool-mega-bg: {{ hexToRgb($one['tool']['color'], 0.06) }};
-                                                        --tool-mega-border: {{ hexToRgb($one['tool']['color'], 0.2) }};
-                                                    "
+                                                                                                        --tool-mega-color: {{ $one['tool']['color'] }};
+                                                                                                        --tool-mega-bg: {{ hexToRgb($one['tool']['color'], 0.06) }};
+                                                                                                        --tool-mega-border: {{ hexToRgb($one['tool']['color'], 0.2) }};
+                                                                                                    "
                                     class="mega-menu-card flex items-start gap-3.5 p-2 -mx-2 rounded-brand-btn hover:bg-slate-50 transition-all duration-200">
                                     <div
                                         class="h-9 w-9 rounded-brand-btn flex items-center justify-center shrink-0 transition-all duration-200 bg-orange-50 border border-orange-100 mega-menu-icon">
@@ -119,10 +119,10 @@
                         <div class="space-y-1">
                             @foreach ($colThree as $one)
                                 <a href="{{ route('tool.details', ['slug' => $one['tool']['slug']]) }}" style="
-                                                        --tool-mega-color: {{ $one['tool']['color'] }};
-                                                        --tool-mega-bg: {{ hexToRgb($one['tool']['color'], 0.06) }};
-                                                        --tool-mega-border: {{ hexToRgb($one['tool']['color'], 0.2) }};
-                                                    "
+                                                                                                        --tool-mega-color: {{ $one['tool']['color'] }};
+                                                                                                        --tool-mega-bg: {{ hexToRgb($one['tool']['color'], 0.06) }};
+                                                                                                        --tool-mega-border: {{ hexToRgb($one['tool']['color'], 0.2) }};
+                                                                                                    "
                                     class="mega-menu-card flex items-start gap-3.5 p-2 -mx-2 rounded-brand-btn hover:bg-slate-50 transition-all duration-200">
                                     <div
                                         class="h-9 w-9 rounded-brand-btn flex items-center justify-center shrink-0 transition-all duration-200 bg-orange-50 border border-orange-100 mega-menu-icon">
@@ -176,9 +176,20 @@
             </nav>
 
             <!-- Actions -->
-            <div class="hidden md:flex items-center gap-5">
-                <a href="{{ route('all.tool') }}" class="btn-primary">
-                    Explore More
+            <div class="hidden md:flex items-center gap-2">
+                <div class="hidden navbarSearchToggleBtn">
+                    <button type="button" id="searchToggler" class="btn-secondary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="icon icon-tabler icons-tabler-outline icon-tabler-search mr-1">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M3 10a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+                            <path d="M21 21l-6 -6" />
+                        </svg> Search
+                    </button>
+                </div>
+                <a href="#" class="btn-primary">
+                    Get started
                     <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
@@ -186,9 +197,19 @@
             </div>
 
             <!-- Mobile Menu Button -->
-            <div class="flex md:hidden">
+            <div class="flex gap-2 md:hidden">
+                <button type="button" id="searchToggler"
+                    class="inline-flex h-8 w-8 items-center justify-center rounded-brand-btn p-2 text-brand-muted hover:bg-slate-100 hover:text-brand-text focus:outline-none transition-colors ring ring-brand-border">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="h-6 w-6">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M3 10a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+                        <path d="M21 21l-6 -6" />
+                    </svg>
+                </button>
                 <button type="button" id="mobile-menu-btn"
-                    class="inline-flex items-center justify-center rounded-brand-btn p-2 text-brand-muted hover:bg-slate-100 hover:text-brand-text focus:outline-none transition-colors">
+                    class="inline-flex h-8 w-8 items-center justify-center duration-300 bg-brand-primary rounded-brand-btn p-2 text-white hover:bg-brand-accent hover:text-white focus:outline-none transition-colors ring ring-brand-border">
                     <svg class="h-6 w-6" id="mobile-menu-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"
                         stroke-width="2">
                         <path id="mobile-menu-path" stroke-linecap="round" stroke-linejoin="round"
@@ -238,7 +259,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
                     </svg>
-                    <span>All Tools</span>
+                    <span>All Utilities</span>
                 </a>
 
                 <!-- Mobile Accordion Trigger -->
@@ -296,91 +317,40 @@
     </div>
 </header>
 
-<!-- Interactive script to handle dropdown toggle and mobile menu -->
-@push('scripts')
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Mobile menu toggle
-            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-            const mobileMenuContainer = document.getElementById('mobile-menu-container');
-            const mobileMenuPath = document.getElementById('mobile-menu-path');
 
-            if (mobileMenuBtn && mobileMenuContainer) {
-                mobileMenuBtn.addEventListener('click', () => {
-                    const isClosed = mobileMenuContainer.style.gridTemplateRows === '0fr' ||
-                        mobileMenuContainer.style.gridTemplateRows === '';
-                    if (isClosed) {
-                        mobileMenuContainer.style.gridTemplateRows = '1fr';
-                        if (mobileMenuPath) {
-                            mobileMenuPath.setAttribute('d', 'M6 18L18 6M6 6l12 12');
-                        }
-                    } else {
-                        mobileMenuContainer.style.gridTemplateRows = '0fr';
-                        if (mobileMenuPath) {
-                            mobileMenuPath.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
-                        }
-                    }
-                });
-            }
-
-            // Desktop Mega Menu click behavior
-            const megaTrigger = document.getElementById('mega-menu-trigger');
-            const megaDropdown = document.getElementById('mega-menu-dropdown');
-            const megaChevron = document.getElementById('mega-menu-chevron');
-
-            if (megaTrigger && megaDropdown) {
-                // Click behavior to toggle menu
-                megaTrigger.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    const isOpen = !megaDropdown.classList.contains('opacity-0');
-                    if (isOpen) {
-                        closeMegaMenu();
-                    } else {
-                        openMegaMenu();
-                    }
-                });
-
-                // Close menu when clicking outside of it
-                document.addEventListener('click', (e) => {
-                    if (!megaDropdown.contains(e.target) && !megaTrigger.contains(e.target)) {
-                        closeMegaMenu();
-                    }
-                });
-            }
-
-            function openMegaMenu() {
-                megaDropdown.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
-                megaDropdown.classList.add('opacity-100', 'scale-100', 'pointer-events-auto');
-                if (megaChevron) megaChevron.classList.add('rotate-180');
-            }
-
-            function closeMegaMenu() {
-                megaDropdown.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
-                megaDropdown.classList.remove('opacity-100', 'scale-100', 'pointer-events-auto');
-                if (megaChevron) megaChevron.classList.remove('rotate-180');
-            }
-
-            // Mobile Mega Menu Accordion toggle on click
-            const mobileMegaTrigger = document.getElementById('mobile-mega-trigger');
-            const mobileMegaContainer = document.getElementById('mobile-mega-content-container');
-            const mobileMegaArrow = document.getElementById('mobile-mega-arrow');
-
-            if (mobileMegaTrigger && mobileMegaContainer) {
-                mobileMegaTrigger.addEventListener('click', () => {
-                    const isClosed = mobileMegaContainer.style.gridTemplateRows === '0fr' ||
-                        mobileMegaContainer.style.gridTemplateRows === '';
-                    if (isClosed) {
-                        mobileMegaContainer.style.gridTemplateRows = '1fr';
-                        if (mobileMegaArrow) mobileMegaArrow.classList.add('rotate-180');
-                    } else {
-                        mobileMegaContainer.style.gridTemplateRows = '0fr';
-                        if (mobileMegaArrow) mobileMegaArrow.classList.remove('rotate-180');
-                    }
-                });
-            }
-
-
-        });
-    </script>
-@endpush
+<div id="searchModel"
+    class="fixed top-0 left-0 w-full min-h-screen z-100 bg-brand-accent/10 backdrop-blur-md flex items-center justify-center duration-300 opacity-0 pointer-events-none">
+    <div class="bg-white rounded-brand-card w-full md:w-125 mx-5" id="card">
+        <div class="relative border-b border-brand-border">
+            <i class="ti ti-search text-xl absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"></i>
+            <input type="text"
+                class="border-0 outline-0 focus:outline-0 w-full px-12 py-3 md:py-3.5 placeholder:text-sm placeholder:text-gray-500"
+                placeholder="Search tools, AI, categories…">
+            <button id="searchToggler" class="absolute right-4 top-1/2 -translate-y-1/2">
+                <i class="ti ti-x text-lg text-brand-muted"></i>
+            </button>
+        </div>
+        <div class="max-h-100 overflow-y-auto p-4">
+            <div>
+                <h1 class="flex items-center gap-1 text-xs font-medium text-brand-muted uppercase px-4 mb-3">
+                    <i class="ti ti-clock-hour-12 mt-px"></i>
+                    <span>Search suggestions</span>
+                </h1>
+                <div>
+                    <div class="flex items-center justify-between gap-3 duration-300 hover:bg-brand-bg px-4 py-2">
+                        <div class="flex items-center gap-3">
+                            <div class="w-9 h-9 rounded-brand-card bg-slate-100 flex items-center justify-center">
+                                <i class="ti ti-search text-xl text-gray-500"></i>
+                            </div>
+                            <div>
+                                <h1 class="text-sm font-semibold text-brand-text">Ai tools name</h1>
+                                <p class="text-xs font-light text-brand-muted">Category</p>
+                            </div>
+                        </div>
+                        <i class="ti ti-arrow-narrow-right text-brand-muted"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

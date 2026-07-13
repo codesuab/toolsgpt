@@ -1,53 +1,41 @@
 @extends('layouts.app')
 
 @section('schema_markup')
-    @include('partials.home-schema')
+    @include('partials.home.home-schema')
 @endsection
+@section('data-page', 'home')
 
 @section('content')
-    @include('partials.hero')
+    @include('partials.home.hero')
 
     {{--tools --}}
     <section id="tools-section" class="py-16 bg-slate-50/30 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-4 text-left">
-                <h2 class="text-2xl sm:text-3xl font-space font-bold text-brand-text text-gradient-premium">All Tools</h2>
-                <p class="text-brand-muted text-sm mt-1">Select from our collection of high-performance utilities.</p>
+            {{-- header --}}
+            <div class="mb-6 text-left w-full md:max-w-1/2">
+                <div
+                    class="inline-flex items-center mb-1 gap-1.5 px-3 py-1 rounded-brand-card bg-indigo-50 border border-indigo-100 text-[10px] font-bold text-brand-primary uppercase select-none">
+                    Utilities
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-space font-bold text-brand-text text-gradient-premium">Browser-native
+                    utilities, zero friction</h2>
+                <p class="text-brand-muted text-sm mt-1">Edit images, convert formats, format code and run calculations —
+                    all locally in your browser, with no uploads and no waiting.</p>
             </div>
 
             <!-- Filter Block: Full Width Search & Category Tabs -->
-            <div class="space-y-4 mb-6">
-                <div class="w-full relative group">
-                    <div
-                        class="absolute -inset-0.5 rounded-brand-btn bg-linear-to-r from-indigo-200 to-purple-200 opacity-10 blur group-focus-within:opacity-25 transition-all duration-300">
-                    </div>
-                    <div
-                        class="relative flex items-center bg-brand-card border border-brand-border rounded-brand-btn px-4 py-3 focus-within:border-brand-primary focus-within:ring-1 focus-within:ring-indigo-500/20 transition-colors">
-                        <div class="text-slate-400 mr-3 shrink-0">
-                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                            </svg>
-                        </div>
-                        <input type="search" id="tool-search"
-                            placeholder="Search {{ $toolsCount }}+ free tools (e.g. compress image, SVG to PNG...)"
-                            class="w-full bg-transparent border-0 p-0 text-sm text-brand-text placeholder-slate-400 focus:outline-none focus:ring-0">
-                    </div>
-                </div>
-                <div class="flex items-center justify-between border-b border-slate-200 w-full mb-6 pb-3 md:pb-0">
-                    <div class="flex justify-start flex-wrap gap-y-2 md:gap-y-4 gap-x-4 -mb-px">
-                        <button onclick="filterTools('all', this)"
-                            class="tab-btn pb-1 md:pb-3 text-xs font-semibold border-b-2 border-brand-primary text-brand-primary transition-all focus:outline-none cursor-pointer">
+            <div class="space-y-4 mb-10">
+                <div class="flex items-center justify-between w-full">
+                    <div class="flex justify-start flex-wrap gap-y-2 md:gap-y-4 gap-x-2 -mb-px">
+                        <button data-filter="all" class="tab-btn-active tab-btn-item">
                             All Tools
                         </button>
                         @foreach ($category as $cat)
-                            <button onclick="filterTools('{{ $cat['slug'] }}', this)"
-                                class="tab-btn pb-1 md:pb-3 text-xs font-medium border-b-2 border-transparent text-brand-muted hover:text-brand-text hover:border-slate-300 transition-all focus:outline-none cursor-pointer">
+                            <button data-filter="{{ $cat['slug'] }}" class="tab-btn tab-btn-item">
                                 {{ $cat['name'] }}
                             </button>
                         @endforeach
-                        <a href="{{ route('all.tool') }}"
-                            class="block md:hidden tab-btn text-xs font-medium border-b-2 border-transparent text-brand-muted hover:text-brand-text hover:border-slate-300 transition-all focus:outline-none cursor-pointer">
+                        <a href="{{ route('all.tool') }}" class="tab-btn">
                             <div class="flex items-center">
                                 <span>View all</span> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -61,23 +49,8 @@
                             </div>
                         </a>
                     </div>
-                    <a href="{{ route('all.tool') }}"
-                        class="hidden md:block tab-btn pb-3 text-xs font-medium border-b-2 border-transparent text-brand-muted hover:text-brand-text hover:border-slate-300 transition-all focus:outline-none cursor-pointer">
-                        <div class="flex items-center">
-                            <span>View all</span> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round"
-                                class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-narrow-right-dashed">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                <path d="M5 12h.5m3 0h1.5m3 0h6" />
-                                <path d="M15 16l4 -4" />
-                                <path d="M15 8l4 4" />
-                            </svg>
-                        </div>
-                    </a>
                 </div>
             </div>
-
             <!-- Tools Grid - Reusable Partial -->
             <div id="tools-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
                 @foreach ($tools as $t)
@@ -99,158 +72,13 @@
     </section>
 
     <!-- Content / SEO Section -->
-    <section id="about" class="py-16 md:py-24 border-t border-brand-border bg-white relative">
+    <section id="about" class="py-16 border-t border-brand-border relative">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="space-y-10">
-                @include('partials.home')
-                @include('partials.faq')
+            <div class="space-y-20">
+                @include('partials.home.feature')
+                @include('partials.home.testimonial')
+                @include('partials.home.faq')
             </div>
         </div>
     </section>
-@endsection
-
-@section('scripts')
-    <script>
-        // Tool card interactive filtering logic
-        function filterTools(category, element) {
-            // Toggle Active Tab Style
-            const buttons = document.querySelectorAll(".tab-btn");
-            buttons.forEach((btn) => {
-                btn.classList.remove(
-                    "border-brand-primary",
-                    "text-brand-primary",
-                    "font-semibold",
-                );
-                btn.classList.add(
-                    "border-transparent",
-                    "text-brand-muted",
-                    "hover:text-brand-text",
-                    "font-medium",
-                );
-            });
-
-            element.classList.remove(
-                "border-transparent",
-                "text-brand-muted",
-                "hover:text-brand-text",
-                "font-medium",
-            );
-            element.classList.add(
-                "border-brand-primary",
-                "text-brand-primary",
-                "font-semibold",
-            );
-
-            // Apply filters
-            applySearchAndFilter();
-        }
-
-        function selectCategory(category) {
-            // Find matching tab button and trigger filter
-            const tabs = document.querySelectorAll(".tab-btn");
-            tabs.forEach((tab) => {
-                if (tab.textContent.trim().toLowerCase() === category.toLowerCase()) {
-                    tab.click();
-                }
-            });
-            // Scroll down to the tools section smoothly
-            document.getElementById("tools-section").scrollIntoView({
-                behavior: "smooth",
-            });
-        }
-
-        // Combined live search and category filter
-        const searchInput = document.getElementById("tool-search");
-        if (searchInput) {
-            searchInput.addEventListener("input", applySearchAndFilter);
-        }
-
-        function applySearchAndFilter() {
-            const query = searchInput.value.toLowerCase().trim();
-            const activeTab = document.querySelector(".tab-btn.text-brand-primary");
-            let activeCategory = "all";
-            if (activeTab) {
-                activeCategory = activeTab.textContent
-                    .trim()
-                    .toLowerCase()
-                    .replace(" tools", "");
-            }
-
-            const cards = document.querySelectorAll(".tool-card");
-            let matchCount = 0;
-
-            cards.forEach((card) => {
-                const categories = card.getAttribute("data-categories").split(",");
-                const title = card.querySelector("h3").textContent.toLowerCase();
-                const desc = card.querySelector("p").textContent.toLowerCase();
-
-                const matchesCategory =
-                    activeCategory === "all" || categories.includes(activeCategory);
-                const matchesSearch = title.includes(query) || desc.includes(query);
-
-                if (matchesCategory && matchesSearch) {
-                    const wasHidden = card.classList.contains("hidden");
-                    card.classList.remove("hidden");
-
-                    // If it was hidden or we want a fresh stagger, trigger transition
-                    if (wasHidden) {
-                        card.classList.remove("animate-filter-in");
-                        void card.offsetWidth; // Force DOM reflow
-                        card.classList.add("animate-filter-in");
-                    }
-
-                    matchCount++;
-                } else {
-                    card.classList.add("hidden");
-                    card.classList.remove("animate-filter-in");
-                }
-            });
-
-            // Toggle empty state
-            const emptyState = document.getElementById("search-empty-state");
-            if (emptyState) {
-                if (matchCount === 0) {
-                    emptyState.classList.remove("hidden");
-                } else {
-                    emptyState.classList.add("hidden");
-                }
-            }
-        }
-
-        // faq
-        document.querySelectorAll('.faq-card').forEach(card => {
-            const trigger = card.querySelector('.faq-trigger');
-            const content = card.querySelector('.faq-content');
-            const chevron = card.querySelector('.faq-chevron svg');
-
-            trigger.addEventListener('click', () => {
-                const isActive = card.classList.contains('active');
-
-                // Close all other FAQ cards smoothly
-                document.querySelectorAll('.faq-card').forEach(otherCard => {
-                    if (otherCard !== card && otherCard.classList.contains('active')) {
-                        otherCard.classList.remove('active');
-                        otherCard.querySelector('.faq-content').style.gridTemplateRows = '0fr';
-                        otherCard.querySelector('.faq-chevron svg').classList.remove('rotate-180');
-                        otherCard.classList.remove('border-brand-primary/30',
-                            'shadow-[0_12px_30px_rgba(99,102,241,0.06)]');
-                    }
-                });
-
-                if (isActive) {
-                    card.classList.remove('active');
-                    content.style.gridTemplateRows = '0fr';
-                    chevron.classList.remove('rotate-180');
-                    card.classList.remove('border-brand-primary/30',
-                        'shadow-[0_12px_30px_rgba(99,102,241,0.06)]');
-                } else {
-                    card.classList.add('active');
-                    content.style.gridTemplateRows = '1fr';
-                    chevron.classList.add('rotate-180');
-                    card.classList.add('border-brand-primary/30',
-                        'shadow-[0_12px_30px_rgba(99,102,241,0.06)]');
-                }
-            });
-        });
-    </script>
 @endsection

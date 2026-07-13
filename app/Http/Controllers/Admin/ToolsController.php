@@ -54,8 +54,6 @@ class ToolsController extends Controller
             'slug' => "required|unique:tools,slug," . $request->id,
             'title' => "required",
             'short_title' => "required",
-            'step_title' => "required",
-            'step_sub_title' => "required",
             'content' => 'required',
             'icon' => 'required',
             'color' => 'required',
@@ -79,22 +77,8 @@ class ToolsController extends Controller
             ->values()
             ->toArray();
 
-        $step = collect($request->work_step_title)
-            ->map(function ($question, $index) use ($request) {
-                return [
-                    'title' => $question,
-                    'message' => $request->work_step_message[$index] ?? '',
-                ];
-            })
-            ->filter(fn($item) => filled($item['title']) || filled($item['message']))
-            ->values()
-            ->toArray();
-
-        $data = $request->except('work_step_title', 'work_step_message', 'faq_question', 'faq_answer');
-
-        $data['step'] = $step;
+        $data = $request->except('faq_question', 'faq_answer');
         $data['faq'] = $faq;
-
 
         Tool::updateOrCreate(['id' => $request->id], $data);
 

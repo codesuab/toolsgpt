@@ -1,41 +1,29 @@
 @php
     $faq = [
         [
-            'question' => 'What are online image tools?',
-            'answer' => 'Online image tools help you compress, resize, convert, and optimize images directly in your browser. These tools make images smaller, faster, and ready for websites, social media, and online platforms.'
+            'question' => 'Is ToolsGPT really free?',
+            'answer' => 'Yes. Every utility tool is completely free with no usage limits. AI tools offer a generous free tier, and a Pro plan unlocks higher-volume generation and priority inference.'
         ],
         [
-            'question' => 'Are these image tools free to use?',
-            'answer' => 'Yes, all tools are free to use with no registration or subscription required. You can optimize your images instantly without any hidden charges.'
+            'question' => 'Do my files get uploaded to a server?',
+            'answer' => 'Only when necessary. Most image, PDF, developer, security, converter and calculator tools run entirely in your browser — your data never leaves your device. AI tools that require cloud inference use encrypted, zero-retention endpoints.'
         ],
         [
-            'question' => 'Are my images uploaded to a server?',
-            'answer' => 'No. Our image tools process files directly in your browser. Your images stay on your device, ensuring better privacy and security.'
+            'question' => 'Do I need to create an account?',
+            'answer' => 'No account is required to use any utility tool. You can start using AI tools immediately; an account is only needed to save history and sync across devices.'
         ],
         [
-            'question' => 'Which image formats are supported?',
-            'answer' => 'Our tools support popular image formats including JPG, JPEG, PNG, and WebP for compression, conversion, and optimization.'
+            'question' => 'How often are new tools added?',
+            'answer' => 'We ship new tools every week, driven by community requests and advances in AI. You can vote on what we build next from the roadmap.'
         ],
-        [
-            'question' => 'Can I use these tools on mobile devices?',
-            'answer' => 'Yes, our browser-based image tools work on smartphones, tablets, and desktop devices without installing any application.'
-        ],
-        [
-            'question' => 'Do I need to create an account to use the tools?',
-            'answer' => 'No account is required. You can access and use all available tools instantly from your browser.'
-        ],
-        [
-            'question' => 'How can image compression improve website performance?',
-            'answer' => 'Compressed images reduce file size, improve page loading speed, save bandwidth, and help create a better user experience and SEO performance.'
-        ],
-        [
-            'question' => 'Can I process multiple images at once?',
-            'answer' => 'Yes, selected tools support batch processing, allowing you to optimize multiple images quickly and efficiently.'
-        ]
     ];
 @endphp
 <div class="space-y-6">
-    <div class="text-center max-w-xl mx-auto mb-6">
+    <div class="text-center max-w-xl mx-auto mb-10">
+        <div
+            class="inline-flex items-center gap-1.5 px-3 py-1 rounded-brand-card mb-1 bg-indigo-50 border border-indigo-100 text-[10px] font-bold text-brand-primary uppercase select-none">
+            FAQ
+        </div>
         <h3 class="text-2xl font-bold text-brand-text text-gradient-premium font-space">
             Frequently Asked Questions
         </h3>
@@ -44,7 +32,7 @@
         </p>
     </div>
 
-    <div class="flex flex-col gap-2.5 max-w-3xl mx-auto">
+    <div class="flex flex-col gap-1 max-w-3xl mx-auto">
         @foreach ($faq as $f)
             <div
                 class="faq-card group rounded-brand-card border border-slate-200/60 bg-brand-card transition-all duration-300 hover:border-brand-primary/20 hover:shadow-[0_8px_30px_rgba(99,102,241,0.02)]">

@@ -1,68 +1,68 @@
 @php
     $popularTools = [
         [
-            'name'=>'PDF Split',
-            'slug'=>'pdf-split'
+            'name' => 'PDF Split',
+            'slug' => 'pdf-split'
         ],
         [
-            'name'=>'PDF Merger',
-            'slug'=>'pdf-merge'
+            'name' => 'PDF Merger',
+            'slug' => 'pdf-merge'
         ],
         [
-            'name'=>'QR Code Generator',
-            'slug'=>'qr-code-generator'
+            'name' => 'QR Code Generator',
+            'slug' => 'qr-code-generator'
         ],
         [
-            'name'=>'PDF Compressor',
-            'slug'=>'pdf-compressor'
+            'name' => 'PDF Compressor',
+            'slug' => 'pdf-compressor'
         ],
         [
-            'name'=>'Crop Images',
-            'slug'=>'crop-images'
+            'name' => 'Crop Images',
+            'slug' => 'crop-images'
         ],
     ];
     $convertingTools = [
         [
-            'name'=>'PNG to JPG',
-            'slug'=>'png-to-jpg'
+            'name' => 'PNG to JPG',
+            'slug' => 'png-to-jpg'
         ],
         [
-            'name'=>'JPG to PNG',
-            'slug'=>'jpg-to-png'
+            'name' => 'JPG to PNG',
+            'slug' => 'jpg-to-png'
         ],
         [
-            'name'=>'Compress Image',
-            'slug'=>'compress-image'
+            'name' => 'Compress Image',
+            'slug' => 'compress-image'
         ],
         [
-            'name'=>'Age Calculator',
-            'slug'=>'age-calculator'
+            'name' => 'Age Calculator',
+            'slug' => 'age-calculator'
         ],
         [
-            'name'=>'Word Counter',
-            'slug'=>'word-counter'
+            'name' => 'Word Counter',
+            'slug' => 'word-counter'
         ],
     ];
     $featuresTools = [
         [
-            'name'=>'Password Generator',
-            'slug'=>'password-generator'
+            'name' => 'Password Generator',
+            'slug' => 'password-generator'
         ],
         [
-            'name'=>'JSON Formatter',
-            'slug'=>'json-formatter'
+            'name' => 'JSON Formatter',
+            'slug' => 'json-formatter'
         ],
         [
-            'name'=>'Base64 Encoder',
-            'slug'=>'base64-encoder'
+            'name' => 'Base64 Encoder',
+            'slug' => 'base64-encoder'
         ],
         [
-            'name'=>'Base64 Decode',
-            'slug'=>'base64-decode'
+            'name' => 'Base64 Decode',
+            'slug' => 'base64-decode'
         ],
         [
-            'name'=>'Meta Tag Generator',
-            'slug'=>'meta-tag-generator'
+            'name' => 'Meta Tag Generator',
+            'slug' => 'meta-tag-generator'
         ],
     ];
 @endphp
@@ -71,6 +71,28 @@
     <!-- Ambient bottom dark purple glow -->
     <div
         class="absolute bottom-0 left-[20%] w-[35vw] h-[35vw] rounded-full bg-purple-950/15 blur-[120px] pointer-events-none z-0">
+    </div>
+
+    {{-- cta --}}
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div class="space-y-2">
+                <h2 class="mt-2 text-3xl font-semibold leading-tight tracking-tight text-white md:leading-[1.1]">
+                    Your intelligent workspace<br class="hidden sm:block">
+                    <span class="bg-linear-to-r from-white to-brand-primary bg-clip-text text-transparent"> is
+                        one
+                        click
+                        away.</span>
+                </h2>
+                <p class="text-xs text-white/80 font-light">Join 1.8M+ creators and developers who replaced a dozen
+                    tools
+                    with one calm, beautiful workspace.</p>
+            </div>
+            <div class="flex items-center md:justify-end gap-3">
+                <a href="" class="btn-primary">Explore all tools</a>
+                <a href="" class="btn-secondary">Try AI tools</a>
+            </div>
+        </div>
     </div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 lg:pt-20 relative z-10">
@@ -83,22 +105,9 @@
                     </span>
                 </a>
                 <p class="text-brand-footer-text text-xs leading-relaxed text-left">
-                    ToolsGPT offers free, fast, and secure online tools to compress images, convert files, generate
-                    content, calculate values, and simplify everyday tasks directly in your browser.
+                    Everything you need, in one intelligent workspace. AI tools, utilities and 120+ browser-based tools
+                    — beautifully unified.
                 </p>
-
-                <!-- GDPR Safe Box -->
-                <div
-                    class="rounded-brand-btn border border-slate-800 bg-slate-950/50 p-3 flex items-start gap-2.5 shadow-[3px_3px_0px_0px_#1e293b] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[5px_5px_0px_0px_#1e293b] transition-all duration-300 select-none">
-                    <svg class="h-4.5 w-4.5 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor" stroke-width="2.5">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                    </svg>
-                    <div class="text-[11px] font-bold text-slate-200 leading-normal text-left font-space">
-                        GDPR Safe. Nothing leaves your browser.
-                    </div>
-                </div>
             </div>
 
             <!-- Column 2: Popular Tools -->
@@ -172,7 +181,7 @@
         <div
             class="py-8 flex flex-col md:flex-row items-center justify-between text-xs text-brand-footer-muted font-medium font-space space-y-2">
             <div>
-                &copy; 2026-{{ now()->year }} {{ request()->getHost() }} Free forever.
+                &copy; {{ now()->year }} {{ config('app.name') }}. All rights reserved.
             </div>
             <div class="flex items-center gap-1">
                 Made by <span class="text-red-500">♥</span> <a href="https://codesuab.com" target="_blank"

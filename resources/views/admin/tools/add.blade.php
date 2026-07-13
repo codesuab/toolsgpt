@@ -46,34 +46,17 @@
                             @enderror
                         </div>
                         <div class="col-12 col-md-6">
-                            <label class="form-label required">Title</label>
+                            <label class="form-label required">Long name</label>
                             <input class="form-control" name="title" value="{{ old('title', $data?->title) }}" />
                             @error('title')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
                         </div>
                         <div class="col-12">
-                            <label class="form-label required">Sub Title</label>
+                            <label class="form-label required">Long name sub Title</label>
                             <textarea class="form-control"
                                 name="short_title">{{ old('short_title', $data?->short_title) }}</textarea>
                             @error('short_title')
-                                <small class="text-danger">{{ $message }}</small>
-                            @enderror
-                        </div>
-
-                        <div class="col-12">
-                            <label class="form-label required">Step title</label>
-                            <input class="form-control" name="step_title"
-                                value="{{ old('step_title', $data?->step_title) }}" />
-                            @error('step_title')
-                                <small class="text-danger">{{ $message }}</small>
-                            @enderror
-                        </div>
-                        <div class="col-12">
-                            <label class="form-label required">Step Sub Title</label>
-                            <textarea class="form-control"
-                                name="step_sub_title">{{ old('step_sub_title', $data?->step_sub_title) }}</textarea>
-                            @error('step_sub_title')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
                         </div>
@@ -104,29 +87,6 @@
                                     </div>
                                     <button type="button" id="add-faq" class="btn btn-primary">
                                         Add FAQ
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <label class="form-label required">Working step</label>
-                            <div class="card">
-                                <div class="card-body">
-                                    <div id="step-wrapper">
-                                        @if ($data)
-                                            @foreach ($data?->step as $s)
-                                                <div class="step-item border p-3 mb-3">
-                                                    <input type="text" name="work_step_title[]" value="{{ $s['title'] }}"
-                                                        class="form-control mb-2" placeholder="Title">
-                                                    <textarea name="work_step_message[]" class="form-control"
-                                                        placeholder="Message">{{ $s['message'] }}</textarea>
-                                                    <button type="button" class="btn btn-danger mt-2 remove-step">Remove</button>
-                                                </div>
-                                            @endforeach
-                                        @endif
-                                    </div>
-                                    <button type="button" id="add-step" class="btn btn-primary">
-                                        Add Step
                                     </button>
                                 </div>
                             </div>

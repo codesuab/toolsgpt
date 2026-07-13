@@ -32,11 +32,23 @@
                             <tr>
                                 <th>
                                     <button class="table-sort d-flex justify-content-between"
+                                        data-sort="sort-name">Icon</button>
+                                </th>
+                                <th>
+                                    <button class="table-sort d-flex justify-content-between"
                                         data-sort="sort-name">Name</button>
                                 </th>
                                 <th>
                                     <button class="table-sort d-flex justify-content-between"
                                         data-sort="sort-slug">Slug</button>
+                                </th>
+                                <th>
+                                    <button class="table-sort d-flex justify-content-between"
+                                        data-sort="sort-date">Taq</button>
+                                </th>
+                                <th>
+                                    <button class="table-sort d-flex justify-content-between"
+                                        data-sort="sort-date">Total tool</button>
                                 </th>
                                 <th>
                                     <button class="table-sort d-flex justify-content-between"
@@ -51,11 +63,18 @@
                             @foreach ($data as $b)
                                 <tr>
                                     <td class="sort-name">
+                                        <div style="color: {{ $b?->color }}">
+                                            {!! $b?->icon !!}
+                                        </div>
+                                    </td>
+                                    <td class="sort-name">
                                         {{ $b->name }}
                                     </td>
                                     <td class="sort-slug">
                                         {{ $b->slug }}
                                     </td>
+                                    <td class="sort-date">{{ $b?->taq_line }}</td>
+                                    <td class="sort-date">{{ $b?->tools_count }} Tools</td>
                                     <td class="sort-date">{{ $b->created_at->format('M d, Y') }}</td>
                                     <td>
                                         <div class="btn-actions justify-content-end">
@@ -132,6 +151,30 @@
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
                         </div>
+                        <div class="mb-3">
+                            <label class="form-label required">Taq Line</label>
+                            <input type="text" name="taq_line" value="{{old('taq_line') }}" class="form-control"
+                                autocomplete="off" />
+                            @error('taq_line')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label required">Icon</label>
+                            <textarea type="text" name="icon" class="form-control"
+                                autocomplete="off">{{old('icon') }}</textarea>
+                            @error('icon')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label required">Color</label>
+                            <input type="color" name="color" value="{{old('color') }}" class="form-control"
+                                autocomplete="off" />
+                            @error('color')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div>
                         <button type="submit" class="btn btn-primary w-100">Save now</button>
                     </form>
                 </div>
@@ -194,10 +237,16 @@
             const idInput = document.querySelector('[name="id"]');
             const nameInput = document.querySelector('[name="name"]');
             const slugInput = document.querySelector('[name="slug"]');
+            const iconInput = document.querySelector('[name="icon"]');
+            const colorInput = document.querySelector('[name="color"]');
+            const taqInput = document.querySelector('[name="taq_line"]');
 
             idInput.value = data.id;
             nameInput.value = data.name;
             slugInput.value = data.slug;
+            iconInput.value = data.icon;
+            colorInput.value = data.color;
+            taqInput.value = data.taq_line;
 
             document.getElementById('newButton').click();
         }

@@ -38,101 +38,54 @@
     --radius-brand-btn: 0;
 }
 
-@layer utilities {
+@layer components {
     .bg-dot-grid {
-        background-image: radial-gradient(
-            rgba(37, 99, 235, 0.05) 1.5px,
-            transparent 1.5px
-        );
-        background-size: 24px 24px;
+        @apply bg-[radial-gradient(rgba(37,99,235,0.05)_1.5px,transparent_1.5px)] bg-size-[24px_24px];
     }
 
     /* test liner */
     .text-gradient-premium {
-        background: linear-gradient(
-            135deg,
-            #0f172a 30%,
-            var(--color-brand-primary) 100%
-        );
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        @apply bg-linear-to-br from-brand-text via-brand-text to-brand-primary bg-clip-text text-transparent;
     }
+
     .text-gradient {
-        background: linear-gradient(
-            120deg,
-            var(--color-brand-primary) 0%,
-            #7c3aed 100%
-        );
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
+        @apply bg-linear-to-br from-brand-primary to-[#7c3aed] bg-clip-text text-transparent;
     }
+
     .text-gradient-secondary {
-        background: linear-gradient(
-            120deg,
-            var(--color-brand-text) 20%,
-            var(--color-brand-primary) 80%
-        );
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
+        @apply bg-linear-to-r from-brand-text to-brand-primary bg-clip-text text-transparent;
     }
 
     /* filter */
     .glow-indigo {
-        box-shadow: 0 0 40px -10px rgba(37, 99, 235, 0.08);
+        @apply shadow-[0_0_40px_-10px_rgba(37,99,235,0.08)];
     }
+
     .animate-filter-in {
         animation: filterFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
     /* button */
     .btn-primary {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0.625rem 1.25rem;
-        font-size: 0.75rem;
-        font-weight: 700;
-        border-radius: var(--radius-brand-btn);
-        color: #ffffff;
-        background-color: var(--color-brand-primary);
-        box-shadow:
-            0 4px 6px -1px rgba(79, 70, 229, 0.1),
-            0 2px 4px -2px rgba(79, 70, 229, 0.1);
-        transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
-        gap: 0.375rem;
-        cursor: pointer;
-        border: 1px solid transparent;
+        @apply flex items-center justify-center px-5 py-2.5 text-xs font-bold rounded-brand-btn text-white bg-brand-primary shadow-[0_4px_6px_-1px_rgba(79,70,229,0.1),0_2px_4px_-2px_rgba(79,70,229,0.1)] gap-1.5 cursor-pointer border border-transparent transition-all duration-150 ease-in-out;
 
         &:hover {
-            background-color: var(--color-brand-primary-hover);
+            @apply bg-brand-primary-hover;
         }
+
         &:focus {
-            outline: none;
+            @apply outline-none;
         }
     }
     .btn-secondary {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0.625rem 1.25rem;
-        font-size: 0.75rem;
-        font-weight: 650;
-        border-radius: var(--radius-brand-btn);
-        border: 1px solid var(--color-brand-border);
-        color: var(--color-brand-muted);
-        background-color: #ffffff;
-        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-        transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
-        cursor: pointer;
+        @apply flex items-center justify-center px-5 py-2.5 text-xs font-[650] rounded-brand-btn border border-brand-border text-brand-muted bg-white shadow-[0_1px_2px_0_rgba(0,0,0,0.05)] transition-all duration-150 ease-in-out cursor-pointer;
 
         &:hover {
-            background-color: #f8fafc;
-            color: var(--color-brand-text);
+            @apply bg-slate-50 text-brand-text;
         }
+
         &:focus {
-            outline: none;
+            @apply outline-none;
         }
     }
 

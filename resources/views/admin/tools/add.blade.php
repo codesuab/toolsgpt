@@ -151,14 +151,6 @@
                             @enderror
                         </div>
                         <div class="col-12">
-                            <label class="form-label">Cat Slug</label>
-                            <input class="form-control" name="cat_slug"
-                                value="{{ old('cat_slug', $data?->cat_slug) }}" />
-                            @error('cat_slug')
-                                <small class="text-danger">{{ $message }}</small>
-                            @enderror
-                        </div>
-                        <div class="col-12">
                             <label class="form-label ">Meta Title</label>
                             <input class="form-control" name="meta_title"
                                 value="{{ old('meta_title', $data?->meta_title) }}" />

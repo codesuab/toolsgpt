@@ -4,6 +4,7 @@
     "@@type": "WebSite",
     "name": "{{ config('app.name') }}",
     "url": "{{ url('/') }}",
+    "description": "AI tools and free browser-based utilities for images, files, PDFs, text, developers, and productivity.",
     "potentialAction": {
         "@@type": "SearchAction",
         "target": "{{ url('/') }}?q={search_term_string}",
@@ -19,58 +20,66 @@
     "mainEntity": [
         {
             "@@type": "Question",
-            "name": "What are online image tools?",
+            "name": "Is ToolsGPT really free?",
             "acceptedAnswer": {
                 "@@type": "Answer",
-                "text": "Online image tools help you compress, resize, convert, and optimize images directly in your browser. These tools make images smaller, faster, and ready for websites, social media, and online platforms."
+                "text": "Yes. ToolsGPT provides free AI tools and online utilities for images, files, text, developers, and productivity. Most tools can be used without registration or limits."
             }
         },
         {
             "@@type": "Question",
-            "name": "Are image tools free to use?",
+            "name": "Do my files get uploaded to a server?",
             "acceptedAnswer": {
                 "@@type": "Answer",
-                "text": "{{ config('app.name') }} provides free online image tools with no registration, subscription, or hidden charges. You can optimize your images instantly from your browser."
+                "text": "Most ToolsGPT utilities process files directly in your browser. Your images, PDFs, and documents stay on your device whenever local processing is available."
             }
         },
         {
             "@@type": "Question",
-            "name": "Are my images uploaded to a server?",
+            "name": "What type of tools does ToolsGPT offer?",
             "acceptedAnswer": {
                 "@@type": "Answer",
-                "text": "No. All image processing happens locally in your browser. Your files stay on your device and are never uploaded to external servers, ensuring complete privacy."
+                "text": "ToolsGPT offers AI tools, image tools, PDF utilities, file converters, developer tools, text tools, calculators, and productivity solutions."
             }
         },
         {
             "@@type": "Question",
-            "name": "Which image formats are supported?",
+            "name": "Do I need an account to use ToolsGPT?",
             "acceptedAnswer": {
                 "@@type": "Answer",
-                "text": "{{ config('app.name') }} supports popular image formats including JPG, JPEG, PNG, and WebP for compression, conversion, and optimization."
+                "text": "No. You can use most ToolsGPT tools instantly without creating an account. Registration is only needed for optional features like saving history."
             }
         },
         {
             "@@type": "Question",
-            "name": "Can I use these image tools on mobile devices?",
+            "name": "Are ToolsGPT tools safe and private?",
             "acceptedAnswer": {
                 "@@type": "Answer",
-                "text": "Yes. Our browser-based image tools work smoothly on mobile phones, tablets, and desktop devices without installing any software."
+                "text": "Yes. ToolsGPT focuses on privacy and security. Browser-based tools process data locally whenever possible, keeping your files on your device."
             }
         },
         {
             "@@type": "Question",
-            "name": "Do I need to create an account to use the tools?",
+            "name": "Can I use ToolsGPT on mobile devices?",
             "acceptedAnswer": {
                 "@@type": "Answer",
-                "text": "No account is required. You can use all available image tools instantly without registration."
+                "text": "Yes. ToolsGPT works on mobile phones, tablets, and desktop browsers without installing additional software."
             }
         },
         {
             "@@type": "Question",
-            "name": "How does image compression improve website performance?",
+            "name": "Do ToolsGPT tools require installation?",
             "acceptedAnswer": {
                 "@@type": "Answer",
-                "text": "Image compression reduces file size, improves page loading speed, saves bandwidth, and helps create a better user experience and SEO performance."
+                "text": "No. ToolsGPT provides browser-based online tools that work directly from your web browser without downloads or installations."
+            }
+        },
+        {
+            "@@type": "Question",
+            "name": "How often are new tools added to ToolsGPT?",
+            "acceptedAnswer": {
+                "@@type": "Answer",
+                "text": "New AI tools and online utilities are added regularly based on technology updates, user needs, and community feedback."
             }
         }
     ]

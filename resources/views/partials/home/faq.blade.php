@@ -2,19 +2,35 @@
     $faq = [
         [
             'question' => 'Is ToolsGPT really free?',
-            'answer' => 'Yes. Every utility tool is completely free with no usage limits. AI tools offer a generous free tier, and a Pro plan unlocks higher-volume generation and priority inference.'
+            'answer' => 'Yes. ToolsGPT provides free online tools with no usage limits for everyday tasks. AI tools include a generous free tier, while premium features may be available for advanced usage.'
         ],
         [
             'question' => 'Do my files get uploaded to a server?',
-            'answer' => 'Only when necessary. Most image, PDF, developer, security, converter and calculator tools run entirely in your browser — your data never leaves your device. AI tools that require cloud inference use encrypted, zero-retention endpoints.'
+            'answer' => 'Most tools process your files directly in your browser. Your images, PDFs, and documents stay on your device. Tools that require AI cloud processing use secure encrypted connections.'
         ],
         [
             'question' => 'Do I need to create an account?',
-            'answer' => 'No account is required to use any utility tool. You can start using AI tools immediately; an account is only needed to save history and sync across devices.'
+            'answer' => 'No account is required to use most ToolsGPT utilities. You can access AI tools, image tools, file converters, and productivity tools instantly without registration.'
+        ],
+        [
+            'question' => 'What kind of tools does ToolsGPT provide?',
+            'answer' => 'ToolsGPT offers AI tools, image utilities, PDF tools, file converters, developer tools, text tools, calculators, and productivity solutions in one platform.'
+        ],
+        [
+            'question' => 'Are ToolsGPT tools safe to use?',
+            'answer' => 'Yes. ToolsGPT focuses on privacy and security. Browser-based tools process data locally whenever possible, reducing the need to upload your files.'
+        ],
+        [
+            'question' => 'Can I use ToolsGPT on mobile devices?',
+            'answer' => 'Yes. ToolsGPT is optimized for desktop, tablet, and mobile browsers, allowing you to use online tools from any device.'
         ],
         [
             'question' => 'How often are new tools added?',
-            'answer' => 'We ship new tools every week, driven by community requests and advances in AI. You can vote on what we build next from the roadmap.'
+            'answer' => 'New AI tools and online utilities are added regularly based on user needs, technology updates, and community feedback.'
+        ],
+        [
+            'question' => 'Do ToolsGPT tools require installation?',
+            'answer' => 'No. All ToolsGPT utilities work directly in your browser without installing additional software or extensions.'
         ],
     ];
 @endphp
@@ -24,7 +40,7 @@
             class="inline-flex items-center gap-1.5 px-3 py-1 rounded-brand-card mb-1 bg-indigo-50 border border-indigo-100 text-[10px] font-bold text-brand-primary uppercase select-none">
             FAQ
         </div>
-        <h3 class="text-2xl font-bold text-brand-text text-gradient-premium font-space">
+        <h3 class="text-2xl font-bold text-gradient-secondary font-space">
             Frequently Asked Questions
         </h3>
         <p class="text-brand-muted text-xs mt-1">

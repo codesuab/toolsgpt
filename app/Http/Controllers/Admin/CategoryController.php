@@ -11,7 +11,7 @@ class CategoryController extends Controller
     // 
     public function index()
     {
-        $data = Category::latest()->get();
+        $data = Category::latest()->withCount('tools')->get();
         return view('admin.category', ['data' => $data]);
     }
 
@@ -19,7 +19,10 @@ class CategoryController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'slug' => 'required|unique:categories,slug,' . $request->id
+            'slug' => 'required|unique:categories,slug,' . $request->id,
+            'icon'=>'required',
+            'color'=>'required',
+            'taq_line'=>'required'
         ]);
 
         Category::updateOrCreate(['id' => $request->id], $request->except('id'));

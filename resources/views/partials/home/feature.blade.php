@@ -48,97 +48,30 @@
     ];
 @endphp
 
-<div class="text-center max-w-3xl mx-auto mb-10">
+<div class="w-full md:max-w-1/2 mb-10">
     <div
         class="inline-flex items-center gap-1.5 px-3 py-1 rounded-brand-card mb-1 bg-indigo-50 border border-indigo-100 text-[10px] font-bold text-brand-primary uppercase select-none">
         Features
     </div>
-    <h2 class="text-3xl md:text-4xl font-space font-bold text-brand-text text-gradient-secondary">
+    <h2 class="text-2xl sm:text-3xl font-space font-bold text-gradient-secondary">
         Built like a premium product
     </h2>
     <p class="text-brand-muted text-sm leading-relaxed">
         Every detail — from performance to privacy to polish — is engineered to feel effortless.
     </p>
 </div>
-<div class="space-y-8">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-        @foreach ($featureData as $f)
+<div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+    @foreach ($featureData as $f)
+        <div
+            class="group border border-slate-200/60 bg-brand-card p-6 rounded-brand-card hover:shadow-[0_20px_40px_rgba(99,102,241,0.03)] transition-all duration-300">
             <div
-                class="group border border-slate-200/60 bg-brand-card p-6 rounded-brand-card hover:shadow-[0_20px_40px_rgba(99,102,241,0.03)] transition-all duration-300">
-                <div
-                    class="h-10 w-10 rounded-brand-btn bg-indigo-50 border border-indigo-100 flex items-center justify-center text-brand-primary mb-4 group-hover:bg-brand-primary group-hover:text-white transition-all duration-300">
-                    {!! $f['icon'] !!}
-                </div>
-                <h4 class="text-base font-bold text-slate-800 mb-2 font-space">{{ $f['title'] }}</h4>
-                <p class="text-brand-muted text-xs leading-relaxed">
-                    {{ $f['message'] }}
-                </p>
+                class="h-10 w-10 rounded-brand-btn bg-indigo-50 border border-indigo-100 flex items-center justify-center text-brand-primary mb-4 group-hover:bg-brand-primary group-hover:text-white transition-all duration-300">
+                {!! $f['icon'] !!}
             </div>
-        @endforeach
-    </div>
-</div>
-
-<div class="bg-white border border-slate-200/60 rounded-brand-card p-6 md:p-8 relative overflow-hidden">
-    <div class="absolute inset-0 bg-dot-grid opacity-30 pointer-events-none"></div>
-    <div class="relative z-10">
-        <div class="text-center max-w-xl mx-auto mb-10">
-            <h3 class="text-xl sm:text-2xl font-space font-bold text-gradient-secondary">
-                Four steps from idea to output
-            </h3>
-            <p class="text-brand-muted text-xs mt-1">
-                A workflow so simple it disappears. You stay focused on the work — not the tooling.
+            <h4 class="text-base font-bold text-slate-800 mb-2 font-space">{{ $f['title'] }}</h4>
+            <p class="text-brand-muted text-xs leading-relaxed">
+                {{ $f['message'] }}
             </p>
         </div>
-
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 relative">
-            <!-- Connector line for larger screens -->
-            <div class="hidden md:block absolute top-6 left-[12%] right-[12%] h-0.5 bg-slate-200 z-0">
-            </div>
-
-            <!-- Step 1 -->
-            <div class="flex flex-col items-center text-center space-y-3 relative z-10">
-                <div
-                    class="h-12 w-12 rounded-full bg-white border-2 border-indigo-500 flex items-center justify-center text-brand-primary font-bold text-sm font-space shadow-sm transition-all duration-300 hover:scale-110">
-                    01
-                </div>
-                <h4 class="font-bold text-sm text-slate-800 font-space">Find your tool</h4>
-                <p class="text-brand-muted text-xs max-w-50 leading-relaxed">
-                    Search {{ $toolsCount }}+ tools with Cmd+K or browse curated categories tailored to your workflow.
-                </p>
-            </div>
-            <!-- Step 2 -->
-            <div class="flex flex-col items-center text-center space-y-3 relative z-10">
-                <div
-                    class="h-12 w-12 rounded-full bg-white border-2 border-indigo-500 flex items-center justify-center text-brand-primary font-bold text-sm font-space shadow-sm transition-all duration-300 hover:scale-110">
-                    02
-                </div>
-                <h4 class="font-bold text-sm text-slate-800 font-space">Configure it</h4>
-                <p class="text-brand-muted text-xs max-w-50 leading-relaxed">
-                    Adjust options in a clean, focused panel — no clutter, no confusing settings trees.
-                </p>
-            </div>
-            <!-- Step 3 -->
-            <div class="flex flex-col items-center text-center space-y-3 relative z-10">
-                <div
-                    class="h-12 w-12 rounded-full bg-white border-2 border-indigo-500 flex items-center justify-center text-brand-primary font-bold text-sm font-space shadow-sm transition-all duration-300 hover:scale-110">
-                    03
-                </div>
-                <h4 class="font-bold text-sm text-slate-800 font-space">Run the magic</h4>
-                <p class="text-brand-muted text-xs max-w-50 leading-relaxed">
-                    Process locally or with AI and watch results stream into a live preview in real time.
-                </p>
-            </div>
-            <!-- Step 4 -->
-            <div class="flex flex-col items-center text-center space-y-3 relative z-10">
-                <div
-                    class="h-12 w-12 rounded-full bg-white border-2 border-indigo-500 flex items-center justify-center text-brand-primary font-bold text-sm font-space shadow-sm transition-all duration-300 hover:scale-110">
-                    04
-                </div>
-                <h4 class="font-bold text-sm text-slate-800 font-space">Export & share</h4>
-                <p class="text-brand-muted text-xs max-w-500 leading-relaxed">
-                    Copy, download or share your output in the format you need — instantly and freely.
-                </p>
-            </div>
-        </div>
-    </div>
+    @endforeach
 </div>

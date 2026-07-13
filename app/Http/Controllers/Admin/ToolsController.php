@@ -62,8 +62,9 @@ class ToolsController extends Controller
             'meta_description' => 'nullable',
             'meta_keyword' => 'nullable',
             'badge' => 'nullable',
-            'cat_slug' => 'nullable',
         ]);
+
+        $category = Category::find($request->category_id);
 
         // step and faq
         $faq = collect($request->faq_question)
@@ -79,6 +80,7 @@ class ToolsController extends Controller
 
         $data = $request->except('faq_question', 'faq_answer');
         $data['faq'] = $faq;
+        $data['cat_slug']=$category->slug;
 
         Tool::updateOrCreate(['id' => $request->id], $data);
 

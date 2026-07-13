@@ -57,12 +57,12 @@
     ]
 @endphp
 
-<div class="text-center max-w-3xl mx-auto mb-10">
+<div class="w-full md:max-w-1/2 mb-10">
     <div
         class="inline-flex items-center gap-1.5 px-3 py-1 rounded-brand-card mb-1 bg-indigo-50 border border-indigo-100 text-[10px] font-bold text-brand-primary uppercase select-none">
         Testimonials
     </div>
-    <h2 class="text-3xl md:text-4xl font-space font-bold text-brand-text text-gradient-secondary">
+    <h2 class="text-2xl sm:text-3xl font-space font-bold text-gradient-secondary">
         Loved by makers, builders & writers
     </h2>
     <p class="text-brand-muted text-sm leading-relaxed">
@@ -75,7 +75,7 @@
         <figure
             class="reveal break-inside-avoid rounded-brand-card bg-white p-6 ring-1 ring-brand-border transition-all duration-500 hover:-translate-y-1"
             data-delay="0">
-            <div class="flex items-center gap-0.5 text-brand-primary">
+            <div class="flex items-center gap-0.5 text-yellow-400">
                 @for ($i = 1; $i <= 5; $i++)
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                         fill="{{ $i <= $r['rating'] ? 'currentColor' : 'none' }}" stroke="currentColor" stroke-width="2"

@@ -9,7 +9,8 @@ use Illuminate\View\Component;
 class ToolCard extends Component
 {
     public function __construct(
-        public $tool
+        public $tool,
+        public $class
     ) {}
 
     /**

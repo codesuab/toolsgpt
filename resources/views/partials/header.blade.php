@@ -67,10 +67,10 @@
                         <div class="space-y-1">
                             @foreach ($colOne as $one)
                                 <a href="{{ route('tool.details', ['slug' => $one['tool']['slug']]) }}" style="
-                                                                                                        --tool-mega-color: {{ $one['tool']['color'] }};
-                                                                                                        --tool-mega-bg: {{ hexToRgb($one['tool']['color'], 0.06) }};
-                                                                                                        --tool-mega-border: {{ hexToRgb($one['tool']['color'], 0.2) }};
-                                                                                                    "
+                                                                                                                --tool-mega-color: {{ $one['tool']['color'] }};
+                                                                                                                --tool-mega-bg: {{ hexToRgb($one['tool']['color'], 0.06) }};
+                                                                                                                --tool-mega-border: {{ hexToRgb($one['tool']['color'], 0.2) }};
+                                                                                                            "
                                     class="mega-menu-card flex items-start gap-3.5 p-2 -mx-2 rounded-brand-btn hover:bg-slate-50 transition-all duration-200">
                                     <div
                                         class="h-9 w-9 rounded-brand-btn flex items-center justify-center shrink-0 transition-all duration-200 bg-orange-50 border border-orange-100 mega-menu-icon">
@@ -93,10 +93,10 @@
                         <div class="space-y-1">
                             @foreach ($colTow as $one)
                                 <a href="{{ route('tool.details', ['slug' => $one['tool']['slug']]) }}" style="
-                                                                                                        --tool-mega-color: {{ $one['tool']['color'] }};
-                                                                                                        --tool-mega-bg: {{ hexToRgb($one['tool']['color'], 0.06) }};
-                                                                                                        --tool-mega-border: {{ hexToRgb($one['tool']['color'], 0.2) }};
-                                                                                                    "
+                                                                                                                --tool-mega-color: {{ $one['tool']['color'] }};
+                                                                                                                --tool-mega-bg: {{ hexToRgb($one['tool']['color'], 0.06) }};
+                                                                                                                --tool-mega-border: {{ hexToRgb($one['tool']['color'], 0.2) }};
+                                                                                                            "
                                     class="mega-menu-card flex items-start gap-3.5 p-2 -mx-2 rounded-brand-btn hover:bg-slate-50 transition-all duration-200">
                                     <div
                                         class="h-9 w-9 rounded-brand-btn flex items-center justify-center shrink-0 transition-all duration-200 bg-orange-50 border border-orange-100 mega-menu-icon">
@@ -119,10 +119,10 @@
                         <div class="space-y-1">
                             @foreach ($colThree as $one)
                                 <a href="{{ route('tool.details', ['slug' => $one['tool']['slug']]) }}" style="
-                                                                                                        --tool-mega-color: {{ $one['tool']['color'] }};
-                                                                                                        --tool-mega-bg: {{ hexToRgb($one['tool']['color'], 0.06) }};
-                                                                                                        --tool-mega-border: {{ hexToRgb($one['tool']['color'], 0.2) }};
-                                                                                                    "
+                                                                                                                --tool-mega-color: {{ $one['tool']['color'] }};
+                                                                                                                --tool-mega-bg: {{ hexToRgb($one['tool']['color'], 0.06) }};
+                                                                                                                --tool-mega-border: {{ hexToRgb($one['tool']['color'], 0.2) }};
+                                                                                                            "
                                     class="mega-menu-card flex items-start gap-3.5 p-2 -mx-2 rounded-brand-btn hover:bg-slate-50 transition-all duration-200">
                                     <div
                                         class="h-9 w-9 rounded-brand-btn flex items-center justify-center shrink-0 transition-all duration-200 bg-orange-50 border border-orange-100 mega-menu-icon">
@@ -177,17 +177,6 @@
 
             <!-- Actions -->
             <div class="hidden md:flex items-center gap-2">
-                <div class="hidden navbarSearchToggleBtn">
-                    <button type="button" id="searchToggler" class="btn-secondary">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="icon icon-tabler icons-tabler-outline icon-tabler-search mr-1">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path d="M3 10a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
-                            <path d="M21 21l-6 -6" />
-                        </svg> Search
-                    </button>
-                </div>
                 <a href="#" class="btn-primary">
                     Get started
                     <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
@@ -200,9 +189,8 @@
             <div class="flex gap-2 md:hidden">
                 <button type="button" id="searchToggler"
                     class="inline-flex h-8 w-8 items-center justify-center rounded-brand-btn p-2 text-brand-muted hover:bg-slate-100 hover:text-brand-text focus:outline-none transition-colors ring ring-brand-border">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="h-6 w-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                         <path d="M3 10a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
                         <path d="M21 21l-6 -6" />
@@ -319,7 +307,7 @@
 
 
 <div id="searchModel"
-    class="fixed top-0 left-0 w-full min-h-screen z-100 bg-brand-accent/10 backdrop-blur-md flex items-center justify-center duration-300 opacity-0 pointer-events-none">
+    class="fixed top-0 left-0 w-full min-h-screen z-100 bg-brand-accent/30 backdrop-blur-md flex items-center justify-center duration-300 opacity-0 pointer-events-none">
     <div class="bg-white rounded-brand-card w-full md:w-125 mx-5" id="card">
         <div class="relative border-b border-brand-border">
             <i class="ti ti-search text-xl absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"></i>

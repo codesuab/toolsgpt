@@ -1,9 +1,10 @@
+import EmblaCarousel from "embla-carousel";
 const toolsData = document.body.dataset.tool;
 
 // filter
 const grid = document.getElementById("tools-grid");
 if (grid) {
-    const allCards = [...grid.querySelectorAll(".tool-card")];
+    const allCards = [...grid.querySelectorAll(".utilities")];
     const tabButtons = document.querySelectorAll(".tab-btn-item");
     let currentFilter = "all";
     tabButtons.forEach((btn) => {
@@ -23,17 +24,16 @@ if (grid) {
     });
 
     function filterGallery() {
+        const scrollY = window.scrollY;
+
         let count = 0;
 
         allCards.forEach((card) => {
-            const categories = (card.dataset.categories || "")
-                .split(",")
-                .map((item) => item.trim().toLowerCase())
-                .filter(Boolean);
+            const categories = card.dataset.categories;
 
             const match =
                 currentFilter === "all" ||
-                categories.includes(currentFilter.toLowerCase());
+                categories === currentFilter.toLowerCase();
 
             if (match) {
                 card.style.display = "";
@@ -48,6 +48,13 @@ if (grid) {
         if (empty) {
             empty.classList.toggle("hidden", count > 0);
         }
+
+        requestAnimationFrame(() => {
+            window.scrollTo({
+                top: scrollY,
+                behavior: "instant",
+            });
+        });
     }
 }
 
@@ -96,3 +103,21 @@ faqCards.forEach((card) => {
         }
     });
 });
+
+// category slider
+const viewport = document.querySelector(".embla__viewport");
+
+if (viewport) {
+    const embla = EmblaCarousel(viewport, {
+        loop: true,
+        align: window.innerWidth < 640 ? "center" : "start",
+    });
+
+    document.querySelector("#prevBtn")?.addEventListener("click", () => {
+        embla.scrollPrev();
+    });
+
+    document.querySelector("#nextBtn")?.addEventListener("click", () => {
+        embla.scrollNext();
+    });
+}

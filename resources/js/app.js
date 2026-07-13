@@ -181,9 +181,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // toggle Search
     const searchModel = document.getElementById("searchModel");
     const searchToggler = document.querySelectorAll("#searchToggler");
-    const navbarSearchToggleBtn = document.querySelector(
-        ".navbarSearchToggleBtn",
-    );
     searchToggler.forEach((btn) => {
         btn.addEventListener("click", function () {
             searchModel.classList.toggle("opacity-0");
@@ -203,11 +200,9 @@ document.addEventListener("DOMContentLoaded", () => {
         if (window.scrollY > 0) {
             navbar.classList.remove("max-w-360");
             navbar.classList.add("max-w-7xl");
-            navbarSearchToggleBtn.classList.remove("hidden");
         } else {
             navbar.classList.remove("max-w-7xl");
             navbar.classList.add("max-w-360");
-            navbarSearchToggleBtn.classList.add("hidden");
         }
     });
 });

@@ -27,45 +27,32 @@ class AppServiceProvider extends ServiceProvider
         // pass data in view
         View::composer('*', function ($view) {
             // navbar
-            $colOne = Cache::remember(
-                'header_mega_menu_colone',
-                now()->addHours(12),
-                function () {
-                    return MegaMenu::where('col', 'one')
-                        ->where('status', 'active')
-                        ->with('tool.category')->get()
-                        ->toArray();
-                }
-            );
-            $colTow = Cache::remember(
-                'header_mega_menu_coltow',
-                now()->addHours(12),
-                function () {
-                    return MegaMenu::where('col', 'tow')
-                        ->where('status', 'active')
-                        ->with('tool.category')->get()
-                        ->toArray();
-                }
-            );
-            $colThree = Cache::remember(
-                'header_mega_menu_colThree',
-                now()->addHours(12),
-                function () {
-                    return MegaMenu::where('col', 'three')
-                        ->where('status', 'active')
-                        ->with('tool.category')->get()
-                        ->toArray();
-                }
-            );
-            $mobileMega = Cache::remember(
-                'header_mega_mobileMega',
+            $megaMenus = Cache::remember(
+                'header_mega_menus',
                 now()->addHours(12),
                 function () {
                     return MegaMenu::where('status', 'active')
-                        ->with('tool.category')->get()
+                        ->with('tool.category')
+                        ->get()
                         ->toArray();
                 }
             );
+            $colOne = collect($megaMenus)
+                ->where('col', 'one')
+                ->values()
+                ->toArray();
+
+            $colTow = collect($megaMenus)
+                ->where('col', 'tow')
+                ->values()
+                ->toArray();
+
+            $colThree = collect($megaMenus)
+                ->where('col', 'three')
+                ->values()
+                ->toArray();
+
+            $mobileMega = $megaMenus;
 
 
             // global
@@ -73,7 +60,11 @@ class AppServiceProvider extends ServiceProvider
                 'footer_category',
                 now()->addHours(12),
                 function () {
-                    return Category::get()
+                    return Category::with('tools')
+                        ->withCount('tools')
+                        ->orderByRaw("CASE WHEN slug = 'ai' THEN 0 ELSE 1 END")
+                        ->orderBy('name')
+                        ->get()
                         ->toArray();
                 }
             );

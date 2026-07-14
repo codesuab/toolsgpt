@@ -67,7 +67,7 @@
                             class="embla__slide flex-[0_0_80%] sm:flex-[0_0_50%] md:flex-[0_0_25%] px-1">
                             <div class="h-50 rounded-brand-card bg-brand-bg duration-200 hover:bg-white border border-brand-border p-4 group cursor-pointer">
                                 <div class="flex items-center justify-between">
-                                    <div class="w-10 h-10 flex items-center justify-center"
+                                    <div class="w-10 h-10 flex items-center justify-center rounded-brand-card"
                                         style="background: {{ hexToRgb($cat['color'], 0.08) }};border: 1px solid {{ hexToRgb($cat['color'], 0.1) }};color:{{ hexToRgb($cat['color'], 1) }};">
                                         {!! $cat['icon'] !!}
                                     </div>

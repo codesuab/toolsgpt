@@ -172,3 +172,16 @@
 .mega-menu-card:hover .mega-menu-title {
     color: var(--tool-mega-color);
 }
+
+/* others */
+.modelSearchIcon svg {
+    width: 18px;
+    height: 18px;
+}
+.scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}

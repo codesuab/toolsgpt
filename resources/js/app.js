@@ -195,6 +195,74 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    // model search
+    const modelSearchInput = document.getElementById("modelSearchInput");
+    const modelSearchEmpty = document.getElementById("modelSearchEmpty");
+    const modelSearchTools = document.getElementById("modelSearchTools");
+    const modelSearchSuggest = document.getElementById("modelSearchSuggest");
+    const modelSearchEmptyStackHind = document.getElementById(
+        "modelSearchEmptyStackHind",
+    );
+    const modelSearchResultCount = document.getElementById(
+        "modelSearchResultCount",
+    );
+    const modelSearchLinks = document.querySelectorAll(".modelSearchLink");
+    const modelSearchSuggestBtn = document.querySelectorAll(
+        ".modelSearchSuggestBtn",
+    );
+
+    modelSearchSuggestBtn.forEach((btn) => {
+        btn.addEventListener("click", function () {
+            const name = this.dataset.name;
+            if (!name) return;
+
+            modelSearchInput.value = name;
+            modelSearchInput.dispatchEvent(new Event("input"));
+        });
+    });
+
+    modelSearchInput?.addEventListener("input", function () {
+        const keyword = this.value.toLowerCase().trim();
+
+        if (keyword !== "") {
+            modelSearchSuggest.classList.add("hidden");
+            modelSearchTools.classList.remove("hidden");
+        } else {
+            modelSearchSuggest.classList.remove("hidden");
+            modelSearchTools.classList.add("hidden");
+        }
+
+        let hasResult = false;
+        let resultCount = 0;
+
+        modelSearchLinks.forEach((link) => {
+            const match = link.dataset.search.includes(keyword);
+
+            link.classList.toggle("hidden", !match);
+
+            if (match) {
+                hasResult = true;
+                resultCount++;
+            }
+        });
+
+        if (modelSearchResultCount) {
+            const resultCountSpan =
+                modelSearchResultCount.querySelector("span");
+            resultCountSpan.textContent = resultCount;
+        }
+
+        if (!hasResult && keyword !== "") {
+            modelSearchResultCount.classList.add("hidden");
+            modelSearchEmpty.classList.remove("hidden");
+            modelSearchEmptyStackHind.textContent = keyword;
+        } else {
+            modelSearchResultCount.classList.remove("hidden");
+            modelSearchEmpty.classList.add("hidden");
+            modelSearchEmptyStackHind.textContent = "";
+        }
+    });
+
     // scroll
     window.addEventListener("scroll", () => {
         if (window.scrollY > 0) {

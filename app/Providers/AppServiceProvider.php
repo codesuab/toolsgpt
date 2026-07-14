@@ -60,8 +60,7 @@ class AppServiceProvider extends ServiceProvider
                 'footer_category',
                 now()->addHours(12),
                 function () {
-                    return Category::with('tools')
-                        ->withCount('tools')
+                    return Category::withCount('tools')
                         ->orderByRaw("CASE WHEN slug = 'ai' THEN 0 ELSE 1 END")
                         ->orderBy('name')
                         ->get()
@@ -76,13 +75,59 @@ class AppServiceProvider extends ServiceProvider
                 }
             );
 
+
+            // model search data
+            $modelTrendingTools = Cache::remember(
+                'model_trending_tools',
+                now()->addHours(6),
+                function () {
+                    return Tool::where('status', 'active')
+                        ->where('updated_at', '>=', now()->subDays(7))
+                        ->orderByDesc('usages')
+                        ->take(8)
+                        ->get()
+                        ->toArray();
+                }
+            );
+            $modelPopularTools = Cache::remember(
+                'model_popular_tools',
+                now()->addHours(12),
+                function () {
+                    return Tool::where('status', 'active')
+                        ->orderByDesc('usages')
+                        ->take(8)
+                        ->get()
+                        ->toArray();
+                }
+            );
+            $modelAllTools = Cache::remember(
+                'model_all_tools',
+                now()->addHours(12),
+                function () {
+                    return Tool::where('status', 'active')
+                        ->orderByDesc('usages')
+                        ->get([
+                            'name',
+                            'taq_line',
+                            'icon',
+                            'color',
+                            'badge',
+                            'slug'
+                        ])
+                        ->toArray();
+                }
+            );
+
             $view->with([
                 'category' => $category,
                 'colOne' => $colOne,
                 'colTow' => $colTow,
                 'colThree' => $colThree,
                 'mobileMega' => $mobileMega,
-                'toolsCount' => $toolsCount
+                'toolsCount' => $toolsCount,
+                'modelTrendingTools' => $modelTrendingTools,
+                'modelPopularTools' => $modelPopularTools,
+                'modelAllTools' => $modelAllTools
             ]);
         });
     }

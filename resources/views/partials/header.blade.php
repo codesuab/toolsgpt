@@ -66,11 +66,12 @@
                         <!-- Column 1: Orange accents -->
                         <div class="space-y-1">
                             @foreach ($colOne as $one)
-                                <a href="{{ route('tool.details', ['slug' => $one['tool']['slug']]) }}" style="
-                                                                                                                --tool-mega-color: {{ $one['tool']['color'] }};
-                                                                                                                --tool-mega-bg: {{ hexToRgb($one['tool']['color'], 0.06) }};
-                                                                                                                --tool-mega-border: {{ hexToRgb($one['tool']['color'], 0.2) }};
-                                                                                                            "
+                                <a href="{{ route('tool.details', ['slug' => $one['tool']['slug']]) }}"
+                                    style="
+                                                                                                                                                                                                                --tool-mega-color: {{ $one['tool']['color'] }};
+                                                                                                                                                                                                                --tool-mega-bg: {{ hexToRgb($one['tool']['color'], 0.06) }};
+                                                                                                                                                                                                                --tool-mega-border: {{ hexToRgb($one['tool']['color'], 0.2) }};
+                                                                                                                                                                                                            "
                                     class="mega-menu-card flex items-start gap-3.5 p-2 -mx-2 rounded-brand-btn hover:bg-slate-50 transition-all duration-200">
                                     <div
                                         class="h-9 w-9 rounded-brand-btn flex items-center justify-center shrink-0 transition-all duration-200 bg-orange-50 border border-orange-100 mega-menu-icon">
@@ -92,11 +93,12 @@
                         <!-- Column 2: Blue accents -->
                         <div class="space-y-1">
                             @foreach ($colTow as $one)
-                                <a href="{{ route('tool.details', ['slug' => $one['tool']['slug']]) }}" style="
-                                                                                                                --tool-mega-color: {{ $one['tool']['color'] }};
-                                                                                                                --tool-mega-bg: {{ hexToRgb($one['tool']['color'], 0.06) }};
-                                                                                                                --tool-mega-border: {{ hexToRgb($one['tool']['color'], 0.2) }};
-                                                                                                            "
+                                <a href="{{ route('tool.details', ['slug' => $one['tool']['slug']]) }}"
+                                    style="
+                                                                                                                                                                                                                --tool-mega-color: {{ $one['tool']['color'] }};
+                                                                                                                                                                                                                --tool-mega-bg: {{ hexToRgb($one['tool']['color'], 0.06) }};
+                                                                                                                                                                                                                --tool-mega-border: {{ hexToRgb($one['tool']['color'], 0.2) }};
+                                                                                                                                                                                                            "
                                     class="mega-menu-card flex items-start gap-3.5 p-2 -mx-2 rounded-brand-btn hover:bg-slate-50 transition-all duration-200">
                                     <div
                                         class="h-9 w-9 rounded-brand-btn flex items-center justify-center shrink-0 transition-all duration-200 bg-orange-50 border border-orange-100 mega-menu-icon">
@@ -118,11 +120,12 @@
                         <!-- Column 3: Indigo accents -->
                         <div class="space-y-1">
                             @foreach ($colThree as $one)
-                                <a href="{{ route('tool.details', ['slug' => $one['tool']['slug']]) }}" style="
-                                                                                                                --tool-mega-color: {{ $one['tool']['color'] }};
-                                                                                                                --tool-mega-bg: {{ hexToRgb($one['tool']['color'], 0.06) }};
-                                                                                                                --tool-mega-border: {{ hexToRgb($one['tool']['color'], 0.2) }};
-                                                                                                            "
+                                <a href="{{ route('tool.details', ['slug' => $one['tool']['slug']]) }}"
+                                    style="
+                                                                                                                                                                                                                --tool-mega-color: {{ $one['tool']['color'] }};
+                                                                                                                                                                                                                --tool-mega-bg: {{ hexToRgb($one['tool']['color'], 0.06) }};
+                                                                                                                                                                                                                --tool-mega-border: {{ hexToRgb($one['tool']['color'], 0.2) }};
+                                                                                                                                                                                                            "
                                     class="mega-menu-card flex items-start gap-3.5 p-2 -mx-2 rounded-brand-btn hover:bg-slate-50 transition-all duration-200">
                                     <div
                                         class="h-9 w-9 rounded-brand-btn flex items-center justify-center shrink-0 transition-all duration-200 bg-orange-50 border border-orange-100 mega-menu-icon">
@@ -305,39 +308,131 @@
     </div>
 </header>
 
-
 <div id="searchModel"
     class="fixed top-0 left-0 w-full min-h-screen z-100 bg-brand-accent/30 backdrop-blur-md flex items-center justify-center duration-300 opacity-0 pointer-events-none">
     <div class="bg-white rounded-brand-card w-full md:w-125 mx-5" id="card">
         <div class="relative border-b border-brand-border">
             <i class="ti ti-search text-xl absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"></i>
-            <input type="text"
-                class="border-0 outline-0 focus:outline-0 w-full px-12 py-3 md:py-3.5 placeholder:text-sm placeholder:text-gray-500"
+            <input type="search" id="modelSearchInput"
+                class="border-0 outline-0 focus:outline-0 w-full pl-12 pr-4 py-3 md:py-3.5 placeholder:text-sm placeholder:text-gray-500"
                 placeholder="Search tools, AI, categories…">
-            <button id="searchToggler" class="absolute right-4 top-1/2 -translate-y-1/2">
-                <i class="ti ti-x text-lg text-brand-muted"></i>
-            </button>
         </div>
-        <div class="max-h-100 overflow-y-auto p-4">
-            <div>
-                <h1 class="flex items-center gap-1 text-xs font-medium text-brand-muted uppercase px-4 mb-3">
-                    <i class="ti ti-clock-hour-12 mt-px"></i>
-                    <span>Search suggestions</span>
+        <div class="max-h-130 overflow-y-auto p-4 space-y-4 scrollbar-hide">
+            {{-- tools --}}
+            <div id="modelSearchTools" class="hidden">
+                <h1 class="text-brand-muted font-bold text-[10px] uppercase px-4 mb-1" id="modelSearchResultCount">
+                    <span></span> result
                 </h1>
-                <div>
-                    <div class="flex items-center justify-between gap-3 duration-300 hover:bg-brand-bg px-4 py-2">
-                        <div class="flex items-center gap-3">
-                            <div class="w-9 h-9 rounded-brand-card bg-slate-100 flex items-center justify-center">
-                                <i class="ti ti-search text-xl text-gray-500"></i>
+                @foreach($modelAllTools as $tool)
+                    <a href="{{ route('tool.details', ['slug' => $tool['slug']]) }}" class="modelSearchLink"
+                        data-search="{{ strtolower($tool['name'] . ' ' . $tool['taq_line']) }}">
+                        <div class="flex items-center justify-between gap-3 hover:bg-brand-bg px-4 py-2 group duration-300">
+                            <div class="flex items-center gap-3">
+                                <div class="w-9 h-9 modelSearchIcon rounded-brand-card border border-brand-muted/10 bg-slate-100 flex items-center justify-center"
+                                    style="color: {{ $tool['color'] }}">
+                                    {!! $tool['icon'] !!}
+                                </div>
+
+                                <div>
+                                    <h1 class="text-xs font-semibold text-brand-text/80">
+                                        {{ $tool['name'] }} {{ $tool['badge'] ? '- ' . $tool['badge'] : '' }}
+                                    </h1>
+
+                                    <p class="text-xs font-normal text-brand-muted mt-px">
+                                        {{ Str::limit($tool['taq_line'], 50) }}
+                                    </p>
+                                </div>
                             </div>
-                            <div>
-                                <h1 class="text-sm font-semibold text-brand-text">Ai tools name</h1>
-                                <p class="text-xs font-light text-brand-muted">Category</p>
-                            </div>
+                            <i class="ti ti-arrow-back text-brand-muted/40 duration-300 group-hover:text-brand-primary"></i>
                         </div>
-                        <i class="ti ti-arrow-narrow-right text-brand-muted"></i>
+                    </a>
+                @endforeach
+            </div>
+
+            {{-- empty stack --}}
+            <div class="px-4 py-10 text-center hidden" id="modelSearchEmpty">
+                <p class="text-sm text-brand-muted">No tools match “<span id="modelSearchEmptyStackHind"></span>”.</p>
+                <p class="mt-1 text-xs text-brand-muted/50">Try a different keyword or category.</p>
+            </div>
+
+            <div id="modelSearchSuggest" class="space-y-3">
+                {{-- popular search --}}
+                @if ($modelPopularTools)
+                    <div>
+                        <h1 class="flex items-center gap-1 text-[10px] font-bold text-brand-muted uppercase px-4 mb-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-star h-3 w-3">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                </polygon>
+                            </svg>
+                            <span>Popular searches</span>
+                        </h1>
+                        @foreach($modelPopularTools as $popular)
+                            <button data-name="{{ $popular['name'] }}"
+                                class="modelSearchSuggestBtn flex w-full items-center justify-between gap-3 hover:bg-brand-bg px-4 py-2 group duration-300">
+                                <div class="flex items-center gap-3">
+                                    <span
+                                        class="flex h-8 w-8 items-center justify-center rounded-brand-btn bg-brand-muted/10 text-brand-muted"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" class="lucide lucide-search h-4 w-4">
+                                            <circle cx="11" cy="11" r="8"></circle>
+                                            <path d="m21 21-4.3-4.3"></path>
+                                        </svg></span>
+
+                                    <div>
+                                        <h1 class="text-xs font-semibold text-brand-text/80">
+                                            {{ $popular['name'] }}
+                                        </h1>
+                                    </div>
+                                </div>
+                                <i
+                                    class="ti ti-arrow-narrow-right text-brand-muted/40 duration-300 group-hover:text-brand-primary"></i>
+                            </button>
+                        @endforeach
                     </div>
-                </div>
+                @endif
+
+                {{-- trending --}}
+                @if ($modelTrendingTools)
+                    <div>
+                        <h1 class="flex items-center gap-1 text-[10px] font-bold text-brand-muted uppercase px-4 mb-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-flame h-3 w-3">
+                                <path
+                                    d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z">
+                                </path>
+                            </svg>
+                            <span>Trending now</span>
+                        </h1>
+                        @foreach($modelTrendingTools as $trending)
+                            <button data-name="{{ $trending['name'] }}"
+                                class="modelSearchSuggestBtn flex w-full items-center justify-between gap-3 hover:bg-brand-bg px-4 py-2 group duration-300">
+                                <div class="flex items-center gap-3">
+                                    <span
+                                        class="flex h-8 w-8 items-center justify-center rounded-brand-btn bg-brand-muted/10 text-brand-muted"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" class="lucide lucide-search h-4 w-4">
+                                            <circle cx="11" cy="11" r="8"></circle>
+                                            <path d="m21 21-4.3-4.3"></path>
+                                        </svg></span>
+
+                                    <div>
+                                        <h1 class="text-xs font-semibold text-brand-text/80">
+                                            {{ $trending['name'] }}
+                                        </h1>
+                                    </div>
+                                </div>
+                                <i
+                                    class="ti ti-arrow-narrow-right text-brand-muted/40 duration-300 group-hover:text-brand-primary"></i>
+                            </button>
+                        @endforeach
+                    </div>
+                @endif
             </div>
         </div>
     </div>

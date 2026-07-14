@@ -263,6 +263,21 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    // share options
+    const shareBtn = document.getElementById("shareBtn");
+    if (shareBtn) {
+        shareBtn?.addEventListener("click", async () => {            
+            if (!navigator.share) return;
+            try {
+                await navigator.share({
+                    title: shareBtn.dataset.title,
+                    text: `Check ${shareBtn.dataset.title}`,
+                    url: shareBtn.dataset.url,
+                });
+            } catch (err) {}
+        });
+    }
+
     // scroll
     window.addEventListener("scroll", () => {
         if (window.scrollY > 0) {

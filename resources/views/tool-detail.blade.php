@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('data-page'){{ $data->slug }}@endsection
-
 @section('title')
     {{ $data?->meta_title}}
 @endsection
@@ -14,7 +13,7 @@
 
 @section('schema_markup')
     <script type="application/ld+json">
-                                                                                                                                                                                                                                                                                                                {!! json_encode([
+                                                                                                                                                                                                                                                                                                                                                                        {!! json_encode([
         '@context' => 'https://schema.org',
         '@type' => 'SoftwareApplication',
         'name' => config('app.name') . ' ' . $data->name,
@@ -28,11 +27,11 @@
         ],
         'description' => $data->meta_description ?? $data->taq_line,
     ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
-                                                                                                                                                                                                                                                                                                                </script>
+                                                                                                                                                                                                                                                                                                                                                                        </script>
 
     @if($data->faq)
         <script type="application/ld+json">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                {!! json_encode([
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                {!! json_encode([
                 '@context' => 'https://schema.org',
                 '@type' => 'FAQPage',
                 'mainEntity' => collect($data->faq)->map(function ($faq) {
@@ -46,60 +45,93 @@
                     ];
                 })->values(),
             ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </script>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </script>
     @endif
 @endsection
+
 
 @section('content')
     <!-- Breadcrumbs & Tool Header -->
     <div class="relative pb-12 pt-10 md:pt-12 overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <!-- Breadcrumbs -->
-            <nav class="flex mb-4 text-xs text-brand-muted" aria-label="Breadcrumb">
-                <ol class="inline-flex items-center space-x-1 md:space-x-2">
-                    <li class="inline-flex items-center">
-                        <a href="{{ route('home') }}" class="hover:text-brand-text transition-colors">Home</a>
-                    </li>
-                    <li>
-                        <div class="flex items-center gap-1.5">
-                            <svg class="h-3 w-3 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                                stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                            </svg>
-                            <a href="{{ route('all.tool') }}" class="hover:text-brand-text transition-colors">All
-                                Utilities</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="flex items-center gap-1.5">
-                            <svg class="h-3 w-3 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                                stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                            </svg>
-                            <a href="{{ route('all.tool', ['cat' => $data?->category?->id]) }}"
-                                class="hover:text-brand-text transition-colors">{{ $data->category->name }}</a>
-                        </div>
-                    </li>
-                    <li aria-current="page">
-                        <div class="flex items-center gap-1.5">
-                            <svg class="h-3 w-3 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                                stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                            </svg>
-                            <span class="text-slate-600 font-medium">{{ $data->name }}</span>
-                        </div>
-                    </li>
-                </ol>
-            </nav>
+            <div class="flex items-center justify-between">
+                <div>
+                    <!-- Breadcrumbs -->
+                    <nav class="flex mb-3 text-sm text-brand-muted" aria-label="Breadcrumb">
+                        <ol class="inline-flex items-center space-x-1 md:space-x-2">
+                            <li class="inline-flex items-center">
+                                <a href="{{ route('home') }}" class="hover:text-brand-text transition-colors">Home</a>
+                            </li>
+                            <li>
+                                <div class="flex items-center gap-1.5">
+                                    <svg class="h-3 w-3 text-slate-400" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                                    </svg>
+                                    <a href="{{ route('all.tool') }}" class="hover:text-brand-text transition-colors">All
+                                        Utilities</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="flex items-center gap-1.5">
+                                    <svg class="h-3 w-3 text-slate-400" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                                    </svg>
+                                    <a href="{{ route('all.tool', ['cat' => $data?->category?->id]) }}"
+                                        class="hover:text-brand-text transition-colors">{{ $data->category->name }}</a>
+                                </div>
+                            </li>
+                            <li aria-current="page">
+                                <div class="flex items-center gap-1.5">
+                                    <svg class="h-3 w-3 text-slate-400" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                                    </svg>
+                                    <span class="text-slate-600 font-medium">{{ $data->name }}</span>
+                                </div>
+                            </li>
+                        </ol>
+                    </nav>
 
-            <!-- Tool Header Info -->
-            <div class="max-w-3xl">
-                <h1 class="text-3xl sm:text-4xl font-space font-extrabold text-brand-text mb-3 text-gradient-premium">
-                    {{ $data->title }}
-                </h1>
-                <p class="text-sm sm:text-base text-brand-muted leading-relaxed">
-                    {{ $data->short_title }}
-                </p>
+                    <!-- Tool Header Info -->
+                    <div class="max-w-3xl">
+                        <h1
+                            class="text-3xl sm:text-4xl font-space font-extrabold text-brand-text mb-1 text-gradient-premium">
+                            {{ $data->title }}
+                        </h1>
+                        <p class="text-sm sm:text-base text-brand-muted leading-relaxed">
+                            {{ $data->short_title }}
+                        </p>
+                    </div>
+                </div>
+
+                {{-- actions --}}
+                <div class="flex items-center gap-2 min-w-fit">
+                    <button
+                        class="flex h-10 w-10 items-center justify-center rounded-brand-card ring-1 transition-all bg-white text-brand-muted ring-brand-border hover:text-brand-accent"
+                        aria-label="Bookmark">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-bookmark h-4.5 w-4.5">
+                            <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"></path>
+                        </svg>
+                    </button>
+                    <button id="shareBtn" data-title="{{ $data->name }}" data-url="{{ url()->current() }}"
+                        class="flex h-10 w-10 items-center justify-center rounded-brand-card ring-1 transition-all bg-white
+                        text-brand-muted ring-brand-border hover:text-brand-accent"
+                        aria-label="Share">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-share2 h-4.5 w-4.5">
+                            <circle cx="18" cy="5" r="3"></circle>
+                            <circle cx="6" cy="12" r="3"></circle>
+                            <circle cx="18" cy="19" r="3"></circle>
+                            <line x1="8.59" x2="15.42" y1="13.51" y2="17.49"></line>
+                            <line x1="15.41" x2="8.59" y1="6.51" y2="10.49"></line>
+                        </svg>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -115,7 +147,7 @@
     <section class="pt-16 border-t border-brand-border bg-slate-50/50">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="prose max-w-none space-y-12">
-                <div class="space-y-3" id="markdown">
+                <div class="space-y-3 text-base" id="markdown">
                     {!! $data->content !!}
                 </div>
 
@@ -167,12 +199,13 @@
         <div class="mx-auto max-w-3xl px-4 text-center">
             <div class="inline-flex items-center gap-3 rounded-brand-card border border-gray-200 bg-white px-5 py-2">
                 <p class="text-sm text-gray-600">
-                    Trusted since <span class="font-semibold text-brand-text pl-1">2026 - {{ now()->year }}</span>
+                    Trusted since <span class="font-semibold text-brand-text pl-1">{{ $data->created_at->format('Y') }} -
+                        {{ now()->year }}</span>
                 </p>
             </div>
 
             <h3 class="mt-3 text-3xl font-bold tracking-tight text-gray-900">
-                <span id="toolUsagesCountView">{{ number_format($data->usages) }}</span>+ Tools Usages
+                <span id="toolUsagesCountView">{{ number_format($data->usages) }}</span>+ Success Usages
                 <span class="text-gray-400">—</span>
                 <span class="text-gray-500">and counting</span>
             </h3>

@@ -1,28 +1,3 @@
-@php
-    if (!function_exists('hexToRgb')) {
-        function hexToRgb(string $hex, float $opacity = null): string
-        {
-            $hex = ltrim($hex, '#');
-
-            if (strlen($hex) === 3) {
-                $hex = preg_replace('/(.)/', '$1$1', $hex);
-            }
-
-            if (strlen($hex) !== 6) {
-                return $opacity !== null ? 'rgba(0,0,0,' . $opacity . ')' : 'rgb(0,0,0)';
-            }
-
-            $r = hexdec(substr($hex, 0, 2));
-            $g = hexdec(substr($hex, 2, 2));
-            $b = hexdec(substr($hex, 4, 2));
-
-            return $opacity !== null
-                ? "rgba($r, $g, $b, $opacity)"
-                : "rgb($r, $g, $b)";
-        }
-    }
-@endphp
-
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-end justify-between mb-10">
         <div class="w-full md:max-w-1/3">
@@ -63,9 +38,9 @@
             <div class="embla__viewport overflow-hidden">
                 <div class="embla__container flex">
                     @foreach ($category as $cat)
-                        <div
-                            class="embla__slide flex-[0_0_80%] sm:flex-[0_0_50%] md:flex-[0_0_25%] px-1">
-                            <div class="h-50 rounded-brand-card bg-brand-bg duration-200 hover:bg-white border border-brand-border p-4 group cursor-pointer">
+                        <div class="embla__slide flex-[0_0_80%] sm:flex-[0_0_50%] md:flex-[0_0_25%] px-1">
+                            <div
+                                class="h-50 rounded-brand-card bg-brand-bg duration-200 hover:bg-white border border-brand-border p-4 group cursor-pointer">
                                 <div class="flex items-center justify-between">
                                     <div class="w-10 h-10 flex items-center justify-center rounded-brand-card"
                                         style="background: {{ hexToRgb($cat['color'], 0.08) }};border: 1px solid {{ hexToRgb($cat['color'], 0.1) }};color:{{ hexToRgb($cat['color'], 1) }};">
@@ -81,7 +56,8 @@
                                 <div class="flex items-center justify-between border-t border-brand-border/60 mt-3 pt-3">
                                     <a href=""
                                         class="flex items-center gap-1 text-xs text-brand-muted font-bold tool-lunch-btn duration-300 group-hover:text-brand-primary">
-                                        <span>Explore</span> <i class="ti ti-arrow-up-right duration-300 group-hover:rotate-45"></i>
+                                        <span>Explore</span> <i
+                                            class="ti ti-arrow-up-right duration-300 group-hover:rotate-45"></i>
                                     </a>
                                 </div>
                             </div>

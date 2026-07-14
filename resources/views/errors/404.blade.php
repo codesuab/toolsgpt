@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tool Not Found - 404 Error</title>
-    @vite(['resources/css/app.css'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body class="antialiased min-h-screen flex items-center justify-center">
@@ -24,7 +24,7 @@
             <div class="flex flex-col sm:flex-row gap-4 mb-8 w-full sm:w-auto">
                 <a href="{{ route('all.tool') }}"
                     class="px-8 py-3.5 bg-brand-primary text-white font-medium hover:bg-brand-primary-hover transition-colors duration-200 rounded-none w-full sm:w-auto outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2">
-                    Back to All Tools
+                    Back to Utilities
                 </a>
                 <a href="{{ route('home') }}"
                     class="px-8 py-3.5 bg-transparent border border-brand-border text-brand-text font-medium hover:bg-gray-50 transition-colors duration-200 rounded-none w-full sm:w-auto outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2">
@@ -40,7 +40,7 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                     @foreach ($tools as $t)
-                        <x-tool-card :tool="$t" />
+                        <x-tool-card :tool="$t" class="utilities" />
                     @endforeach
                 </div>
             </div>

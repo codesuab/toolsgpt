@@ -34,6 +34,7 @@ return Application::configure(basePath: dirname(__DIR__))
                             'featured'
                         )
                     ")
+                ->take(3)
                 ->get();
 
             return response()

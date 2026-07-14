@@ -1,5 +1,6 @@
 import "@tabler/icons-webfont/dist/tabler-icons.min.css";
 import "./home.js";
+import "./auth.js";
 const page = document.body.dataset.page;
 
 (async () => {

@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\ToolsController;
 use App\Http\Controllers\Admin\TopAdController;
+use App\Http\Controllers\AuthStateController;
 use App\Http\Controllers\UiController;
 use Illuminate\Support\Facades\Route;
 
@@ -35,6 +36,9 @@ Route::controller(UiController::class)->group(function () {
     // update tools usages
     Route::post('/update-tool-usages', 'updateUsages');
 });
+
+// security
+Route::get('/auth/state', AuthStateController::class);
 
 
 // ─── Admin Panel Routes ─────────────────────────────────────────────

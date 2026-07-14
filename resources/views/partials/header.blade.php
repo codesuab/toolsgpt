@@ -23,7 +23,7 @@
     }
 @endphp
 
-@include('partials.login')
+{{-- @include('partials.auth.login') --}}
 
 <header
     class="sticky top-0 z-40 w-full border-b border-slate-200/50 bg-white md:bg-white/80 backdrop-blur-md transition-all duration-300 shadow-sm shadow-slate-100/50">

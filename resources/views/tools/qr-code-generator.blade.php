@@ -35,6 +35,11 @@
                             <i class="ti ti-trash"></i>
                         </button>
                     </div>
+
+                    <div class="flex items-center justify-between mt-3 gap-2">
+                        <input type="range" id="qr-logo-size" min="0.1" max="0.5" step="0.05" value="0.25">
+                        <span id="qr-logo-size-value" class="text-sm font-medium text-brand-muted">25%</span>
+                    </div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -90,8 +95,14 @@
         </section>
 
         <section class="flex flex-col gap-4">
-            <div class="bg-white border border-brand-border p-8 flex items-center justify-center min-h-[300px]">
+            <div class="bg-white border border-brand-border p-8 flex items-center justify-center min-h-75 relative">
                 <div id="qr-canvas" class="transition-opacity duration-300"></div>
+
+                <div id="qr-loading"
+                    class="w-full hidden h-full absolute flex flex-col text-sm items-center rounded-brand-card justify-center top-0 left-0 bg-brand-accent/10 backdrop-blur-xl text-brand-text">
+                    <i class="ti ti-loader-2 animate-spin text-xl"></i>
+                    <span>Generating QR...</span>
+                </div>
             </div>
 
             <div class="grid grid-cols-2 gap-4">

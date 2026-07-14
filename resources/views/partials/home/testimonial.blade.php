@@ -4,7 +4,7 @@
             'rating' => '5',
             'message' => 'ToolsGPT replaced five different websites I used daily. The AI Writer alone pays for itself in time saved.',
             'user' => [
-                'image' => 'https://placehold.co/100x100',
+                'image' => '/media/placeholder.webp',
                 'name' => 'Maya Chen',
                 'title' => 'Content Lead, Lumen'
             ]
@@ -13,7 +13,7 @@
             'rating' => '4',
             'message' => 'ToolsGPT replaced five different websites I used daily. The AI Writer alone pays for itself in time saved.',
             'user' => [
-                'image' => 'https://placehold.co/100x100',
+                'image' => '/media/placeholder.webp',
                 'name' => 'Maya Chen',
                 'title' => 'Content Lead, Lumen'
             ]
@@ -22,7 +22,7 @@
             'rating' => '4',
             'message' => 'ToolsGPT replaced five different websites I used daily. The AI Writer alone pays for itself in time saved.',
             'user' => [
-                'image' => 'https://placehold.co/100x100',
+                'image' => '/media/placeholder.webp',
                 'name' => 'Maya Chen',
                 'title' => 'Content Lead, Lumen'
             ]
@@ -31,7 +31,7 @@
             'rating' => '4',
             'message' => 'ToolsGPT replaced five different websites I used daily. The AI Writer alone pays for itself in time saved.',
             'user' => [
-                'image' => 'https://placehold.co/100x100',
+                'image' => '/media/placeholder.webp',
                 'name' => 'Maya Chen',
                 'title' => 'Content Lead, Lumen'
             ]
@@ -40,7 +40,7 @@
             'rating' => '4',
             'message' => 'ToolsGPT replaced five different websites I used daily. The AI Writer alone pays for itself in time saved.',
             'user' => [
-                'image' => 'https://placehold.co/100x100',
+                'image' => '/media/placeholder.webp',
                 'name' => 'Maya Chen',
                 'title' => 'Content Lead, Lumen'
             ]
@@ -49,7 +49,7 @@
             'rating' => '4',
             'message' => 'ToolsGPT replaced five different websites I used daily. The AI Writer alone pays for itself in time saved.',
             'user' => [
-                'image' => 'https://placehold.co/100x100',
+                'image' => '/media/placeholder.webp',
                 'name' => 'Maya Chen',
                 'title' => 'Content Lead, Lumen'
             ]
@@ -86,8 +86,9 @@
                 @endfor
             </div>
             <blockquote class="mt-4 text-sm leading-relaxed text-brand-text">“{{ $r['message'] }}”</blockquote>
-            <figcaption class="mt-5 flex items-center gap-3"><img src="{{ $r['user']['image'] }}" loading="lazy"
-                    class="h-9 w-9 rounded-full object-cover ring-2 ring-white">
+            <figcaption class="mt-5 flex items-center gap-3">
+                <img src="{{ $r['user']['image'] }}" loading="lazy"
+                    class="h-9 w-9 rounded-full object-cover ring-1 ring-brand-border">
                 <div>
                     <div class="text-sm font-semibold text-brand-text">{{ $r['user']['name'] }}</div>
                     <div class="text-xs text-brand-muted">{{ $r['user']['title'] }}</div>

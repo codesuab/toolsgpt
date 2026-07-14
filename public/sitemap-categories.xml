@@ -1,44 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
     <url>
-    <loc>http://tool-gpt.test/all-tools?cat=img</loc>
-    <lastmod>2026-07-10T19:12:44+00:00</lastmod>
+    <loc>http://tool-gpt.test/all-tools?cat=ai</loc>
+    <lastmod>2026-07-13T22:22:54+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
             </url>
     <url>
-    <loc>http://tool-gpt.test/all-tools?cat=doc</loc>
-    <lastmod>2026-07-10T19:10:31+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-            </url>
-    <url>
-    <loc>http://tool-gpt.test/all-tools?cat=security</loc>
-    <lastmod>2026-07-10T19:09:28+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-            </url>
-    <url>
-    <loc>http://tool-gpt.test/all-tools?cat=dev</loc>
-    <lastmod>2026-07-10T19:09:15+00:00</lastmod>
+    <loc>http://tool-gpt.test/all-tools?cat=productivity</loc>
+    <lastmod>2026-07-13T21:51:44+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
             </url>
     <url>
     <loc>http://tool-gpt.test/all-tools?cat=calculator</loc>
-    <lastmod>2026-07-09T16:56:47+00:00</lastmod>
+    <lastmod>2026-07-13T21:50:34+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
             </url>
     <url>
-    <loc>http://tool-gpt.test/all-tools?cat=compress</loc>
-    <lastmod>2026-07-08T19:13:28+00:00</lastmod>
+    <loc>http://tool-gpt.test/all-tools?cat=security</loc>
+    <lastmod>2026-07-13T21:49:40+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
             </url>
     <url>
-    <loc>http://tool-gpt.test/all-tools?cat=convert</loc>
-    <lastmod>2026-07-07T16:47:47+00:00</lastmod>
+    <loc>http://tool-gpt.test/all-tools?cat=developer</loc>
+    <lastmod>2026-07-13T21:45:17+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+            </url>
+    <url>
+    <loc>http://tool-gpt.test/all-tools?cat=pdf</loc>
+    <lastmod>2026-07-13T21:44:46+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+            </url>
+    <url>
+    <loc>http://tool-gpt.test/all-tools?cat=image</loc>
+    <lastmod>2026-07-13T21:44:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+            </url>
+    <url>
+    <loc>http://tool-gpt.test/all-tools?cat=seo</loc>
+    <lastmod>2026-07-13T21:42:26+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
             </url>

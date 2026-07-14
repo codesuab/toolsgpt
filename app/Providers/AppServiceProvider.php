@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Category;
+use App\Models\Footer;
 use App\Models\MegaMenu;
 use App\Models\Tool;
 use Illuminate\Support\ServiceProvider;
@@ -53,6 +54,33 @@ class AppServiceProvider extends ServiceProvider
                 ->toArray();
 
             $mobileMega = $megaMenus;
+
+
+            // footer
+            $footerMenus = Cache::remember(
+                'footer_menus',
+                now()->addHours(12),
+                function () {
+                    return Footer::where('status', 'active')
+                        ->with('tool')
+                        ->get()
+                        ->toArray();
+                }
+            );
+            $footerColOne = collect($footerMenus)
+                ->where('col', 'one')
+                ->values()
+                ->toArray();
+
+            $footerColTow = collect($footerMenus)
+                ->where('col', 'tow')
+                ->values()
+                ->toArray();
+
+            $footerColThree = collect($footerMenus)
+                ->where('col', 'three')
+                ->values()
+                ->toArray();
 
 
             // global
@@ -120,14 +148,23 @@ class AppServiceProvider extends ServiceProvider
 
             $view->with([
                 'category' => $category,
-                'colOne' => $colOne,
-                'colTow' => $colTow,
-                'colThree' => $colThree,
-                'mobileMega' => $mobileMega,
                 'toolsCount' => $toolsCount,
-                'modelTrendingTools' => $modelTrendingTools,
-                'modelPopularTools' => $modelPopularTools,
-                'modelAllTools' => $modelAllTools
+                'modelSearch' => [
+                    'modelTrendingTools' => $modelTrendingTools,
+                    'modelPopularTools' => $modelPopularTools,
+                    'modelAllTools' => $modelAllTools
+                ],
+                'megaMenu' => [
+                    'one' => $colOne,
+                    'tow' => $colTow,
+                    'three' => $colThree,
+                    'mobileMega' => $mobileMega
+                ],
+                'footer' => [
+                    'one' => $footerColOne,
+                    'tow' => $footerColTow,
+                    'three' => $footerColThree
+                ]
             ]);
         });
     }

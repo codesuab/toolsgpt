@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\FooterController;
 use App\Http\Controllers\Admin\InboxController;
 use App\Http\Controllers\Admin\MegaMenuController;
 use App\Http\Controllers\Admin\PagesController;
@@ -105,6 +106,13 @@ Route::prefix('admin')->group(function () {
             Route::get('/mega-menu', 'index')->name('ux.mega.menu');
             Route::post('/mega-menu', 'store')->name('ux.mega.post');
             Route::get('/mega-del/{id}', 'destroy')->name('ux.mega.del');
+        });
+
+        // footer menu
+        Route::controller(FooterController::class)->group(function () {
+            Route::get('/footer-menu', 'index')->name('ux.footer.menu');
+            Route::post('/footer-menu', 'store')->name('ux.footer.post');
+            Route::get('/footer-del/{id}', 'destroy')->name('ux.footer.del');
         });
 
         // Setting

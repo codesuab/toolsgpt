@@ -67,7 +67,7 @@
             <!-- Filter Block: Full Width Search & Category Tabs -->
             <div class="space-y-4 mb-10">
                 <div class="flex items-center justify-between w-full">
-                    <div class="flex justify-start flex-wrap gap-y-2 md:gap-y-4 gap-x-2 -mb-px">
+                    <div class="flex justify-start flex-wrap gap-y-2 md:gap-y-4 gap-x-1 -mb-px">
                         <button data-filter="all" class="tab-btn-active tab-btn-item">
                             All Tools
                         </button>

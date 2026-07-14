@@ -8,8 +8,8 @@
 @section('content')
     <!-- All Tools Header -->
     <section class="pt-12 pb-6 bg-slate-50/20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left">
-            <nav class="flex mb-1 text-xs font-medium text-slate-400 select-none justify-center sm:justify-start"
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
+            <nav class="flex mb-1 text-xs font-medium text-slate-400 select-none justify-start"
                 aria-label="Breadcrumb">
                 <ol class="inline-flex items-center space-x-1.5 md:space-x-2">
                     <li class="inline-flex items-center">
@@ -50,27 +50,10 @@
     <!-- Tools Directory Section -->
     <section class="pb-12 bg-slate-50/30">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="w-full relative group mb-3" id="searchToggler">
-                <div
-                    class="absolute -inset-0.5 rounded-brand-btn bg-linear-to-r from-brand-primary/20 to-brand-secondary/20 opacity-10 blur group-focus-within:opacity-25 transition-all duration-300">
-                </div>
-                <div
-                    class="relative flex items-center bg-brand-card border border-brand-border rounded-brand-btn px-4 py-3 focus-within:border-brand-primary focus-within:ring-1 focus-within:ring-brand-primary/25 transition-colors">
-                    <div class="text-slate-400 mr-3 shrink-0">
-                        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                        </svg>
-                    </div>
-                    <input readonly type="search" id="tool-search"
-                        placeholder="Search 17+ free tools (e.g. compress image, SVG to PNG...)"
-                        class="w-full bg-transparent border-0 p-0 text-sm text-brand-text placeholder-slate-400 focus:outline-none focus:ring-0">
-                </div>
-            </div>
             <!-- Filter Block: Full Width Search & Category Tabs -->
             <div class="space-y-4 mb-10">
                 <div class="flex items-center justify-between w-full">
-                    <div class="flex justify-start flex-wrap gap-y-2 md:gap-y-4 gap-x-2 -mb-px">
+                    <div class="flex justify-start flex-wrap gap-y-2 md:gap-y-4 gap-x-1 -mb-px">
                         <button data-filter="all" class="tab-btn-active tab-btn-item">
                             All Tools
                         </button>

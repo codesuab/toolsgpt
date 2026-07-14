@@ -178,7 +178,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // toggle Search
+    // model Search
     const searchModel = document.getElementById("searchModel");
     const searchToggler = document.querySelectorAll("#searchToggler");
     searchToggler.forEach((btn) => {
@@ -194,8 +194,7 @@ document.addEventListener("DOMContentLoaded", () => {
             searchModel.classList.toggle("pointer-events-none");
         }
     });
-
-    // model search
+    
     const modelSearchInput = document.getElementById("modelSearchInput");
     const modelSearchEmpty = document.getElementById("modelSearchEmpty");
     const modelSearchTools = document.getElementById("modelSearchTools");
@@ -277,15 +276,4 @@ document.addEventListener("DOMContentLoaded", () => {
             } catch (err) {}
         });
     }
-
-    // scroll
-    window.addEventListener("scroll", () => {
-        if (window.scrollY > 0) {
-            navbar.classList.remove("max-w-360");
-            navbar.classList.add("max-w-7xl");
-        } else {
-            navbar.classList.remove("max-w-7xl");
-            navbar.classList.add("max-w-360");
-        }
-    });
 });

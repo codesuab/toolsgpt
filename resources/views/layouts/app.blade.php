@@ -96,7 +96,7 @@
     @include('partials.header')
 
     <!-- Main Content -->
-    <main class="grow z-10 relative">
+    <main class="grow z-10 relative w-full">
         @yield('content')
 
         <div class="hidden md:block fixed bottom-10 right-10">

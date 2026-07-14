@@ -52,12 +52,12 @@
 
 @section('content')
     <!-- Breadcrumbs & Tool Header -->
-    <div class="relative pb-12 pt-10 md:pt-12 overflow-hidden">
+    <div class="relative pb-5 md:pb-10 pt-10 md:pt-12 overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="flex items-center justify-between">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between">
                 <div>
                     <!-- Breadcrumbs -->
-                    <nav class="flex mb-3 text-sm text-brand-muted" aria-label="Breadcrumb">
+                    <nav class="flex mb-3 text-xs md:text-sm text-brand-muted" aria-label="Breadcrumb">
                         <ol class="inline-flex items-center space-x-1 md:space-x-2">
                             <li class="inline-flex items-center">
                                 <a href="{{ route('home') }}" class="hover:text-brand-text transition-colors">Home</a>
@@ -97,17 +97,17 @@
                     <!-- Tool Header Info -->
                     <div class="max-w-3xl">
                         <h1
-                            class="text-3xl sm:text-4xl font-space font-extrabold text-brand-text mb-1 text-gradient-premium">
+                            class="text-2xl md:text-4xl font-space font-extrabold text-brand-text mb-1 text-gradient-premium">
                             {{ $data->title }}
                         </h1>
-                        <p class="text-sm sm:text-base text-brand-muted leading-relaxed">
+                        <p class="text-xs md:text-base text-brand-muted leading-relaxed">
                             {{ $data->short_title }}
                         </p>
                     </div>
                 </div>
 
                 {{-- actions --}}
-                <div class="flex items-center gap-2 min-w-fit">
+                <div class="flex justify-start md:justify-end items-center gap-2 min-w-fit mt-3 md:mt-0">
                     <button
                         class="flex h-10 w-10 items-center justify-center rounded-brand-card ring-1 transition-all bg-white text-brand-muted ring-brand-border hover:text-brand-accent"
                         aria-label="Bookmark">

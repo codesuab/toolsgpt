@@ -105,20 +105,19 @@
                     </span>
                 </a>
                 <p class="text-brand-footer-text text-xs leading-relaxed text-left">
-                    Everything you need, in one intelligent workspace. AI tools, utilities and 120+ browser-based tools
+                    Everything you need, in one intelligent workspace. AI tools, utilities and {{ number_format($toolsCount) }}+ browser-based tools
                     — beautifully unified.
                 </p>
             </div>
 
             <!-- Column 2: Popular Tools -->
             <div>
-                <h3 class="text-xs font-bold text-white uppercase mb-4.5 font-space">Popular Tools
-                </h3>
+                <h3 class="text-xs font-bold text-white uppercase mb-4.5 font-space">Ai Tools</h3>
                 <ul class="space-y-2 text-sm text-left">
-                    @foreach ($popularTools as $pt)
+                    @foreach ($footer['one'] as $pt)
                         <li>
-                            <a href="{{ route('tool.details', ['slug' => $pt['slug']]) }}"
-                                class="text-brand-footer-text/70 hover:text-white transition-colors">{{ $pt['name'] }}</a>
+                            <a href="{{ route('tool.details', ['slug' => $pt['tool']['slug']]) }}"
+                                class="text-brand-footer-text/70 hover:text-white transition-colors">{{ $pt['tool']['name'] }}</a>
                         </li>
                     @endforeach
                 </ul>
@@ -126,12 +125,12 @@
 
             <!-- Column 3: Converters -->
             <div>
-                <h3 class="text-xs font-bold text-white uppercase mb-4.5 font-space">General Tools</h3>
+                <h3 class="text-xs font-bold text-white uppercase mb-4.5 font-space">Popular Tools</h3>
                 <ul class="space-y-2 text-sm text-left">
-                    @foreach ($convertingTools as $pt)
+                    @foreach ($footer['tow'] as $pt)
                         <li>
-                            <a href="{{ route('tool.details', ['slug' => $pt['slug']]) }}"
-                                class="text-brand-footer-text/70 hover:text-white transition-colors">{{ $pt['name'] }}</a>
+                            <a href="{{ route('tool.details', ['slug' => $pt['tool']['slug']]) }}"
+                                class="text-brand-footer-text/70 hover:text-white transition-colors">{{ $pt['tool']['name'] }}</a>
                         </li>
                     @endforeach
                 </ul>
@@ -139,12 +138,12 @@
 
             <!-- Column 5: Company -->
             <div>
-                <h3 class="text-xs font-bold text-white uppercase mb-4.5 font-space">Dev Tools</h3>
+                <h3 class="text-xs font-bold text-white uppercase mb-4.5 font-space">Trending Tools</h3>
                 <ul class="space-y-2 text-sm text-left">
-                    @foreach ($featuresTools as $pt)
+                   @foreach ($footer['three'] as $pt)
                         <li>
-                            <a href="{{ route('tool.details', ['slug' => $pt['slug']]) }}"
-                                class="text-brand-footer-text/70 hover:text-white transition-colors">{{ $pt['name'] }}</a>
+                            <a href="{{ route('tool.details', ['slug' => $pt['tool']['slug']]) }}"
+                                class="text-brand-footer-text/70 hover:text-white transition-colors">{{ $pt['tool']['name'] }}</a>
                         </li>
                     @endforeach
                 </ul>
@@ -168,7 +167,8 @@
         <div
             class="border-t border-brand-footer-border mt-12 pt-8 flex justify-center md:justify-start flex-wrap gap-x-6 gap-y-2 text-xs text-brand-footer-text/75 font-space">
             <a href="{{ route('home') }}" class="hover:text-white transition-colors">Home</a>
-            <a href="{{ route('all.tool') }}" class="hover:text-white transition-colors">All Tools</a>
+            <a href="{{ route('all.tool') }}" class="hover:text-white transition-colors">Ai Tools</a>
+            <a href="{{ route('all.tool') }}" class="hover:text-white transition-colors">All Utilities</a>
             <a href="{{ route('blog.index') }}" class="hover:text-white transition-colors">Blog</a>
             <a href="{{ route('about') }}" class="hover:text-white transition-colors">About Us</a>
             <a href="{{ route('contact') }}" class="hover:text-white transition-colors">Contact Us</a>

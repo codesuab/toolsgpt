@@ -3,22 +3,22 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\MegaMenu;
+use App\Models\Footer;
 use App\Models\Tool;
 use Illuminate\Http\Request;
 
-class MegaMenuController extends Controller
+class FooterController extends Controller
 {
     // index
     public function index()
     {
-        $data = MegaMenu::latest()
+        $data = Footer::latest()
             ->with('tool')
             ->get();
 
 
         $tool = Tool::latest()->get();
-        return view('admin.megamenu', ['data' => $data, 'tool' => $tool]);
+        return view('admin.footermenu', ['data' => $data, 'tool' => $tool]);
     }
 
     public function store(Request $request)
@@ -29,14 +29,14 @@ class MegaMenuController extends Controller
             'tool_id' => 'required'
         ]);
 
-        MegaMenu::updateOrCreate(['id' => $request?->id], $request->except('id'));
+        Footer::updateOrCreate(['id' => $request?->id], $request->except('id'));
 
         return back()->with('success', 'Saved success!');
     }
 
     public function destroy($id)
     {
-        MegaMenu::find($id)->delete();
+        Footer::find($id)->delete();
         return back()->with('success', 'Delete success!');
     }
 }

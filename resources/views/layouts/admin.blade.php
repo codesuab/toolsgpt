@@ -29,11 +29,20 @@
             'active' => ['ux.top.add'],
         ],
         [
-            'label' => 'Mega menu',
-            'link' => 'ux.mega.menu',
+            'label' => 'Menu',
+            'link' => '',
             'icon' => 'ti-menu-2',
-            'submenu' => [],
-            'active' => ['ux.mega.menu'],
+            'active' => ['ux.mega.menu', 'ux.footer.menu'],
+            'submenu' => [
+                [
+                    'label' => 'Mega menu',
+                    'link' => 'ux.mega.menu',
+                ],
+                [
+                    'label' => 'Footer menu',
+                    'link' => 'ux.footer.menu',
+                ],
+            ],
         ],
         [
             'label' => 'Tools',

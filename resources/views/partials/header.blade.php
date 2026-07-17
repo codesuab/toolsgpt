@@ -51,7 +51,7 @@
                 </a>
                 <a href="{{ route('all.tool') }}"
                     class="text-sm font-medium transition-all {{ request()->is('all-tools') ? 'text-brand-primary font-bold' : 'text-brand-muted hover:text-brand-primary' }}">
-                    Utilities
+                   All Utilities
                 </a>
 
                 <!-- Advanced & Modern Mega Menu Dropdown -->

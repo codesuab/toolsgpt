@@ -7,16 +7,11 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthStateController extends Controller
 {
-    public function __invoke(Request $request)
+    public function check()
     {
         return response()->json([
             'authenticated' => Auth::check(),
-            'user' => Auth::check()
-                ? [
-                    'id' => Auth::id(),
-                    'name' => Auth::user()->name,
-                ]
-                : null,
+            'user' => Auth::user()
         ]);
     }
 }

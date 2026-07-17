@@ -37,8 +37,11 @@ Route::controller(UiController::class)->group(function () {
     Route::post('/update-tool-usages', 'updateUsages');
 });
 
+
 // security
-Route::get('/auth/state', AuthStateController::class);
+Route::controller(AuthStateController::class)->group(function () {
+    Route::get('/auth/state', 'check');
+});
 
 
 // ─── Admin Panel Routes ─────────────────────────────────────────────

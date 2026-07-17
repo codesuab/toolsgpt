@@ -35,4 +35,10 @@ return [
         ],
     ],
 
+    'zai' => [
+        'api_key' => env('ZAI_API_KEY'),
+        'base_url' => env('ZAI_BASE_URL', 'https://api.z.ai/v1'),
+        'free_model' => env('ZAI_FREE_MODEL', 'glm-4.7-flash'),
+    ],
+
 ];

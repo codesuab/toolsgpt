@@ -38,30 +38,33 @@
             <div class="embla__viewport overflow-hidden">
                 <div class="embla__container flex">
                     @foreach ($category as $cat)
-                        <div class="embla__slide flex-[0_0_80%] sm:flex-[0_0_50%] md:flex-[0_0_25%] px-1">
-                            <div
-                                class="h-50 rounded-brand-card bg-brand-bg duration-200 hover:bg-white border border-brand-border p-4 group cursor-pointer">
-                                <div class="flex items-center justify-between">
-                                    <div class="w-10 h-10 flex items-center justify-center rounded-brand-card"
-                                        style="background: {{ hexToRgb($cat['color'], 0.08) }};border: 1px solid {{ hexToRgb($cat['color'], 0.1) }};color:{{ hexToRgb($cat['color'], 1) }};">
-                                        {!! $cat['icon'] !!}
+                        <a href="{{ route('all.tool', ['cat' => $cat['slug']]) }}">
+                            <div class="embla__slide flex-[0_0_80%] sm:flex-[0_0_50%] md:flex-[0_0_25%] px-1">
+                                <div
+                                    class="h-50 rounded-brand-card bg-brand-bg duration-200 hover:bg-white border border-brand-border p-4 group cursor-pointer">
+                                    <div class="flex items-center justify-between">
+                                        <div class="w-10 h-10 flex items-center justify-center rounded-brand-card"
+                                            style="background: {{ hexToRgb($cat['color'], 0.08) }};border: 1px solid {{ hexToRgb($cat['color'], 0.1) }};color:{{ hexToRgb($cat['color'], 1) }};">
+                                            {!! $cat['icon'] !!}
+                                        </div>
+                                        <span
+                                            class="bg-white/10 border border-brand-muted/10 text-[10px] text-brand-muted rounded-brand-card px-2 py-0.5 font-bold">
+                                            {{ $cat['tools_count'] }} Tools
+                                        </span>
                                     </div>
-                                    <span
-                                        class="bg-white/10 border border-brand-muted/10 text-[10px] text-brand-muted rounded-brand-card px-2 py-0.5 font-bold">
-                                        {{ $cat['tools_count'] }} Tools
-                                    </span>
-                                </div>
-                                <h1 class="text-sm font-bold text-brand-text mt-5">{{ $cat['name'] }}</h1>
-                                <p class="text-sm text-brand-muted mt-1">{{ $cat['taq_line'] }}</p>
-                                <div class="flex items-center justify-between border-t border-brand-border/60 mt-3 pt-3">
-                                    <a href=""
-                                        class="flex items-center gap-1 text-xs text-brand-muted font-bold tool-lunch-btn duration-300 group-hover:text-brand-primary">
-                                        <span>Explore</span> <i
-                                            class="ti ti-arrow-up-right duration-300 group-hover:rotate-45"></i>
-                                    </a>
+                                    <h1 class="text-sm font-bold text-brand-text mt-5">{{ $cat['name'] }}</h1>
+                                    <p class="text-sm text-brand-muted mt-1">{{ $cat['taq_line'] }}</p>
+                                    <div
+                                        class="flex items-center justify-between border-t border-brand-border/60 mt-3 pt-3">
+                                        <a href=""
+                                            class="flex items-center gap-1 text-xs text-brand-muted font-bold tool-lunch-btn duration-300 group-hover:text-brand-primary">
+                                            <span>Explore</span> <i
+                                                class="ti ti-arrow-up-right duration-300 group-hover:rotate-45"></i>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     @endforeach
                 </div>
             </div>

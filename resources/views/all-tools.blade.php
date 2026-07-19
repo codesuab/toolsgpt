@@ -9,8 +9,7 @@
     <!-- All Tools Header -->
     <section class="pt-12 pb-6 bg-slate-50/20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
-            <nav class="flex mb-1 text-xs font-medium text-slate-400 select-none justify-start"
-                aria-label="Breadcrumb">
+            <nav class="flex mb-1 text-xs font-medium text-slate-400 select-none justify-start" aria-label="Breadcrumb">
                 <ol class="inline-flex items-center space-x-1.5 md:space-x-2">
                     <li class="inline-flex items-center">
                         <a href="{{ route('home') }}" class="hover:text-brand-primary transition-colors">Home</a>
@@ -57,11 +56,18 @@
                         <button data-filter="all" class="tab-btn-active tab-btn-item">
                             All Tools
                         </button>
-                        @foreach ($category as $cat)
-                            <button data-filter="{{ $cat['slug'] }}" class="tab-btn tab-btn-item">
-                                {{ $cat['name'] }}
-                            </button>
-                        @endforeach
+                        @if (!$search)
+                            @foreach ($category as $cat)
+                                <button data-filter="{{ $cat['slug'] }}" class="tab-btn tab-btn-item">
+                                    {{ $cat['name'] }}
+                                </button>
+                            @endforeach
+                        @else
+                            <a href="{{ route('all.tool') }}"
+                                class="tab-btn bg-red-50 border border-red-200 text-red-500 tab-btn-item">
+                                Reset Filter( {{ $filter?->name }} )
+                            </a>
+                        @endif
                     </div>
                 </div>
             </div>

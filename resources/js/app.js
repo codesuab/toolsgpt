@@ -64,7 +64,10 @@ const page = document.body.dataset.page;
             await import("./tools/base64-decode.js");
             break;
         case "meta-tag-generator":
-            await import("./tools/meta-tag-generator..js");
+            await import("./tools/meta-tag-generator.js");
+            break;
+        case "heic-converter":
+            await import("./tools/heic-to-png.js");
             break;
     }
 })();
@@ -195,7 +198,7 @@ document.addEventListener("DOMContentLoaded", () => {
             searchModel.classList.toggle("pointer-events-none");
         }
     });
-    
+
     const modelSearchInput = document.getElementById("modelSearchInput");
     const modelSearchEmpty = document.getElementById("modelSearchEmpty");
     const modelSearchTools = document.getElementById("modelSearchTools");
@@ -266,7 +269,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // share options
     const shareBtn = document.getElementById("shareBtn");
     if (shareBtn) {
-        shareBtn?.addEventListener("click", async () => {            
+        shareBtn?.addEventListener("click", async () => {
             if (!navigator.share) return;
             try {
                 await navigator.share({

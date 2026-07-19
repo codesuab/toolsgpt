@@ -9,40 +9,43 @@
     @include('partials.home.hero')
 
     {{-- Ai tools --}}
-    <section class="py-16 bg-slate-50/30 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            {{-- header --}}
-            <div class="mb-6 text-left w-full md:max-w-1/2">
-                <div
-                    class="inline-flex items-center mb-1 gap-1.5 px-3 py-1 rounded-brand-card bg-indigo-50 border border-indigo-100 text-[10px] font-bold text-brand-primary uppercase select-none">
-                    AI Tools
+    @if (1 == 2)
+        <section class="py-16 bg-slate-50/30 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                {{-- header --}}
+                <div class="mb-6 text-left w-full md:max-w-1/2">
+                    <div
+                        class="inline-flex items-center mb-1 gap-1.5 px-3 py-1 rounded-brand-card bg-indigo-50 border border-indigo-100 text-[10px] font-bold text-brand-primary uppercase select-none">
+                        AI Tools
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-space font-bold text-gradient-secondary">Intelligent
+                        assistants for every task</h2>
+                    <p class="text-brand-muted text-sm mt-1">Write, generate, translate, refactor and create with AI that
+                        understands context and produces results you can ship.</p>
                 </div>
-                <h2 class="text-2xl sm:text-3xl font-space font-bold text-gradient-secondary">Intelligent
-                    assistants for every task</h2>
-                <p class="text-brand-muted text-sm mt-1">Write, generate, translate, refactor and create with AI that
-                    understands context and produces results you can ship.</p>
-            </div>
-            <!-- Tools Grid - Reusable Partial -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-                @foreach ($tools as $t)
-                    <x-tool-card :tool="$t" class='ai' />
-                @endforeach
-            </div>
-            <!-- Search Empty State -->
-            <div class="hidden text-center py-12">
-                <svg class="mx-auto h-12 w-12 text-slate-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                    stroke-width="1.5">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <h3 class="text-lg font-semibold text-brand-text mb-1 font-space">No tools matched your search</h3>
-                <p class="text-slate-500 text-sm">Try typing alternative keywords like 'PDF', 'Compress' or 'Image'.</p>
-            </div>
+                <!-- Tools Grid - Reusable Partial -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+                    @foreach ($tools as $t)
+                        <x-tool-card :tool="$t" class='ai' />
+                    @endforeach
+                </div>
+                <!-- Search Empty State -->
+                <div class="hidden text-center py-12">
+                    <svg class="mx-auto h-12 w-12 text-slate-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                        stroke-width="1.5">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <h3 class="text-lg font-semibold text-brand-text mb-1 font-space">No tools matched your search</h3>
+                    <p class="text-slate-500 text-sm">Try typing alternative keywords like 'PDF', 'Compress' or 'Image'.</p>
+                </div>
 
-            <button class="btn-secondary gap-1 mx-auto mt-8">View all AI tools<i
-                    class="ti ti-arrow-narrow-right text-lg"></i></button>
-        </div>
-    </section>
+                <button class="btn-secondary gap-1 mx-auto mt-8">View all AI tools<i
+                        class="ti ti-arrow-narrow-right text-lg"></i></button>
+            </div>
+        </section>
+    @endif
+
 
     {{-- category --}}
     <div class="py-16 bg-white">

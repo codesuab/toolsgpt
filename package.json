@@ -19,6 +19,7 @@
     "dependencies": {
         "@tabler/icons-webfont": "^3.44.0",
         "embla-carousel": "^8.6.0",
+        "heic2any": "^0.0.4",
         "jszip": "^3.10.1",
         "qr-code-styling": "^1.9.2"
     }

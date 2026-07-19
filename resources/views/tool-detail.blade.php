@@ -13,7 +13,7 @@
 
 @section('schema_markup')
     <script type="application/ld+json">
-                                                                                                                                                                                                                                                                                                                                                                        {!! json_encode([
+                                                                                                                                                                                                                                                                                                                                                                            {!! json_encode([
         '@context' => 'https://schema.org',
         '@type' => 'SoftwareApplication',
         'name' => config('app.name') . ' ' . $data->name,
@@ -27,11 +27,11 @@
         ],
         'description' => $data->meta_description ?? $data->taq_line,
     ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
-                                                                                                                                                                                                                                                                                                                                                                        </script>
+                                                                                                                                                                                                                                                                                                                                                                            </script>
 
     @if($data->faq)
         <script type="application/ld+json">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                {!! json_encode([
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        {!! json_encode([
                 '@context' => 'https://schema.org',
                 '@type' => 'FAQPage',
                 'mainEntity' => collect($data->faq)->map(function ($faq) {
@@ -45,7 +45,7 @@
                     ];
                 })->values(),
             ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </script>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </script>
     @endif
 @endsection
 
@@ -78,7 +78,7 @@
                                         stroke="currentColor" stroke-width="2">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
                                     </svg>
-                                    <a href="{{ route('all.tool', ['cat' => $data?->category?->id]) }}"
+                                    <a href="{{ route('all.tool', ['cat' => $data?->category?->slug]) }}"
                                         class="hover:text-brand-text transition-colors">{{ $data->category->name }}</a>
                                 </div>
                             </li>
@@ -117,10 +117,8 @@
                             <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"></path>
                         </svg>
                     </button>
-                    <button id="shareBtn" data-title="{{ $data->name }}" data-url="{{ url()->current() }}"
-                        class="flex h-10 w-10 items-center justify-center rounded-brand-card ring-1 transition-all bg-white
-                        text-brand-muted ring-brand-border hover:text-brand-accent"
-                        aria-label="Share">
+                    <button id="shareBtn" data-title="{{ $data->name }}" data-url="{{ url()->current() }}" class="flex h-10 w-10 items-center justify-center rounded-brand-card ring-1 transition-all bg-white
+                            text-brand-muted ring-brand-border hover:text-brand-accent" aria-label="Share">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="lucide lucide-share2 h-4.5 w-4.5">

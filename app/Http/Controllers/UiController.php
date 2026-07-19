@@ -44,11 +44,14 @@ class UiController extends Controller
     public function allTool(Request $request)
     {
 
-        $filterCat = Category::find(request('cat'));
+        $filterCat = Category::where('slug', $request->cat)->first();
 
-        $tools = Tool::with('category')
-            ->when(request('cat'), function ($query) {
-                $query->where('category_id', request('cat'));
+        $tools = Tool::query()
+            ->with('category')
+            ->when($request->cat, function ($q) use ($request) {
+                $q->whereHas('category', function ($user) use ($request) {
+                    $user->where('slug', $request->cat);
+                });
             })
             ->orderByDesc('usages')
             ->orderByRaw("
@@ -68,7 +71,8 @@ class UiController extends Controller
 
         return view('all-tools', [
             'tools' => $tools,
-            'filter' => $filterCat
+            'filter' => $filterCat,
+            'search' => $request->only('cat')
         ]);
     }
     public function toolView($slug)
